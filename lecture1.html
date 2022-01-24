@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+
+  <meta name="generator" content="pandoc" />
+
+  <meta name="author" content="Matthew Faytak University at Buffalo" />
+
+  <title>NTU lectures (1)</title>
+
+  <style type="text/css">
+
+      code{white-space: pre-wrap;}
+
+      span.smallcaps{font-variant: small-caps;}
+
+      span.underline{text-decoration: underline;}
+
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+
+  </style>
+
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+
+    href="assets/styles/slidy.css" />
+
+  <script src="assets/scripts/slidy.js"
+
+    charset="utf-8" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div class="slide titlepage">
+
+  <h1 class="title">NTU lectures (1)</h1>
+
+  <p class="author">
+
+Matthew Faytak<br/>University at Buffalo
+
+  </p>
+
+  <p class="date"><img src="./assets/media/UB_Stacked_Small.png" width="200"> <img src="./assets/media/ntu-logo.png" width="200"><br/><img src="./assets/media/qr1.png" width="170"></p>
+
+</div>
+
+<div id="about-me" class="title-slide slide section level1"><h1>About me</h1></div><div id="about-me-1" class="slide section level2">
+
+<h1>About me</h1>
+
+<p>Matthew Faytak [ˈfeɪˌtæk], assistant professor in Linguistics at the University at Buffalo (State Univ. of New York) since mid-2021</p>
+
+<ul>
+
+<li>PhD UC Berkeley 2018</li>
+
+<li>Postdoc UCLA 2018-2021</li>
+
+</ul>
+
+<p>Personal</p>
+
+<ul>
+
+<li>Pronouns he/him/his, they, etc</li>
+
+<li>blah</li>
+
+</ul>
+
+</div><div id="about-me-2" class="slide section level2">
+
+<h1>About me</h1>
+
+<p>My expertise is in articulatory phonetics</p>
+
+<ul>
+
+<li>Specialization in tongue ultrasound imaging</li>
+
+<li>I have worked on a number of languages in China and Cameroon, plus English and French</li>
+
+<li>I can speak French and Standard Chinese</li>
+
+</ul>
+
+<p>I have additional interests in phonetic typology, sound change, and phonological structure</p>
+
+</div>
+
+<div id="the-format-of-these-lectures" class="title-slide slide section level1"><h1>The format of these lectures</h1></div><div id="slidy-slides" class="slide section level2">
+
+<h1>Slidy slides</h1>
+
+<p>These lecture slides are permanently hosted in <strong>Slidy</strong> HTML format on my personal site</p>
+
+<ul>
+
+<li>Displays slide by slide by default; use arrow keys or click to navigate</li>
+
+<li>“C” key displays table of contents</li>
+
+<li>“A” key shows all slides in order</li>
+
+<li>“P” key prints slides</li>
+
+</ul>
+
+<p>Each linked by a QR code, as we’ve already discussed</p>
+
+<ul>
+
+<li>See the title slide</li>
+
+</ul>
+
+</div>
+
+<div id="about-the-course" class="title-slide slide section level1"><h1>About the course</h1></div><div id="about-the-course-1" class="slide section level2">
+
+<h1>About the course</h1>
+
+<p>This lecture series concerns two topics: ultrasound as a tool for phonetics and speech science, and dimensionality reduction as a way of simplifying the processing of ultrasound data</p>
+
+<ul>
+
+<li>ultrasound is well-suited to a variety of data collection situations, non-invasive, relatively inexpensive</li>
+
+<li>but it creates very high dimensional data, which requires researchers to get creative in processing it</li>
+
+</ul>
+
+</div><div id="about-this-course" class="slide section level2">
+
+<h1>About this course</h1>
+
+<p>Topics covered will include:</p>
+
+<ul>
+
+<li>Feature selection and feature engineering in phonetics</li>
+
+<li>Dimensionality reduction as a type of feature engineering</li>
+
+<li>Ultrasound methods and basic data types; more typical processing routines</li>
+
+<li>Dimensionality reduction and ultrasound</li>
+
+<li>Case study (Taiwanese Mandarin)</li>
+
+</ul>
+
+</div><div id="the-rest-of-this-lecture" class="slide section level2">
+
+<h1>The rest of this lecture</h1>
+
+<p>Feature selection in phonetics</p>
+
+<p>Basically, the major way we arrive at <strong>predictive features</strong> for research purposes</p>
+
+<ul>
+
+<li>differences in research philosophy</li>
+
+<li>practical differences</li>
+
+<li>limits and advantages of each approach</li>
+
+</ul>
+
+</div>
+
+<div id="feature-selection" class="title-slide slide section level1"><h1>feature selection</h1></div><div id="characters-and-features" class="slide section level2">
+
+<h1>characters and features</h1>
+
+</div><div id="predictive-power" class="slide section level2">
+
+<h1>predictive power</h1>
+
+</div><div id="ease-of-use" class="slide section level2">
+
+<h1>ease of use</h1>
+
+<p>Of course, ease-of-use also factors in to whether a feature is frequently used in phonetics as a metric</p>
+
+<p>This might have undesirable effects on some occasions</p>
+
+<ul>
+
+<li>feature is easy and compares well to other studies, but does not actually measure the relevant speech phenomenon</li>
+
+<li>sometimes a speech phenomenon does not have clear, easily extracted features in the acoustic signal</li>
+
+</ul>
+
+</div><div id="theoretical-motivations" class="slide section level2">
+
+<h1>theoretical motivations</h1>
+
+<p>I am not sure what the slide means, but it should probably be replaced with two slides discussing examples of the bullet points in the previous slide</p>
+
+</div>
+
+<div id="a-review-of-feature-selection-in-phonetics" class="title-slide slide section level1"><h1>a review of feature selection in phonetics</h1></div><div id="feature-selection-in-phonetics" class="slide section level2">
+
+<h1>feature selection in phonetics</h1>
+
+<p>Because the acoustic signal resulting from speech is highly complex and time varying along very short temporal scales, selecting a single relevant feature or small bundle of features has a long history in phonetics</p>
+
+</div><div id="voice-onset-time" class="slide section level2">
+
+<h1>Voice onset time</h1>
+
+<p>Perhaps the single most substantial example of a hand-picked feature</p>
+
+<p>Lisker &amp; Abramson (1964)</p>
+
+<p>Selected after an exhaustive overview of the data and knowledge of first principles, i.e. plosive production</p>
+
+</div><div id="formants" class="slide section level2">
+
+<h1>formants</h1>
+
+<p>Another classic, this time relating to the perceptually important acoustic properties of vowel and sonorant production</p>
+
+</div><div id="single-features-as-less-than-optimal" class="slide section level2">
+
+<h1>Single features as less than optimal</h1>
+
+<p>Even in these two well-established cases of successful feature selection, the features which have been selected do not necessarily extend well to all related speech phenomena and cannot capture all phonological contrasts</p>
+
+<p>In particular due to language to language variation, or even differences in how a contrastive property is coproduced on various segment types</p>
+
+</div><div id="voice-onset-time-1" class="slide section level2">
+
+<h1>Voice onset time?</h1>
+
+<p>Certain dimensions of contrast are not captured using voice onset time alone</p>
+
+<ul>
+
+<li>Preaspirated, voiced aspirated or breathy plosives</li>
+
+<li>tense-lax contrasts (Korean, Otomanguean)</li>
+
+</ul>
+
+</div><div id="formants-1" class="slide section level2">
+
+<h1>Formants?</h1>
+
+<p>Not all vowel contrasts can be captured using formant measurements alone, particularly static formant measurements</p>
+
+</div><div id="nasality" class="slide section level2">
+
+<h1>Nasality</h1>
+
+<p>Measuring the degree of nasality in a vowel or sonorant has long been a problem for phoneticians, since nasality is signaled by a huge number of acoustic cues working in concert</p>
+
+</div><div id="voice-quality" class="slide section level2">
+
+<h1>Voice quality</h1>
+
+<p>Recent Garellek &amp; Keating work: voice quality is clearly multi dimensional</p>
+
+</div><div id="advanced-tongue-root" class="slide section level2">
+
+<h1>Advanced tongue root</h1>
+
+<p>Advanced town Road is perhaps one of the most difficult contrasts to capture acoustically, since the underlying cavity shape difference not only varies from language to language, but languages may also recruit voice quality differences to support</p>
+
+</div>
+
+<div id="wrap-up" class="title-slide slide section level1"><h1>wrap up</h1></div><div id="feature-selection-advantages" class="slide section level2">
+
+<h1>feature selection: advantages</h1>
+
+<p><strong>Ease</strong>: easy to work with, which non-trivially makes replication easier</p>
+
+<p><strong>Interpretability</strong>: because feature is selected based on first principles, we know how to interpret variation in that feature</p>
+
+</div><div id="feature-selection-disadvantages" class="slide section level2">
+
+<h1>feature selection: disadvantages</h1>
+
+<p>Ease and being well-established can create a “false sense of security”: property measured in one study might not be suitable for further exploration of related sounds</p>
+
+<ul>
+
+<li>Hand-picking and of a large set of features often needed at this stage</li>
+
+</ul>
+
+</div><div id="references" class="slide section level2 bib">
+
+<h1>References</h1>
+
+<p>Lisker, L. and Abramson, A. (1964). A cross-language study of voicing in initial stops: acoustical measurements. <i>Word</i> 20, 384-422.</p>
+
+<p>Lisker, L. and Abramson, A. (1964). A cross-language study of voicing in initial stops: acoustical measurements. <i>Word</i> 20, 384-422.</p>
+
+<p>Lisker, L. and Abramson, A. (1964). A cross-language study of voicing in initial stops: acoustical measurements. <i>Word</i> 20, 384-422.</p>
+
+</div>
+
+</body>
+
+</html>
