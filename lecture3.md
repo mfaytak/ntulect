@@ -130,16 +130,21 @@ In this particular context, working directly from frames, the best solution is t
 
 ## recap: products of dimensionality reduction
 
-eigenvalues, eigenvectors
+Eigenvectors: the latent dimensions discovered by PCA, which form a better basis for describing the data
 
-(flesh out)
+Eigenvalues: the amount of variance in data set explained by each eigenvector
+
+Projections ("scores"): transform of data into this new space, in terms of eigenvectors
 
 
 ## eigenimages
 
-This method is very commonly extended to image data in which the subject matter is tightly constrained
+This method is very commonly extended to whole-image data in which the subject matter is controlled
+
+Eigenvectors *directly represent* dimensions of spatial covariation in pixel intensities
 
 * faces (eigenfaces)
+* lips (eigenlips)
 * hand written letters and numbers
 
 

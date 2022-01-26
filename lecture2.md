@@ -38,19 +38,22 @@ Converts a high dimensional space consisting of numerous features into a lower d
 
 ## example
 
-## principal components analysis
+a simple metaphor/image: ball on spring from Shlens?
 
-First notebook probably here
+## principal component analysis
+
+Eigenvectors: the latent dimensions discovered by PCA, which form a better basis for describing the data
+Eigenvalues: the amount of variance in data set explained by each eigenvector
+Projections ("scores"): transform of data into this new space, in terms of eigenvectors
+
+## principal component analysis
+
+A basic example in NB
+
 
 # "Black box" methods
 
-## "Black box"
-
-## Neural nets
-
-...
-
-## Why this lecture doesn't cover NNs
+## Why this lecture doesn't cover neural nets
 
 If we are theoretically motivated, we must be able to *understand* human behavioral reasons for a certain outcome
 
@@ -59,15 +62,17 @@ NNs make this quite hard because they merely *perform*
 
 ## Transparent dimensionality reduction
 
-Styler 
-
-
-## Example: PCA
+Styler paper notes
 
 
 # Wrapping up
 
 ## Feature extraction: advantages
+
+Speed, consistency/replicability, holistic description
+
+Dimred can speed along discovery of new features to select
+
 
 ## Feature extraction: disadvantages
 
@@ -76,6 +81,10 @@ New n-dimensional space may not be *interpretable*: what does a dimension "mean"
 * Dimensions may not correspond to anything linguistically relevant
 
 
-## Working with both
+## Next time
 
-Dimred can speed along discovery of new features to select
+## References {.bib}
+
+Shlens
+
+Styler

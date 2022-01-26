@@ -1,0 +1,89 @@
+this mostly goes in lecture3?
+but is introduced again in lecture5
+
+lecture3: 
+- how PCA works, generally (Shlens examples, some Nguyen & Holmes tips)
+
+lecture5:
+- some extension to ultrasound images, specifically (Berry, Hueber et al)
+
+Berry (2012), UAz diss.
+- general overview: (berry 57-58)
+eigentongues: Hueber et al 2007 
+eigenfaces: turk and pentland 1991, "eigenfaces for recognition", J Cog Neurosci.
+"eigenlips" Bregler & Konig (1994) "Eigenlips for robust speech recognition", ICASSP 1994
+	- also Tomlinson, Russel, Brooke (1996), "Integrating audio and visual information to provide highly robust speech recognition", ICASSP 1996
+
+computed using PCA
+uses PCs (eigenvectors of the covariance matrix)
+"allows each image to be represented in a compact form that encodes the difference of that image from the rest of the data set"
+- center is average tongue image
+- image GAMMA can be recalculated as 
+	GAMMA(hat) = SUM(M, m=1) omega_m.u_m
+	where u_m is the mth eigentongue and omega_m is the projection of GAMMA onto the mth eigentongue, i.e. distance from average tongue on m axis
+
+to calculate, select same-sized RoI, convert to 1D vector
+- average of all image vectors PSI is subtracted from each image GAMMA_i to produce zero-mean image vectors PHI_i
+- covariance matrix C of PSI_i s is defined as
+	C = 1/N(SUM(N, i=1)PHI_i.PHI_i^T)
+- using notation A to denote matrix containing set {PHI_1, PHI_2, ... PHI_N}, we can write this covariance matrix C as AA^T
+	- see Shlens, top right p. 7: cov. m. XX^T
+- when N (# of zero-mean image vectors) is much smaller than D (length of w.h vector), "intractable" to compute eigenvectors of C (covariance matrix), since AA^T is a D.D sized matrix (and your computer will run out of memory)
+	- i.e. 10000 pixels x 10000 pixels = a hundred million elements in matrix
+- solution [probably covered more in Shlens]: compute eigenvectors V and eigenvalues LAMBDA of (A^T)A, which is much smaller (size N.N)
+- then calculate eigenvectors for this C:
+	U = A.V.LAMBDA^(-1/2)
+- basis images can then be projected into "tongue space" by computing 
+	OMEGA = U(hat)^T(GAMMA - PSI)
+	where GAMMA is the image vector, PSI is the mean image vector, OMEGA is the m-dimensional vector of PC scores ("m-dimensional projection of GAMMA into tongue space")
+	- capital U is the set of eigentongues here; little u_m in reconstruction is mth eigentongue
+	- OMEGA is the full set of m projections (scores); little omega_m is the projection of GAMMA (image) onto the mth eigentongue (little u_m)
+	- *not* the reconstruction
+
+- what are "loadings"
+
+review PCA using Shlens
+"applied linear algebra (Shlens 2005)"
+- basic steps, p 10:
+	1. Organize a data set as a m x n matrix, where m is the number of measurement types and n is the number of trials
+	2. Subtract off the mean for each measurement type or row x_i
+	3. Calculate SVD, or the eigenvectors of the covariance [matrix]
+- ideal ball and spring + three cameras example
+- "if we knew, we'd just measure ball position along x-axis with one [properly positioned] camera". but we often don't know which specific measurement best reflects "the dynamics of the system in question"
+- in ultrasound terms: some (groups of) pixels are highly informative. but we don't know a priori which ones (not without a lot of manual labor, and even then we miss aspects of the signal which aren't in the tongue surface contour). so, we take all pixels within a certain RoI and apply DR
+- NOISE, ROTATION: to minimize extent to which we capture noise, we find vectors (dimensions) which maximize variance and use these in place of observation vectors (say, x^_A (1,0) and y^_A(0,1), the x- and y- axes for our two measurements), also called the "naive basis"
+- because the naive basis does not capture the most variance (and captures more noise than is ideal)
+- so we ROTATE the naive basis to the line of best fit, repeatedly
+	- "naive basis" - that our measurements themselves make a good basis. measures reflect the way the observations were made (i.e. use physical space if you tracked points in physical space; use pixel values 0-255 if you were recording brightnesses)
+	- "is there another basis which best re-expresses the original data" is the key question (p 3)
+REDUNDANCY: fig 2's variables have a lot of redundancy, due to strong correlation. both weren't really needed
+- fig 3 shows low/high redundancy scenarios
+- eliminating these unnecessary variables is the basic idea behind dimred
+- to figure out redundancy, calculate a covariance matrix
+	- C_X
+	- "diagonalize" this to C_Y (I get a little lost here; skip some pages)
+
+- LIMITS and EXTENSIONS
+- non-parametric, so be careful how you input data (ferris wheel example - polar coords make more sense as input, since it will allow for the basis discovered by PCA to be much simpler)
+	- "kernel transformations" such as this can be used for "kernel PCA"; other common ones are Fourier and Gaussian transforms
+	- suddenly, a bit parametric, in that we're incorporating prior knowledge of data structure
+- PCA needs Gaussian-distributed data (fails on exponential distributions, for example)
+	- (Independent Comp. An.) ICA works better here, but discards all assumptions except linearity and seeks statistical independence instead of orthogonality etc. as for regular PCA
+	- 'difficult to calculate in practice and ptentially not unique' (11)
+
+Nguyen & Holmes 2019 "tips"
+(which also includes R code for some diagnostic visualizations)
+doi:10.1371/journal.pcbi.1006907
+- esp. Tip 5 (elbow plots)
+- Tip 6 (aspect ratio of viz. - scale axis scales according to informativity, for plotting)
+- Tip 7 for interpretation, especially contribution plot (similar to Styler's suggestions)
+	- also biplots
+	- though biplots aren't very useful for ultrasound data (too many characters)
+	- also Tip 8: plot a character against new PCA-discovered dimensions (can help to show relationship better than biplot)
+- Tip 8 "It is worth noting that data points are often arranged in horseshoes or arch-shaped configurations when PCA and cMDS (PCoA) is applied to data involving a linear gradient." (versus several discrete clusters)
+- Tip 10: eigenvalues (%expl) close together for successive PCs? then the solution is unstable. 'the dimensions corresponding to similar eigenvalues need to be kept together and not individually interpreted' (like in Hoole & Pouplier)
+	- also, outliers can dominate PCA solutions; "should consider suitable data-specific quality control metrics for these points and consider their removal", then recalculate
+
+
+"curse of dimensionality"
+
