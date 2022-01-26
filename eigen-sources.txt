@@ -1,10 +1,12 @@
-this mostly goes in lecture3?
-but is introduced again in lecture5
+this mostly goes in lecture2?
+lecture2 has general how-to notebook
+but is introduced again in lecture3
+lecture4 is dedicated to ultrasound-specific how-to
 
-lecture3: 
+lecture2: 
 - how PCA works, generally (Shlens examples, some Nguyen & Holmes tips)
 
-lecture5:
+lecture3:
 - some extension to ultrasound images, specifically (Berry, Hueber et al)
 
 Berry (2012), UAz diss.
