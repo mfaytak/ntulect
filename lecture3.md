@@ -1,198 +1,202 @@
-% NTU lectures (3)
+% NTU lectures (4)
 % Matthew Faytak<br/>University at Buffalo
 % <img src="./assets/media/UB_Stacked_Small.png" width="200"> <img src="./assets/media/ntu-logo.png" width="200"><br/><img src="./assets/media/qr1.png" width="170">
 
-# ultrasound basics
+## overview
 
-## the basic method
+Previous lecture: feature selection on ultrasound data
 
-How the method works: low intensity and very high frequency sound is transmitted through soft tissue and reflects back when the density of the medium changes
+This lecture: various types of feature engineering
 
-picture illustrating uti
+* dimensionality reduction on ultrasound contours
+* pixel different methods
+* dimensionality reduction on ultrasound frames
+	* our focus
 
-## reflection
 
-The signal in ultrasound data is the extent to which the high frequency energy reflects back to the probe
+# dimensionality reduction on ultrasound contours
 
-Occurs when the medium changes in density
+## refresher: contour extraction
 
-* tissue tissue boundaries
-* tissue air boundaries
+Contours can be segmented from the ultrasound image using a combination of human and automatic processing
 
-## shadows
+Increasingly, just automatic
 
-Rather than reflecting back energy, bone absorbs energy and casts a "shadow" in the ultrasound image
 
-* hyoid shadow
-* mandible or chin shadow
+## Analysis of contours
 
-The two shadows delimit the useful range of data received from reflection
+Usually done with an additive model which can handle non-linear relationships
 
-* this means the tongue tip is usually not visible in ultrasound data
+* SSANOVA (smoothing spline ANOVA)
+* GAMMs, which are really a specific sort of SSANOVA (check this)
+	* very computationally intensive
 
-## Rigid landmarks
 
-A couple of rigid landmarks are often collected prior to recording the motion of the tongue
+## dimensionality reduction on contours 
 
-* palate trace, by doing a *swallow task*
-* swallow water and watch as tongue suctions to roof of mouth
-* provides position of the hard palate, useful for gauging constriction degree
-* occlusal plane or bite plane, by having the speaker bite down on a rigid plate and press the tongue into it
-* provides common angle for representation of data from multiple speakers
+Another method occasionally used: PCA of contour position
 
-## Stabilization
+* XY positions are the input data
+* PC scores show informative variation in tongue position in XY space
 
-.
 
-## a single frame
+## Caveats
 
-The landmarks which we have discussed are visible in this sample frame captured in midsagittal section
+Hard to use this method without first normalizing data for inter-speaker differences
 
+* PCA doesn't separate out linguistic differences and differences in speaker morphology
+* can easily be conflated
 
-## other imaging planes
 
-While we won't discuss them here, it's good to know that ultrasound is not constrained to mid sagittal images
+# pixel difference methods
 
-* coronal slice can be taken by rotating the probe under the chin 90°
-* laryngeal ultrasound at an oblique angle is also possible
+## pixel difference
 
+Each ultrasound image is composed of tens of thousands of pixels, each of which has a numerical value indicating brightness
 
-## uses of ultrasound
+* directly relates to position of tongue because brightness means reflectivity
+* tongue position change means changing brightness
 
-Generally used for imaging posture or shape of the tongue from root to blade, or its change over time
 
-* *broad* place and tongue position distinctions
-* complex tongue shapes (laterals, rhotics)
-* rapid tongue body and blade movements (flaps, clicks)
+## metric of pixel difference
 
+Pixel by pixel change in brightness can be used as a measure of tongue movement over time
 
-## Usage in the field
+image
 
-A critical tool for imaging vocal tract configurations in the field, outside of the lab
 
-Non-invasive, generally not intimidating, and by far the most portable vocal track imaging technology
+## Applications of pixel difference method
 
-* no wall outlet required, draws power from laptop
-* relatively hands off, especially if stabilization headset is used
+Detection of motion includes intrinsic tongue muscles, unlike other measures discussed so far; useful for detection of pre-speech articulation
 
+* various psycholinguistic applications (refinement of production based reaction time)
 
-## drawbacks
 
-Only images the tongue in real time, no simultaneous imaging of hard palate possible, no imaging of larynx or velum
+## related methods
 
-Image can be noisy, and not every potential participant images well
+Related to pixel difference, but more computationally complex, is optical flow
 
-* small, young people image the best
-* beards can get in the way
-* probe can touch larger larynges, causing pain
+* detects apparent motion evidenced by two images
+* like basic pixel difference, returns the magnitude of the motion
+* unlike pixel difference, yields direction of motion in addition to magnitude
+* actual physical movement of rigid bodies can be calculated through further feature engineering
 
+images (2x slides?)
 
-## Data type
 
-Perhaps the biggest drawback is the data itself, which gives the raw reflectivity data; requires extensive post processing
+# dimensionality reduction on ultrasound frames
 
-*Feature extraction*: extracting contours that represent the reflection at the tongue surface, or extracting motion of that contour along registration lines
+## our focus today
 
-* complex image processing, and manual intervention
+Dimensionality reduction carried out not on ultrasound contours, but on ultrasound frames
 
-Next lecture: several ways around feature extraction
 
+## pixel structure
 
-# ultrasound feature extraction
+Recall that ultrasound frames are made up of tens of thousands of individual pixels
 
-## contour extraction
+* each with their own value from 0 to 255, indicating brightness (black to white)
 
-By far the most common means of feature extraction for ultrasound data
 
-* first principle: we know that reflection represents the surface of the tongue, which tells us something about the vocal tract area function
+## Scan lines
 
-Certainly not unreasonable
+Going into more detail, each ultrasound image can be thought of as a matrix of width w by height h
 
+* w, h values must be fixed throughout data collection (images don't change in size)
+* each column of pixels of size (1,h) represents a single scan line from the probe
+* reflectivity data as sent out and received by a single element in the probe head
 
-## a brief history
 
-The need to accurately extract contours is a long-standing problem for both general diagnostic and biomedical science and speech science so far as it concerns ultrasound imaging of the tongue
+## High dimensionality
 
-...
+Keep in mind: each pixel across data sets with the same frame size w,h can be thought of as a separate feature
 
-## manual tracing
+* tens of thousands of features
 
-Most solid, but completely impractical
 
-## semi automated tracing
+## feature selection problems
 
-Basically the mainstream
+Clear at this point: this is a challenge for feature selection
 
-Still very time consuming, since extensive manual intervention is still required, especially if reflection signal is of less than ideal strength
+* how to pick a small number of pixels which are highly informative for the analysis you would like to do?
 
 
-## State of the art
+## feature engineering solution
 
-Active snake models provide good performance and relatively easy computation
+In this particular context, working directly from frames, the best solution is to engineer new features which capture interesting variation
 
-* examples, especially edge track
 
+# Enter: dimensionality reduction
 
-## purely automatic tracing
+## recap: products of dimensionality reduction
 
-In recent years it has started to become possible to do completely automatic contour extraction
+eigenvalues, eigenvectors
 
-* SLURP
-* get contours?
+(flesh out)
 
-Per some recent work, these work surprisingly well, often as well as hand checked work
 
+## eigenimages
 
-## registration lines
+This method is very commonly extended to image data in which the subject matter is tightly constrained
 
-Lines drawn in a fan shaped grid out from probe origin
+* faces (eigenfaces)
+* hand written letters and numbers
 
-Example picture
 
+## eigentongues
 
-## M- Mode ultrasound
+Hueber et al (2007) coinage, from eigenfaces
 
-Registration lines mimic so-called m-mode ultrasound, commonly used to track rhythmic motion in biomedical contexts (i.e. heart or blood vessel motion)
+* shows patterns of negative and positive covariation in pixel brightness across a data set
+* eigenfaces: patterns correspond to facial features
+* eigentongues: patterns correspond to positions of the visible tongue contour
+	* as well as any other patterning in the image (hyoid shadow position, internal musculature of tongue, etc.)
+	* captures more information than tongue contour position in this way
 
-image to demonstrate
 
+## eigentongues
 
-## registration line uses
+Blue = positive covariation with PC score; red = negative covariation with PC score
 
-These can be used to track entire contours where they intersect the lines, but more commonly are used to track tongue motion in a small region of interest
+* Higher PC1 score makes red pixels light up
+* Lower PC1 score makes blue pixels light up
 
-Very common in tongue root retraction studies, or blade raising studies
+[image]
 
 
-# wrapping up
+# Wrapping up
 
-## Ultrasound pros
+## Pros
 
-Most portable, least expensive, least invasive, often most familiar to participants
+Very efficient once the basics are mastered
 
-For fieldwork, it is really the only option
+* Speedy (big advantage over basic contour extraction)
+* Very replicable
 
+Potentially more informative in some respects than contours
 
-## ultrasound cons
+* Especially for data where parts of tongue contour aren't visible
 
-Messy, high dimensional data, which does not lend itself immediately to analysis
 
-* feature extraction required, in the most typical approach, then those features are analyzed in place of the whole image
-* often very time consuming and requires a small army of annotators who must all agree on how to segment an image
+## Convergence with other methods
 
+converging on common analysis across methods: pixel and pixel dimred methods easy to use on other data types
 
-## next lecture: some solutions
+MRI - Oh & Lee, Lee
+Face video - ??
 
-Various ways around the feature extraction problem
 
-Going in the direction of **feature engineering**
+## Cons
 
+Best suited to analyses of relative similarity and difference of sounds 
 
+* Somewhat limited
+* Fairly different from some approaches to ("engineering-y")
 
 
+## Next lecture
 
+A practical how-to of UTI image PCA
 
-
-
-
-
+* Sample data
+* Notebooking

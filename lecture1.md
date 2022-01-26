@@ -12,73 +12,81 @@ Matthew Faytak [ˈfeɪˌtæk], assistant professor in Linguistics at the Univers
 *   PhD UC Berkeley 2018
 *   Postdoc UCLA 2018-2021
 
-Personal
-
-*   Pronouns he/him/his, they, etc
-*   blah
+Pronouns he/him/his, they/them/their (in the sense of 他)
 
 
 ## About me
 
 My expertise is in articulatory phonetics
 
-*   Specialization in tongue ultrasound imaging
-*   I have worked on a number of languages in China and Cameroon, plus English and French
-*   I can speak French and Standard Chinese
+*   Specialization in ultrasound tongue imaging
+*   I have worked on languages of China and Cameroon, plus English and French
+*   I can use French and Standard Chinese
+	* ... just not well enough to give this lecture in
 
-I have additional interests in phonetic typology, sound change, and phonological structure
+Additional interests in phonetic typology, sound change, and phonological structure
 
 
 # The format of these lectures
 
 ## Slidy slides
 
-These lecture slides are permanently hosted in **Slidy** HTML format on my personal site
+These lecture slides are hosted in **Slidy** HTML format on my personal site
 
 * Displays slide by slide by default; use arrow keys or click to navigate
 * "C" key displays table of contents
 * "A" key shows all slides in order
 * "P" key prints slides
 
-Each linked by a QR code, as we've already discussed
-
-* See the title slide
+Each linked by a QR code (see title slide)
 
 
-# About the course
-
-## About the course
-
-This lecture series concerns two topics: ultrasound as a tool for phonetics and speech science, and dimensionality reduction as a way of simplifying the processing of ultrasound data
-
-* ultrasound is well-suited to a variety of data collection situations, non-invasive, relatively inexpensive
-* but it creates very high dimensional data, which requires researchers to get creative in processing it
+# About this course
 
 ## About this course
 
-Topics covered will include:
+Two main areas: 
 
-* Feature selection and feature engineering in phonetics
-* Dimensionality reduction as a type of feature engineering
-* Ultrasound methods and basic data types; more typical processing routines
-* Dimensionality reduction and ultrasound
-* Case study (Taiwanese Mandarin)
+* Ultrasound as a *tool* for phonetics and speech science 
+* **Dimensionality reduction** as one of several ways of handling ultrasound data
 
-## The rest of this lecture
+Helps to solve a conundrum:
 
-Feature selection in phonetics
+* Ultrasound is non-invasive, well-suited to field situations, relatively inexpensive and speaker-friendly
+* ... but creates very complex, noisy data, which normally requires labor-intensity post-processing
 
-Basically, the major way we arrive at **predictive features** for research purposes
+
+## About this course
+
+Specific topics covered will include:
+
+* **Features**, **feature selection** and **feature extraction** in phonetics
+* Dimensionality reduction as a type of feature extraction
+* Ultrasound data and typical processing
+* Case studies (Shanghai Mandarin; Suzhou Wu)
+	* with follow-along Python notebooks
+
+
+## The rest of *this* lecture
+
+**Feature selection** in phonetics
+
+* Major way we arrive at predictive features for research purposes
+
 
 * differences in research philosophy
 * practical differences
 * limits and advantages of each approach
 
-# feature selection
+# Feature selection
 
 ## characters and features
 
+
+
 ## predictive power
+
+
 
 ## ease of use
 
@@ -99,19 +107,23 @@ I am not sure what the slide means, but it should probably be replaced with two 
 
 Because the acoustic signal resulting from speech is highly complex and time varying along very short temporal scales, selecting a single relevant feature or small bundle of features has a long history in phonetics
 
+
 ## Voice onset time
 
 Perhaps the single most substantial example of a hand-picked feature
 
-Lisker & Abramson (1964)
+* Coined very early <span class="cite">Lisker & Abramson (1964)</span> 
+* After extensive research into parameters of linguistic plosive "voicing" contrasts <span class="cite">Stetson (1951); Liberman, Delattre & Cooper (1952)</span>
+* Building on knowledge of first principles (knowing how plosives are generally produced)
 
-Selected after an exhaustive overview of the data and knowledge of first principles, i.e. plosive production
+Extremely general usefulness <span class="cite">Cho & Ladefoged (1999)</span>
 
 
 ## formants
 
 Another classic, this time relating to the perceptually important acoustic properties of vowel and sonorant production
 
+Some `code text` mixed into regular text
 
 
 ## Single features as less than optimal
@@ -123,9 +135,9 @@ In particular due to language to language variation, or even differences in how 
 
 ## Voice onset time?
 
-Certain dimensions of contrast are not captured using voice onset time alone
+Certain dimensions of contrast are not captured using voice onset time alone <span class="cite">see Abramson & Whalen (2017)</span>
 
-* Preaspirated, voiced aspirated or breathy plosives
+* Preaspirated, voiced aspirated or breathy plosives <span class="cite">Löfqvist & Yoshida (1981); CITE</span>
 * tense-lax contrasts (Korean, Otomanguean)
 
 
@@ -141,12 +153,17 @@ Measuring the degree of nasality in a vowel or sonorant has long been a problem 
 
 ## Voice quality
 
-Recent Garellek & Keating work: voice quality is clearly multi dimensional
+Recent work: voice quality is clearly multi dimensional <span class="cite">Keating et al (n.d.)</span>
+
+Particularly in langs. with many phonation types, i.e. !Xóõ <span class="cite">Garellek (2019)</span>
 
 
 ## Advanced tongue root
 
-Advanced town Road is perhaps one of the most difficult contrasts to capture acoustically, since the underlying cavity shape difference not only varies from language to language, but languages may also recruit voice quality differences to support
+Perhaps one of the most difficult contrasts to capture acoustically
+
+* Underlying cavity shape difference not only varies from language to language
+* Languages may also recruit voice quality differences to support
 
 
 # wrap up
@@ -161,9 +178,24 @@ Advanced town Road is perhaps one of the most difficult contrasts to capture aco
 
 Ease and being well-established can create a "false sense of security": property measured in one study might not be suitable for further exploration of related sounds
 
-* Hand-picking and  of a large set of features often needed at this stage
+* Hand-picking and testing of a large set of features often needed at this stage (it took years to develop VOT, for example)
 
 
 ## References {.bib}
 
-Lisker, L. and Abramson, A. (1964). A cross-language study of voicing in initial stops: acoustical measurements. <i>Word</i> 20, 384-422.
+Abramson, A., & Whalen, D. (2017). Voice Onset Time (VOT) at 50: Theoretical and practical issues in measuring voicing distinctions. <i>Journal of Phonetics</i> 63, 75-86.
+
+Cho, T. & Ladefoged, P. (1999). Variation and universals in VOT: evidence from 18 languages. <i>Journal of Phonetics</i> 27(2), 207-229.
+
+Garellek, M. (2019). Acoustic discriminability of the complex phonation system in !Xóõ.
+<i>Phonetica</i> 77(2), 1–30. <a href="https://doi.org/10.1159/000494301">DOI</a>
+
+Keating, P., Kuang, J., Garellek, M., Esposito, C. & Khan, S. (n.d.) A cross-language acoustic space for phonation distinctions. Unpublished manuscript, UCLA. <a href="https://linguistics.ucla.edu/people/keating/Keating-etal_2019_ms.pdf">PDF</a>
+
+Liberman, A., Delattre, P. & Cooper, F. (1952). The role of selected stimulus variables in the perception of the unvoiced stop consonants. <i>Amer J. Psychol.</i> 65, 497.
+
+Lisker, L. & Abramson, A. (1964). A cross-language study of voicing in initial stops: acoustical measurements. <i>Word</i> 20, 384-422.
+
+Löfqvist A. & Yoshida H. (1981). Laryngeal activity in Icelandic obstruent production. <i>Nordic J Linguistics</i> 4, 1–18. 
+
+Stetson, R. H. (1951). <i>Motor phonetics.</i> Amsterdam: North-Holland Publishing Company.
