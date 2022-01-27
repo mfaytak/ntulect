@@ -330,7 +330,7 @@ Hermann, L. (1895). "Weitere Untersuchungen über das Wesen der Vocale
 
 Hermann, L. (1894). Nachtrag zur Untersuchung der Vocalcurven [Addendum to the investigation of vowel lines]. <i>Archiv für gesamte Physiologie des Menschen und der Tiere</i>, 58, 264–279. <a href="https://zenodo.org/record/2144046#.YfLA2BPML0o">PDF</a>
 
-Huan, L. (2011). Feature selection. In Sammut, C. & Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 402-406. Springer.
+Liu, H. (2011). Feature selection. In Sammut, C. & Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 402-406. Springer.
 
 Keating, P., Kuang, J., Garellek, M., Esposito, C. & Khan, S. (n.d.) A cross-language acoustic space for phonation distinctions. Unpublished manuscript, UCLA. <a href="https://linguistics.ucla.edu/people/keating/Keating-etal_2019_ms.pdf">PDF</a>
 
