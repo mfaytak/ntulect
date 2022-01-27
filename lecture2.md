@@ -2,56 +2,85 @@
 % Matthew Faytak<br/>University at Buffalo
 % <img src="./assets/media/UB_Stacked_Small.png" width="200"> <img src="./assets/media/ntu-logo.png" width="200"><br/><img src="./assets/media/qr1.png" width="170">
 
-# Overview
+## Overview
 
-Last time, we discussed **feature selection**
+In the previous lecture, we discussed **feature selection**
 
-This time, we will discuss **feature extraction**
+* Manually *selecting* a subset of features <span class="cite">see Liu (2011)</span>
 
-* Especially using dimensionality reduction
-* Approach sometimes called "feature engineering"
+Here, we will discuss **feature extraction** 
 
-
-## Feature extraction
-
-Creation of *new features* from combination or rescaling/reweighting of other features
-
-* As opposed to *selecting* a subset <span class="cite">Liu (2011)</span>
-* Usually fewer in number than original features
+* Especially using dimensionality reduction <span class="cite">see Vlachos (2011)</span>
+* Taking a large number of features and using them to generate a smaller number of features
 * Reduces the number of features required to describe a data set
 
 
 ## Outlook
 
-Different motivations sometimes underpin feature extraction
+Some different motivations underpin feature extraction: **data-driven** rather than theory-driven
 
-* Concerned with *performance* of feature as an input to some task
+* Allows new features well-suited to task to emerge from data
+* Mainly concerned with *performance* of feature as an input to some task
 * Especially frequent in **machine learning** and "artificial intelligence" applications
 
 
 # Dimensionality reduction
 
-## Dimensionality reduction
 
-Converts a high dimensional space consisting of numerous features into a lower dimensional space consisting of many fewer features
+## Features as dimensions
 
-Technically, feature selection is also a way of reducing dimensionality
-<span class="cite">Liu (2011)</span>, though not often used in that sense (we are mainly discussing algorithmic approaches here)
+Features (observable attributes) define **dimensions** in a data set
 
-## example
+* i.e. lower formants define a 3D space (F1 dimension, F2 dimension, F3 dimension)
+* 
 
-a simple metaphor/image: ball on spring from Shlens?
 
 ## Curse of dimensionality 
 
-Adding a lot of dimensions exponentially increases the amount of space that needs to be covered, with numerous undesirable side effects <span class="cite">Bellman (1957); Keough & Mueen (2011)</span>
+Why not just use 1,000 dimensions: the **curse of dimensionality**
+
+Adding *many* dimensions exponentially increases the amount of space that needs to be covered, with numerous undesirable side effects <span class="cite">Bellman (1957); Keough & Mueen (2011)</span>
 
 * Computation becomes exponentially more difficult
 * Exponentially more samples needed to evenly cover the space and maintain good performance
 
 Distance in very high-dimensional spaces space becomes nonsensical <span class="cite">Aggarwal et al (2001)</span>
 
-* Objects more or less all equidistant from one another
+* Objects become more or less equidistant from one another
+
+
+
+## Dimensionality reduction
+
+Converts a high dimensional space consisting of numerous features into a lower dimensional space consisting of fewer features
+
+* Technically, feature selection is also a way of reducing dimensionality <span class="cite">Liu (2011)</span>
+* We are mainly discussing *data-driven* approaches here
+* Feature selection is *theory-driven*, usually
+
+
+Left off reading this:
+
+https://books.google.com/books?hl=en&lr=&id=i8hQhp1a62UC&oi=fnd&pg=PT29&dq=feature+extraction+encyclopedia+of+machine+learning&ots=91mazyjCcQ&sig=JVvFpdWbwrFQnAf737nzjkuCJjI#v=onepage&q&f=false
+
+## Example
+
+A simple metaphor/image: ball on spring from Shlens?
+
+[ball on spring]
+
+## Example
+
+Observation of this phenomenon: we don't know the underlying system
+
+[picture of ball on spring w/cameras]
+
+## another slide or two
+
+which ties things together
+
+what about the start of the PCA section in a few slides?
+
 
 
 ## principal component analysis
@@ -76,7 +105,7 @@ NNs make this quite hard because they merely *perform*
 
 ## Transparent dimensionality reduction
 
-Styler paper notes
+Styler dissertation
 
 
 # Wrapping up
@@ -86,6 +115,13 @@ Styler paper notes
 Speed, consistency/replicability, holistic description
 
 Dimred can speed along discovery of new features to select
+
+## Dimensionality reduction: advantages
+
+More specifically:
+
+* Aids data visualization, even occasionally rendering it in intuitive terms
+
 
 
 ## Feature extraction: disadvantages
@@ -105,6 +141,10 @@ Bellman, R. (1957). <i>Dynamic Programming</i>. Princeton University Press.
 
 Keogh, E. & Mueen, A. (2011). Curse of dimensionality. In Sammut, C. & Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 257-258. Springer.
 
-Shlens
+Liu, H. (2011). Feature selection. In Sammut, C. & Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 402-406. Springer.
 
-Styler
+Shlens, Y. (200x).
+
+Styler, W. (2015). On the Acoustical and Perceptual Features of Vowel Nasality. PhD thesis. University of Colorado, Boulder. <a href="https://wstyler.ucsd.edu/files/styler_dissertation_final.pdf">PDF</a>
+
+Vlachos, M. (2011). Dimensionality reduction. In Sammut, C. & Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 402-406. Springer.
