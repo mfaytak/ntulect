@@ -31,7 +31,7 @@ Additional interests in phonetic typology, sound change, and phonological struct
 
 ## Slidy slides
 
-These lecture slides are hosted in **Slidy** HTML format on my personal site
+These lecture slides are hosted in HTML format on my personal site
 
 * Displays slide by slide by default; use arrow keys or click to navigate
 * "C" key displays table of contents
@@ -41,161 +41,238 @@ These lecture slides are hosted in **Slidy** HTML format on my personal site
 Each linked by a QR code (see title slide)
 
 
+## Annotations
+
+We will highlight key terms **like this**
+
+Emphasis looks *like this*
+
+We will cover Python code, and when presented in slides it will look `like_this()`
+
+In-text references are included as small text <span class="cite">Like & This (1980)</span>
+
+In-text external links look <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">like this</a>
+
+
 # About this course
 
 ## About this course
 
 Two main areas: 
 
-* Ultrasound as a *tool* for phonetics and speech science 
+* Ultrasound as a tool for phonetics and speech science 
 * **Dimensionality reduction** as one of several ways of handling ultrasound data
+	* Taking many dimensions (whole image) and producing simpler numerical measures
 
-Helps to solve a conundrum:
+Helps us to solve a conundrum:
 
 * Ultrasound is non-invasive, well-suited to field situations, relatively inexpensive and speaker-friendly
-* ... but creates very complex, noisy data, which normally requires labor-intensity post-processing
+* ... but creates very complex, noisy data, which normally requires labor-intensive post-processing
 
 
 ## About this course
 
 Specific topics covered will include:
 
-* **Features**, **feature selection** and **feature extraction** in phonetics
+* **Features** in acoustic and articulatory phonetics analysis 
+* **Feature selection** and **feature extraction** in phonetics
 * Dimensionality reduction as a type of feature extraction
-* Ultrasound data and typical processing
-* Case studies (Shanghai Mandarin; Suzhou Wu)
-	* with follow-along Python notebooks
+* Ultrasound data and typical processing methods
+* **Eigentongue** method and derived methods
+
+Interactive Python notebooks for:
+
+* **Principal component analysis** of a general data set
+* Two case studies from my own work (on Shanghai Mandarin and Suzhou Wu)
 
 
 ## The rest of *this* lecture
 
-**Feature selection** in phonetics
+**Features** and **feature selection** in phonetics (speech production)
 
 * Major way we arrive at predictive features for research purposes
+* Underlying research philosophy
+* Limits and advantages of this approach
 
-
-* differences in research philosophy
-* practical differences
-* limits and advantages of each approach
 
 # Feature selection
 
-## characters and features
+## Features
+
+Not meant in the phonological sense: a **feature** is a property of some phenomenon that can be measured <span class="cite">Liu (2011)</span>
+
+* Observations of study phenomena are made in terms of their features
+* We must know *which* features to observe when conducting research
+* Cannot observe all simultaneously
 
 
+## Feature selection
 
-## predictive power
+This process we undertake is **feature selection**: picking a subset of available features
+<span class="cite">Liu (2011)</span>
+
+* Often based on prior knowledge of the phenomenon
+* A way to bring the number of features down to a reasonable level
 
 
+# Feature selection in phonetics
 
-## ease of use
+## Feature selection in phonetics
 
-Of course, ease-of-use also factors in to whether a feature is frequently used in phonetics as a metric
+The signal resulting from speech is complex and time varying, so phoneticians have long been concerned with questions of feature selection 
 
-This might have undesirable effects on some occasions
+* Measure particular acoustic  properties
+* Measure certain aspects of articulation
+* Record particular aspects of response to stimuli
+* As opposed to offering *gestalt* impression of a recording
 
-* feature is easy and compares well to other studies, but does not actually measure the relevant speech phenomenon
-* sometimes a speech phenomenon does not have clear, easily extracted features in the acoustic signal
 
-## theoretical motivations
+## Feature selection in phonetics
 
-I am not sure what the slide means, but it should probably be replaced with two slides discussing examples of the bullet points in the previous slide
+The challenge: figuring out what feature(s) to select
 
-# a review of feature selection in phonetics
+Some general criteria of a good feature in speech production research:
 
-## feature selection in phonetics
-
-Because the acoustic signal resulting from speech is highly complex and time varying along very short temporal scales, selecting a single relevant feature or small bundle of features has a long history in phonetics
+* Good performance against known categories (i.e. phonemic contrasts)
+* Perceptual relevance
+* Practical to measure
 
 
 ## Voice onset time
 
-Perhaps the single most substantial example of a hand-picked feature
+Perhaps the single most substantial example of a hand-picked feature <span class="cite">Lisker & Abramson (1964)</span> 
 
-* Coined very early <span class="cite">Lisker & Abramson (1964)</span> 
-* After extensive research into parameters of linguistic plosive "voicing" contrasts <span class="cite">Stetson (1951); Liberman, Delattre & Cooper (1952)</span>
+* Coined in Lisker & Abramson (1964), after a synthesizer parameter which created the percept of (English) voiceless stops
+	* Delaying "voice onset" = aspiration
+* Building on years of research into parameters of linguistic plosive "voicing" contrasts <span class="cite">Stetson (1951); Liberman, Delattre & Cooper (1952)</span>
 * Building on knowledge of first principles (knowing how plosives are generally produced)
 
-Extremely general usefulness <span class="cite">Cho & Ladefoged (1999)</span>
+Can characterizing laryngeal contrasts in a wide range of languages <span class="cite">Cho & Ladefoged (1999)</span>
 
 
-## formants
+## Formants
 
 Another classic, this time relating to the perceptually important acoustic properties of vowel and sonorant production
 
-Some `code text` mixed into regular text
+
 
 
 ## Single features as less than optimal
 
-Even in these two well-established cases of successful feature selection, the features which have been selected do not necessarily extend well to all related speech phenomena and cannot capture all phonological contrasts
+Even these two popular selected features, don't necessarily extend well to all related speech phenomena; cannot capture all phonological contrasts
 
-In particular due to language to language variation, or even differences in how a contrastive property is coproduced on various segment types
+* In particular due to language to language variation, or even differences in how a contrastive property is coproduced on various segment types
+* Practicality of measurement  may result in a "rut" in some area of study when a measure doesn't extend well, or enforces study of particular phenomena
+* Sometimes a speech phenomenon does not have clear, easily extracted features in the acoustic signal
 
 
 ## Voice onset time?
 
-Certain dimensions of contrast are not captured using voice onset time alone <span class="cite">see Abramson & Whalen (2017)</span>
+Certain dimensions of "voicing" contrast are not captured using voice onset time alone <span class="cite">see Abramson & Whalen (2017)</span>
 
-* Preaspirated, voiced aspirated or breathy plosives <span class="cite">Löfqvist & Yoshida (1981); CITE</span>
-* tense-lax contrasts (Korean, Otomanguean)
-
-
-## Formants?
-
-Not all vowel contrasts can be captured using formant measurements alone, particularly static formant measurements
+* Voiced aspirated or breathy plosives <span class="cite">Davis (1994), Mikuteit & Reetz (2007), Dmitrieva & Dutta (2020)</span>
+* Preaspirated plosives <span class="cite">Löfqvist & Yoshida (1981); Helgason & Ringen (2008)</span>
+* Tense-lax contrasts as in Otomanguean <span class="cite">DiCanio (2012)</span> or  Korean <span class="cite">Cho et al. 2002</span>
 
 
 ## Nasality
 
-Measuring the degree of nasality in a vowel or sonorant has long been a problem for phoneticians, since nasality is signaled by a huge number of acoustic cues working in concert
+Measuring the degree of nasality in vowels has long been a problem for phoneticians, since nasality may be signaled by a huge number of acoustic cues <span class="cite">Styler (2017)</span>
+
+* Nasal formants and antiformants (Styler examines 13 features)
+* Formant freqs and bandwidths
+* Spectral tilt, due to more drop-off of high harmonics in nasals
+
+Use of each property varies:
+
+* Vowel-specific effects on formants <span class="cite">Carignan (2018)</span> ("counter-clockwise vowel shift")
+* Language-specific acoustics <span class="cite">Styler (2017)</span>
 
 
 ## Voice quality
 
-Recent work: voice quality is clearly multi dimensional <span class="cite">Keating et al (n.d.)</span>
+Recent work: voice quality is clearly multi-dimensional <span class="cite">Keating et al (n.d.)</span>
 
 Particularly in langs. with many phonation types, i.e. !Xóõ <span class="cite">Garellek (2019)</span>
 
 
 ## Advanced tongue root
 
-Perhaps one of the most difficult contrasts to capture acoustically
+Perhaps one of the most difficult contrasts to capture acoustically; wide range of acoustic properties have been employed <span class="cite">Fulop et al (1998); Kirkham & Nance (2017); Olejarczuk et al. (2019) </span>
 
-* Underlying cavity shape difference not only varies from language to language
-* Languages may also recruit voice quality differences to support
+* Frequency and bandwidth of F1
+* Low harmonic amplitudes and derived measures
+* Center of gravity; spectral tilt
+
+Some reasons for acoustic variation:
+
+* Underlying cavity shapes may vary from language to language <span class="cite">Kirkham & Nance (2017)</span>
+* Some languages recruit voice quality differences to support <span class="cite">Edmonson & Esling (2006); Guion et al. (2008); Olejarczuk et al. (2019)</span>
 
 
-# wrap up
+# Feature selection: wrap-up
 
-## feature selection: advantages
+## Advantages
 
 **Ease**: easy to work with, which non-trivially makes replication easier
 
 **Interpretability**: because feature is selected based on first principles, we know how to interpret variation in that feature
 
-## feature selection: disadvantages
+## Disadvantages
 
 Ease and being well-established can create a "false sense of security": property measured in one study might not be suitable for further exploration of related sounds
 
 * Hand-picking and testing of a large set of features often needed at this stage (it took years to develop VOT, for example)
 
+## Ways around feature selection
+
+Other ways 
+...
 
 ## References {.bib}
 
-Abramson, A., & Whalen, D. (2017). Voice Onset Time (VOT) at 50: Theoretical and practical issues in measuring voicing distinctions. <i>Journal of Phonetics</i> 63, 75-86.
+Abramson, A., & Whalen, D. (2017). Voice Onset Time (VOT) at 50: Theoretical and practical issues in measuring voicing distinctions. <i>Journal of Phonetics</i> 63, 75-86. <a href="https://doi.org/10.1016/j.wocn.2017.05.002">DOI</a>
 
-Cho, T. & Ladefoged, P. (1999). Variation and universals in VOT: evidence from 18 languages. <i>Journal of Phonetics</i> 27(2), 207-229.
+Carignan, C. (2018). Using ultrasound and nasalance to separate oral and nasal contributions to formant frequencies of nasalized vowels. <i>The Journal of the Acoustical Society of America</i>, 143(5), 2588-2601. <a href="https://doi.org/10.1121/1.5034760">DOI</a>
+
+Cho, T. & Ladefoged, P. (1999). Variation and universals in VOT: evidence from 18 languages. <i>Journal of Phonetics</i> 27(2), 207-229. <a href="https://doi.org/10.1006/jpho.1999.0094">DOI</a>
+
+Cho, T., Jun, S. & Ladefoged, P. (2002). Acoustic and aerodynamic correlates of Korean stops and fricatives. <i>Journal of Phonetics</i>, 30(2), 193-228. <a href="https://doi.org/10.1006/jpho.2001.0153">DOI</a>
+
+Davis, K. (1994). Stop voicing in Hindi. <i>Journal of Phonetics</i>, 22(2), 177-193. <a href="https://doi.org/10.1016/S0095-4470(19)30192-5">DOI</a>
+
+DiCanio, C. (2012). The phonetics of fortis and lenis consonants in Itunyoso Trique. <i>International Journal of American Linguistics</i>, 78(2), 239-272.
+<a href="https://doi.org/10.1086/664481">DOI</a>
+
+Dmitrieva, O. & Dutta, I. (2020). Acoustic correlates of the four-way laryngeal contrast in Marathi. Phonetica, 77(3), 209-237. <a href="https://doi.org/10.1159/000501673">DOI</a>
+
+Edmondson, J. A. & Esling, J. H. (2006). The valves of the throat and their functioning in tone, vocal register and stress: laryngoscopic case studies. <i>Phonology</i>, 23(2), 157-191. <a href="https://doi.org/10.1017/S095267570600087X">DOI</a>
+
+Fulop, S. A., Kari, E., & Ladefoged, P. (1998). An acoustic study of the tongue root contrast in Degema vowels. <i>Phonetica</i>, 55(1-2), 80-98. <a href="https://doi.org/10.1159/000028425">DOI</a>
 
 Garellek, M. (2019). Acoustic discriminability of the complex phonation system in !Xóõ.
-<i>Phonetica</i> 77(2), 1–30. <a href="https://doi.org/10.1159/000494301">DOI</a>
+<i>Phonetica</i>, 77(2), 1–30. <a href="https://doi.org/10.1159/000494301">DOI</a>
+
+Guion, S. G., Post, M. W., & Payne, D. L. (2004). Phonetic correlates of tongue root vowel contrasts in Maa. <i>Journal of Phonetics</i>, 32(4), 517-542. <a href="https://doi.org/10.1016/j.wocn.2004.04.002">DOI</a>
+
+Helgason, P. & Ringen, C. (2008). Voicing and aspiration in Swedish stops. <i>Journal of Phonetics</i>, 36(4), 607-628. <a href="https://doi.org/10.1016/j.wocn.2008.02.003">DOI</a>
+
+Huan, L. (2011). Feature selection. In Sammut, C. & Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 402-406. Springer.
 
 Keating, P., Kuang, J., Garellek, M., Esposito, C. & Khan, S. (n.d.) A cross-language acoustic space for phonation distinctions. Unpublished manuscript, UCLA. <a href="https://linguistics.ucla.edu/people/keating/Keating-etal_2019_ms.pdf">PDF</a>
 
-Liberman, A., Delattre, P. & Cooper, F. (1952). The role of selected stimulus variables in the perception of the unvoiced stop consonants. <i>Amer J. Psychol.</i> 65, 497.
+Kirkham, S., & Nance, C. (2017). An acoustic-articulatory study of bilingual vowel production: Advanced tongue root vowels in Twi and tense/lax vowels in Ghanaian English. <i>Journal of Phonetics</i>, 62, 65-81. <a href="https://doi.org/10.1016/j.wocn.2017.03.004">DOI</a>
 
-Lisker, L. & Abramson, A. (1964). A cross-language study of voicing in initial stops: acoustical measurements. <i>Word</i> 20, 384-422.
+Liberman, A., Delattre, P. & Cooper, F. (1952). The rôle of selected stimulus variables in the perception of the unvoiced stop consonants. <i>Amer J. Psychol.</i> 65, 497. <a href="https://doi.org/10.2307/1418032">DOI</a>
 
-Löfqvist A. & Yoshida H. (1981). Laryngeal activity in Icelandic obstruent production. <i>Nordic J Linguistics</i> 4, 1–18. 
+Lisker, L. & Abramson, A. (1964). A cross-language study of voicing in initial stops: acoustical measurements. <i>Word</i> 20, 384-422. <a href="https://doi.org/10.1080/00437956.1964.11659830">DOI</a>
+
+Löfqvist A. & Yoshida H. (1981). Laryngeal activity in Icelandic obstruent production. <i>Nordic Journal of Linguistics</i> 4, 1–18. <a href="https://doi.org/10.1017/S0332586500000639">DOI</a>
+
+Mikuteit, S. & Reetz, H. (2007). Caught in the ACT: The timing of aspiration and voicing in East Bengali. <i>Language and Speech</i>, 50(2), 247-277. <a href="https://doi.org/10.1177/00238309070500020401">DOI</a>
+
+Olejarczuk, P., Otero, M. & Baese-Berk, M. (2019). Acoustic correlates of anticipatory and progressive \[ATR\] harmony processes in Ethiopian Komo. <i>Journal of Phonetics</i>, 74, 18-41. <a href="https://doi.org/10.1016/j.wocn.2019.01.004">DOI</a>
 
 Stetson, R. H. (1951). <i>Motor phonetics.</i> Amsterdam: North-Holland Publishing Company.
+
+Styler, W. (2017). On the acoustical features of vowel nasality in English and French. <i>The Journal of the Acoustical Society of America</i>, 142(4), 2469-2482. <a href="https://doi.org/10.1121/1.5008854">DOI</a>

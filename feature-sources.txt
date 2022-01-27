@@ -46,24 +46,28 @@ While this one dimension is very useful and has descriptive power in its limited
 
 However... 
 
-Complications: doesn't extend well to preasiprated or breathy (murmured) stops
 
-
-- citation for Indic langs. voiced aspirates would be useful
-
-General overview: 
-
-Also, quoting Rothenberg (2009):
-p1: Disagreements arose as to where voice was to be judged to begin for an unvoiced stop.
-p2:	Patterns of voicing for voiced stops could not be specified by a single number representing a negative VOT, and it was not clear why one should want to do this.
 
 
 NASALITY
 
-read Styler paper on nasalance, probably
-
+[done]
 
 ATR
 
-not clear who to read: Casali?
+Kirkham and Nance (2017)
+Fulop et al. 1998
+
+F1, F2, F3
+A1-A2
+B1 (bandwidth of F1 - lower for ATR)
+Center of gravity
+spectral tilt
+
+Voice quality differences sometimes also recruited (Edmonson & Esling, 2006, Guion et al. 2008, Olejarczuk et al. 2019)
+
+Inter-speaker variation in properties used (Kirkham & Nance; Olejarczuk et al)
+
+
+
 

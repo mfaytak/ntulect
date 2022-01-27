@@ -88,4 +88,5 @@ doi:10.1371/journal.pcbi.1006907
 
 
 "curse of dimensionality"
+Aggarwal et al. (2001), Keogh & Mueen (2011)
 
