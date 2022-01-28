@@ -34,17 +34,19 @@ Features (observable attributes) define **dimensions** in a data set
 * i.e. lower formants define a 3D space (F1 dimension, F2 dimension, F3 dimension)
 * 
 
+[3D vowel space plot]
+
 
 ## Curse of dimensionality 
 
-Why not just use 1,000 dimensions: the **curse of dimensionality**
+If we have 1,000 features (dimensions) per observation, why not just use all of them? The **curse of dimensionality** 😈 
 
 Adding *many* dimensions exponentially increases the amount of space that needs to be covered, with numerous undesirable side effects <span class="cite">Bellman (1957); Keough & Mueen (2011)</span>
 
 * Computation becomes exponentially more difficult
 * Exponentially more samples needed to evenly cover the space and maintain good performance
 
-Distance in very high-dimensional spaces space becomes nonsensical <span class="cite">Aggarwal et al (2001)</span>
+Distance in very high-dimensional spaces becomes nonsensical <span class="cite">Aggarwal et al (2001)</span>
 
 * Objects become more or less equidistant from one another
 
@@ -63,6 +65,13 @@ Left off reading this:
 
 https://books.google.com/books?hl=en&lr=&id=i8hQhp1a62UC&oi=fnd&pg=PT29&dq=feature+extraction+encyclopedia+of+machine+learning&ots=91mazyjCcQ&sig=JVvFpdWbwrFQnAf737nzjkuCJjI#v=onepage&q&f=false
 
+## ...
+
+Solves the curse 😈 , but also presents a workaround to feature selection
+
+* ...
+
+
 ## Example
 
 A simple metaphor/image: ball on spring from Shlens?
@@ -75,37 +84,40 @@ Observation of this phenomenon: we don't know the underlying system
 
 [picture of ball on spring w/cameras]
 
-## another slide or two
 
-which ties things together
+## Principal component analysis
 
-what about the start of the PCA section in a few slides?
+A basic primer on how **PCA** 🤖 works
 
-
-
-## principal component analysis
-
-Eigenvectors: the latent dimensions discovered by PCA, which form a better basis for describing the data
-Eigenvalues: the amount of variance in data set explained by each eigenvector
-Projections ("scores"): transform of data into this new space, in terms of eigenvectors
-
-## principal component analysis
-
-A basic example in NB
+* Eigenvectors: the latent dimensions discovered by PCA, which form a better basis for describing the data
+* Eigenvalues: the amount of variance in data set explained by each eigenvector
+* Projections ("scores"): transform of data into this new space, in terms of eigenvectors
 
 
-# "Black box" methods
+## Eigendecomposition
 
-## Why this lecture doesn't cover neural nets
+A complicated term for **rotating** high-dimensional data to find a new **basis** for describing the data
 
-If we are theoretically motivated, we must be able to *understand* human behavioral reasons for a certain outcome
-
-NNs make this quite hard because they merely *perform*
+🤖
 
 
-## Transparent dimensionality reduction
+## Projection
 
-Styler dissertation
+The data can then be **projected** from its "naive" basis (the features originally measured) into a new basis
+
+[figure or figures here]
+
+
+## Basic example 
+
+A basic example in NB 👩‍💻🧑🏾‍💻👩🏻‍💻
+
+* Opening a sample data set 
+* Eigendecomposition
+* Projection into new basis
+* Basic data viz
+
+...
 
 
 # Wrapping up

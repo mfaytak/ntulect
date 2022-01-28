@@ -216,7 +216,7 @@ Ways to measure properties of phonation include:
 * Formant amplitudes and bandwidths
 * Electroglottograph measures (contact quotient, open quotient)
 
-Different properties are useful in different languages
+Different properties are useful in different languages <span class="cite">Brunelle & Kirby (2016)</span>
 
 
 ## Advanced tongue root?
@@ -288,6 +288,8 @@ Practical ways to achieve this: starting in the next lecture
 ## References {.bib}
 
 Abramson, A., & Whalen, D. (2017). Voice Onset Time (VOT) at 50: Theoretical and practical issues in measuring voicing distinctions. <i>Journal of Phonetics</i> 63, 75-86. <a href="https://doi.org/10.1016/j.wocn.2017.05.002">DOI</a>
+
+Brunelle, M., & Kirby, J. (2016). Tone and phonation in Southeast Asian languages. Language and Linguistics Compass, 10(4), 191-207. <a href="https://doi.org/10.1111/lnc3.12182">DOI</a>
 
 Cai, J., Luo, J., Wang, S. & Yang, S. (2018). Feature selection in machine learning: A new perspective. Neurocomputing, 300, 70-79. <a href="https://doi.org/10.1016/j.neucom.2017.11.077">DOI</a>
 
