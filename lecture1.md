@@ -7,12 +7,12 @@
 
 ## About me
 
-Matthew Faytak [ˈfeɪˌtæk], assistant professor in Linguistics at the University at Buffalo (State Univ. of New York) since mid-2021
+Matthew Faytak [ˈfeɪˌtæk], Assistant Professor in Linguistics at the University at Buffalo (State Univ. of New York) since mid-2021
 
 *   PhD UC Berkeley 2018
 *   Postdoc UCLA 2018-2021
 
-Pronouns he/him/his, they/them/their (in the sense of 他)
+Pronouns he, they, 他
 
 
 ## About me
@@ -39,6 +39,14 @@ These lecture slides are hosted in HTML format on my personal site
 * "P" key prints slides
 
 Each linked by a QR code (see title slide)
+
+
+## Python notebooks
+
+Two notebooks running Python 3.x hosted on Google CoLab are provided for demo purposes
+
+* Lectures will include a walk-through of each notebook
+* Demonstrate how to *implement* concepts discussed in the lectures
 
 
 ## Annotations
@@ -82,7 +90,7 @@ Specific topics covered will include:
 
 Interactive Python notebooks for:
 
-* **Principal component analysis** of a general data set
+* **Principal component analysis** of a linguistic data set
 * Two case studies from my own work (on Shanghai Mandarin and Suzhou Wu)
 
 
@@ -114,7 +122,7 @@ This process we undertake is **feature selection**: picking a subset of availabl
 * Often based on prior knowledge of the phenomenon
 * A way to bring the number of features down to a reasonable level
 
-Feature selection is labor-intensive but is fundamental to science and engineering <span class="cite">Guyon & Elisseeff (2003); Cai et al. (2018)</span>, with clear benefits for researchers:
+Feature selection is labor-intensive but fundamental to science and engineering <span class="cite">Guyon & Elisseeff (2003); Cai et al. (2018)</span>, with clear benefits for researchers:
 
 * Improve performance of predictor variables, by selecting the right ones 
 * Speed up computation and analysis to practical levels

@@ -110,13 +110,13 @@ Matthew Faytak<br/>University at Buffalo
 
 <ul>
 
-<li>i.e. lower formants define a 3D space (F1 dimension, F2 dimension, F3 dimension)</li>
+<li>i.e. the lower formants define a 3-dimensional space (F1, F2, F3)</li>
 
-<li></li>
+<li>3D vowel space of Kejom: <span class="cite">Faytak &amp; Akumbu (2021)</span></li>
 
 </ul>
 
-<p>[3D vowel space plot]</p>
+<p><img src="./assets/media/kejom_fig4.png" width="400"></p>
 
 </div><div id="curse-of-dimensionality" class="slide section level2">
 
@@ -146,31 +146,37 @@ Matthew Faytak<br/>University at Buffalo
 
 <h1>Dimensionality reduction</h1>
 
-<p>Converts a high dimensional space consisting of numerous features into a lower dimensional space consisting of fewer features</p>
+<p>Converts a high dimensional space consisting of numerous features into a lower dimensional space consisting of fewer features <span class="cite">Vlachos (2011)</span></p>
+
+<p>Technically, feature selection is also a way of reducing dimensionality <span class="cite">Liu (2011), Vlachos (2011)</span></p>
 
 <ul>
 
-<li>Technically, feature selection is also a way of reducing dimensionality <span class="cite">Liu (2011)</span></li>
-
-<li>We are mainly discussing <em>data-driven</em> approaches here</li>
-
-<li>Feature selection is <em>theory-driven</em>, usually</li>
+<li>Feature selection is <em>theory-driven</em>: we know what the informative dimensions are</li>
 
 </ul>
 
-<p>Left off reading this:</p>
-
-<p>https://books.google.com/books?hl=en&amp;lr=&amp;id=i8hQhp1a62UC&amp;oi=fnd&amp;pg=PT29&amp;dq=feature+extraction+encyclopedia+of+machine+learning&amp;ots=91mazyjCcQ&amp;sig=JVvFpdWbwrFQnAf737nzjkuCJjI#v=onepage&amp;q&amp;f=false</p>
-
-</div><div id="section" class="slide section level2">
-
-<h1>…</h1>
-
-<p>Solves the curse 😈 , but also presents a workaround to feature selection</p>
+<p>We are focusing today on <strong>feature projection</strong></p>
 
 <ul>
 
-<li>…</li>
+<li>Finding a smaller number of dimensions to express data in</li>
+
+<li><em>Data-driven</em> approach: we don’t know informative dimensions in advance; emerge from the data</li>
+
+</ul>
+
+</div><div id="benefits-of-dimensionality-reduction" class="slide section level2">
+
+<h1>Benefits of dimensionality reduction</h1>
+
+<p>Avoids high dimensionality 😈, and also presents a useful complement to feature selection</p>
+
+<ul>
+
+<li>Especially well suited to exploratory analysis</li>
+
+<li>Or any other time when we don’t have background knowledge to perform feature selection</li>
 
 </ul>
 
@@ -178,69 +184,173 @@ Matthew Faytak<br/>University at Buffalo
 
 <h1>Example</h1>
 
-<p>A simple metaphor/image: ball on spring from Shlens?</p>
+<p>Consider a ball on a spring <span class="cite">from Shlens (2014)</span></p>
 
-<p>[ball on spring]</p>
+<ul>
+
+<li>Simple system - motion can be modeled as a sine wave-like time series along <span class="math inline"><em>x</em></span> dimension</li>
+
+<li>If we don’t know what <span class="math inline"><em>x</em></span> is, though, we might place cameras at some arbitrary angles to try to find out</li>
+
+</ul>
+
+<p><img src="./assets/media/shlens1.png" width="500"></p>
 
 </div><div id="example-1" class="slide section level2">
 
 <h1>Example</h1>
 
-<p>Observation of this phenomenon: we don’t know the underlying system</p>
-
-<p>[picture of ball on spring w/cameras]</p>
-
-</div><div id="principal-component-analysis" class="slide section level2">
-
-<h1>Principal component analysis</h1>
-
-<p>A basic primer on how <strong>PCA</strong> 🤖 works</p>
+<p>Measurement ends up being in terms of arbitrary dimensions which are <em>not the simplest, best way</em> to describe the system</p>
 
 <ul>
 
-<li>Eigenvectors: the latent dimensions discovered by PCA, which form a better basis for describing the data</li>
+<li>Six dimensions captured by our observations</li>
 
-<li>Eigenvalues: the amount of variance in data set explained by each eigenvector</li>
-
-<li>Projections (“scores”): transform of data into this new space, in terms of eigenvectors</li>
+<li>Movement in <span class="math inline"><em>x</em>, <em>y</em></span> space filmed by cameras A, B, C <span class="cite">Shlens (2014)</span></li>
 
 </ul>
 
-</div><div id="eigendecomposition" class="slide section level2">
+<p><img src="./assets/media/shlens2.png" width="600"></p>
 
-<h1>Eigendecomposition</h1>
+</div>
 
-<p>A complicated term for <strong>rotating</strong> high-dimensional data to find a new <strong>basis</strong> for describing the data</p>
+<div id="principal-component-analysis" class="title-slide slide section level1"><h1>Principal component analysis</h1></div><div id="principal-component-analysis-1" class="slide section level2">
 
-<p>🤖</p>
+<h1>Principal component analysis</h1>
+
+<p>Data often contains lots of <strong>covariation</strong>: measures are not totally independent; can vary systematically together</p>
+
+<ul>
+
+<li>Like <span class="math inline"><em>x</em></span> and <span class="math inline"><em>y</em></span> position in Camera A</li>
+
+</ul>
+
+<p><strong>PCA</strong> finds a new set of <em>orthogonal</em> dimensions which capture the most variance (and the least noise)</p>
+
+<ul>
+
+<li>The dimension shown below describes variation better than <span class="math inline"><em>x</em></span> or <span class="math inline"><em>y</em></span> of Camera A alone</li>
+
+<li>Called <em>first principal component</em> or <strong>PC1</strong></li>
+
+</ul>
+
+<p><img src="./assets/media/shlens3.png" width="500"> <span class="cite"> Shlens (2014)</span></p>
+
+</div><div id="pca-in-action" class="slide section level2">
+
+<h1>PCA in action</h1>
+
+<p>The previous slide showed PC1 for two-dimensional data; imagine PCA in many more dimensions, which is more typical</p>
+
+<ul>
+
+<li>PC-finding process can be repeated <span class="math inline"><em>n</em> − 1</span> times where <span class="math inline"><em>n</em></span> is the number of observations</li>
+
+<li>When repeated <span class="math inline"><em>r</em></span> times, yields <span class="math inline"><em>r</em></span> dimensions <strong>PC1</strong>, <strong>PC2</strong>, <strong>PC3</strong>, … <strong>PC<span class="math inline"><em>r</em></span></strong></li>
+
+<li>The most informative dimensions are discovered first</li>
+
+</ul>
+
+</div><div id="rotation" class="slide section level2">
+
+<h1>Rotation</h1>
+
+<p>New basis comes from <strong>rotation</strong> and rescaling of original data in high dimensions (see next slide)</p>
+
+<p>PCs are a particular sort of <strong>eigenvector</strong></p>
+
+<ul>
+
+<li>The latent dimensions discovered by PCA</li>
+
+<li>Form a better <strong>basis</strong> for describing the data</li>
+
+</ul>
+
+<p>The amount of variance in the original data explained by each eigenvector is its <strong>eigenvalue</strong></p>
+
+<ul>
+
+<li>Eigenvectors in PCA are rank-ordered according to their eigenvalues</li>
+
+<li>Most explanatory (highest eigenvalues) first</li>
+
+</ul>
 
 </div><div id="projection" class="slide section level2">
 
 <h1>Projection</h1>
 
-<p>The data can then be <strong>projected</strong> from its “naive” basis (the features originally measured) into a new basis</p>
+<p>The data can then be <strong>projected</strong> from the “naive” basis (the features originally measured) into a new basis</p>
 
-<p>[figure or figures here]</p>
+<ul>
 
-</div><div id="basic-example" class="slide section level2">
+<li>Characterizing each observation on the newly discovered dimensions</li>
 
-<h1>Basic example</h1>
+<li>Often called PC “scores” because of the sense that we are grading each observation</li>
 
-<p>A basic example in NB 👩‍💻🧑🏾‍💻👩🏻‍💻</p>
+</ul>
+
+<p>Result: positions in new “PC space”</p>
+
+<p><img src="./assets/media/rotation.png" width="600"></p>
+
+</div><div id="the-math" class="slide section level2">
+
+<h1>The math</h1>
+
+<p>We’ve skipped over the linear algebra that underpins PCA, for now</p>
+
+<ul>
+
+<li>Understanding the concepts is sufficient</li>
+
+<li>We will return to a more mathematical definition later, when our data and our manipulations of it become more complicated</li>
+
+</ul>
+
+<p>Some further reading on the linear algebra:</p>
+
+<ul>
+
+<li>Shlens (2014), a brief overview including the ball-on-spring example</li>
+
+<li>Jolliffe (2002), a reference book</li>
+
+</ul>
+
+<p>Other reading:</p>
+
+<ul>
+
+<li>Nguyen &amp; Holmes (2019), general tips</li>
+
+</ul>
+
+</div>
+
+<div id="notebook-time" class="title-slide slide section level1"><h1>Notebook time</h1></div><div id="pca-in-python" class="slide section level2">
+
+<h1>PCA in Python</h1>
+
+<p>We now switch to our first Python notebook to demonstrate how to do PCA 👩‍💻🧑🏾‍💻👩🏻‍💻</p>
 
 <ul>
 
 <li>Opening a sample data set</li>
 
-<li>Eigendecomposition</li>
+<li>Decomposition into eigenvectors</li>
 
-<li>Projection into new basis</li>
+<li>Projection of data into new basis</li>
 
-<li>Basic data viz</li>
+<li>Basic data visualizations associated with PCA</li>
 
 </ul>
 
-<p>…</p>
+<p>Using acoustic data on phonation from Keating et al. (n.d.)</p>
 
 </div>
 
@@ -248,19 +358,41 @@ Matthew Faytak<br/>University at Buffalo
 
 <h1>Feature extraction: advantages</h1>
 
-<p>Speed, consistency/replicability, holistic description</p>
-
-<p>Dimred can speed along discovery of new features to select</p>
-
-</div><div id="dimensionality-reduction-advantages" class="slide section level2">
-
-<h1>Dimensionality reduction: advantages</h1>
-
-<p>More specifically:</p>
+<p>Extracted/projected features can speed analysis</p>
 
 <ul>
 
-<li>Aids data visualization, even occasionally rendering it in intuitive terms</li>
+<li>Or make it clear which features are useful to select</li>
+
+</ul>
+
+<p>Improvements to research workflows</p>
+
+<ul>
+
+<li>Emerges <em>consistently</em> from given data set, and may improve replicability of analysis</li>
+
+<li>Very <em>fast</em> compared to selection of some features</li>
+
+</ul>
+
+</div><div id="feature-extraction-advantages-1" class="slide section level2">
+
+<h1>Feature extraction: advantages</h1>
+
+<p>Dimensionality reduction can aid data visualization, sometimes even making it more intuitive</p>
+
+<ul>
+
+<li>PC1 in the ball-on-spring example basically describes motion along the spring, where neither <span class="math inline"><em>x</em></span> nor <span class="math inline"><em>y</em></span> do</li>
+
+<li>Extremely useful at finding and capturing “ensembles” of features in higher-dimensional data
+
+<ul>
+
+<li>As in notebook: PCs capture covariation of groups of acoustic properties</li>
+
+</ul></li>
 
 </ul>
 
@@ -268,11 +400,23 @@ Matthew Faytak<br/>University at Buffalo
 
 <h1>Feature extraction: disadvantages</h1>
 
-<p>New n-dimensional space may not be <em>interpretable</em>: what does a dimension “mean”?</p>
+<p>Not <em>theory-driven</em>, which may pose liabilities</p>
 
 <ul>
 
-<li>Dimensions may not correspond to anything linguistically relevant</li>
+<li>Science is primarily theory-driven</li>
+
+<li>Engineering-type approach to non-engineering problems</li>
+
+</ul>
+
+<p>New <span class="math inline"><em>n</em></span>-dimensional space may not be so easy to interpret: what does a dimension “mean”?</p>
+
+<ul>
+
+<li>Loadings may be difficult to interpret</li>
+
+<li>Dimensions discovered in linguistic data <em>don’t have to</em> correspond to anything linguistically relevant</li>
 
 </ul>
 
@@ -280,23 +424,43 @@ Matthew Faytak<br/>University at Buffalo
 
 <h1>Next time</h1>
 
+<p>The second major thread of these lectures: ultrasound as a method</p>
+
+<ul>
+
+<li>Basic principles</li>
+
+<li>Feature selection problems in ultrasound data</li>
+
+<li>Other advances covered in subsequent lectures</li>
+
+</ul>
+
 </div><div id="references" class="slide section level2 bib">
 
 <h1>References</h1>
 
-<p>Aggarwal, C., Hinneburg, A. &amp; Keim, D. (2001). On the surprising behavior of distance metrics in high dimensional space. In <i>International Conference on Database Theory</i>, 420-434. Springer.</p>
+<p>Aggarwal, C., Hinneburg, A. &amp; Keim, D. (2001). On the surprising behavior of distance metrics in high dimensional space. In <i>International Conference on Database Theory 2001</i>, 420-434. Springer. <a href="https://link.springer.com/chapter/10.1007/3-540-44503-X_27">PDF</a></p>
 
 <p>Bellman, R. (1957). <i>Dynamic Programming</i>. Princeton University Press.</p>
+
+<p>Faytak, M. &amp; Akumbu, P. (2021). Kejom (Babanki). <i>Journal of the International Phonetic Association</i>, 51(2), 333-354. <a href="https://doi.org/10.1017/S0025100319000264">DOI</a></p>
+
+<p>Jolliffe, I. (2002). Principal component analysis (2nd ed.). <i>Springer series in statistics</i>. New York: Springer.</p>
+
+<p>Keating, P., Kuang, J., Garellek, M., Esposito, C. &amp; Khan, S. (n.d.) A cross-language acoustic space for phonation distinctions. Unpublished manuscript, UCLA. <a href="https://linguistics.ucla.edu/people/keating/Keating-etal_2019_ms.pdf">PDF</a></p>
 
 <p>Keogh, E. &amp; Mueen, A. (2011). Curse of dimensionality. In Sammut, C. &amp; Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 257-258. Springer.</p>
 
 <p>Liu, H. (2011). Feature selection. In Sammut, C. &amp; Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 402-406. Springer.</p>
 
-<p>Shlens, Y. (200x).</p>
+<p>Nguyen, L. &amp; Holmes, S. (2019). Ten quick tips for effective dimensionality reduction. <i>PLoS Computational Biology</i>, 15(6), e1006907. <a href="https://doi.org/10.1371/journal.pcbi.1006907">DOI</a></p>
 
-<p>Styler, W. (2015). On the Acoustical and Perceptual Features of Vowel Nasality. PhD thesis. University of Colorado, Boulder. <a href="https://wstyler.ucsd.edu/files/styler_dissertation_final.pdf">PDF</a></p>
+<p>Shlens, J. (2014). A Tutorial on Principal Component Analysis. <a href="https://arxiv.org/abs/1404.1100">arXiv</a></p>
 
 <p>Vlachos, M. (2011). Dimensionality reduction. In Sammut, C. &amp; Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 402-406. Springer.</p>
+
+<p>Zhang, X. (2011). Covariance matrix. In In Sammut, C. &amp; Webb, G. (eds.), <i>Encyclopedia of Machine Learning</i>, 235-238. Springer.</p>
 
 </div>
 
