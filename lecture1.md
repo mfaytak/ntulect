@@ -129,8 +129,6 @@ Feature selection is labor-intensive but fundamental to science and engineering 
 * Develop a *theory-driven* understanding of the phenomenon being studied
 
 
-# Feature selection in phonetics
-
 ## Feature selection in phonetics
 
 The signal resulting from speech is complex and time varying, so phoneticians have long been concerned with questions of feature selection 
@@ -154,50 +152,63 @@ The challenge: figuring out what feature(s) to select
 * Often takes years of research, as we will see
 
 
-## Voice onset time
+## Formants
 
-Perhaps the single most substantial example of a hand-picked feature <span class="cite">Lisker & Abramson (1964)</span> 
+Formants as a feature are intimately connected to the history of phonetics as a science <span class="cite">figure from Peterson & Barney (1952)</span>
 
-* Coined in Lisker & Abramson (1964), after a synthesizer parameter which created the percept of (English) voiceless stops
-	* Delaying "voice onset" = aspiration
-* Building on years of research into parameters of linguistic plosive "voicing" contrasts <span class="cite">Stetson (1951); Liberman, Delattre & Cooper (1952)</span>
-* Building on knowledge of first principles (knowing how plosives are generally produced)
-
-Can characterizing laryngeal contrasts in a wide range of languages <span class="cite">Cho & Ladefoged (1999)</span>
-
+<img src="./assets/media/peterson-barney.png" width="500">
 
 ## Formants
 
-Formants as a feature are intimately connected to the history of phonetics as a science
+Usefulness established over a long time period
 
 * Gradual refinement of interpretation of formants in terms of articulatory actions <span class="cite">Hermann (1894, 1895); Russell (1929)</span>
-* Source-filter theory: clear physiological, articulatory correlates
-<span class="cite">Chiba & Kajiyama (1941); Fant (1960)</span>
-
-Establishment of usefulness in other terms
-
+* Source-filter theory: clear physiological, articulatory correlates <span class="cite">Chiba & Kajiyama (1941); Fant (1960)</span>
 * Formant transitions for consonants; variation; formants as *perceptually* relevant <span class="cite">Potter & Peterson 1948; Peterson & Barney (1952)</span>
 * Bark scale (and others), for better mapping to perceptual space <span class="cite">Zwicker (1961)</span>
 
 
-## Single features as less than optimal
+## Voice onset time
 
-Even these two very popular, very validated  features don't necessarily extend well to *all* related speech phenomena, or cannot characterize the basis of all related phonological contrasts
+Perhaps the single most substantial example of a hand-picked feature  <span class="cite">figure from Mikuteit & Reetz (2007)</span>
+
+<img src="./assets/media/mikuteit-reetz2.png" width="600">
+
+
+## Voice onset time
+
+Also developed over a number of years
+
+* Coined in Lisker & Abramson (1964), after a synthesizer parameter which created the percept of (English) voiceless stops
+* Built on years of research into parameters of linguistic plosive "voicing" contrasts <span class="cite">Stetson (1951); Liberman, Delattre & Cooper (1952)</span>
+
+Characterizes laryngeal contrasts in a huge number of languages <span class="cite">Cho & Ladefoged (1999)</span>
+
+
+# Feature pitfalls
+
+## Non-optimal single features
+
+Even these two very popular, very validated  features don't  extend well to *all* related speech phenomena, or can't characterize all related phonological contrasts
 
 * In particular due to language to language variation, or even differences in how a contrastive property is coproduced on various segment types
 * Sometimes a speech phenomenon does not have clear, easily extracted features in the acoustic signal
 
 
-## Voice onset time?
+## Voice onset time
 
 Certain dimensions of "voicing" contrast are not captured using voice onset time alone <span class="cite">see Abramson & Whalen (2017)</span>
 
 * Voiced aspirated or breathy plosives <span class="cite">Davis (1994), Mikuteit & Reetz (2007), Dmitrieva & Dutta (2020)</span>
+* Complex cues *including* VOT, but also $f0$ and voice quality in surrounding segments <span class="cite">figure from Mikuteit & Reetz (2007)</span>
+
+<img src="./assets/media/mikuteit-reetz.png" width="600">
+
 * Preaspirated plosives <span class="cite">Löfqvist & Yoshida (1981); Helgason & Ringen (2008)</span>
-* Tense-lax contrasts as in Otomanguean <span class="cite">DiCanio (2012)</span> or  Korean <span class="cite">Cho et al. 2002</span>
+* Tense-lax contrasts as in Otomanguean <span class="cite">DiCanio (2012)</span> or  Korean <span class="cite">Cho et al. (2002)</span>
 
 
-## Nasality?
+## Nasality
 
 Measuring the degree of nasality in vowels has long been a problem for phoneticians, since nasality may be signaled by a huge number of acoustic cues <span class="cite">Styler (2017)</span>
 
@@ -211,7 +222,7 @@ Use of each property varies:
 * Language-specific acoustics <span class="cite">Styler (2017)</span>
 
 
-## Phonation?
+## Phonation
 
 Another case where simple measures have gradually been shown to be insufficient
 
@@ -227,7 +238,7 @@ Ways to measure properties of phonation include:
 Different properties are useful in different languages <span class="cite">Brunelle & Kirby (2016)</span>
 
 
-## Advanced tongue root?
+## Advanced tongue root
 
 Perhaps one of the most difficult contrasts to capture acoustically; wide range of acoustic properties have been employed <span class="cite">Fulop et al (1998); Kirkham & Nance (2017); Olejarczuk et al. (2019) </span>
 
@@ -273,9 +284,9 @@ Researchers may over-apply too few features which don't work well
 Other types of data are less well suited to feature selection overall
 
 * Articulatory data based on video or medical scanning: massively **high-dimensional**
-* Huge number of features in the data (in this case, individual pixels; measurements that could be derived from them; etc.)
+* Huge number of features in the data (in this case, individual pixels <span class="cite">see figure below</span>; measurements that could be derived from them; etc.)
 
-[picture goes here]
+<img src="./assets/media/ultrasound-pixels.png" width="700">
 
 
 ## Alternatives to feature selection
