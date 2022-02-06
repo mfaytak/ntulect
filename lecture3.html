@@ -22,19 +22,13 @@
 
   <style type="text/css">
 
-    code{white-space: pre-wrap;}
+      code{white-space: pre-wrap;}
 
-    span.smallcaps{font-variant: small-caps;}
+      span.smallcaps{font-variant: small-caps;}
 
-    span.underline{text-decoration: underline;}
+      span.underline{text-decoration: underline;}
 
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-
-    ul.task-list{list-style: none;}
-
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
 
   </style>
 
@@ -64,353 +58,529 @@ Matthew Faytak<br/>University at Buffalo
 
 </div>
 
-<div id="ultrasound-basics" class="title-slide slide section level1">
+<div id="in-this-lecture" class="slide section level2">
 
-<h1>ultrasound basics</h1>
+<h1>In this lecture</h1>
 
-
-
-</div>
-
-<div id="the-basic-method" class="slide section level2">
-
-<h1>the basic method</h1>
-
-<p>How the method works: low intensity and very high frequency sound is transmitted through soft tissue and reflects back when the density of the medium changes</p>
-
-<p>picture illustrating uti</p>
-
-</div>
-
-<div id="reflection" class="slide section level2">
-
-<h1>reflection</h1>
-
-<p>The signal in ultrasound data is the extent to which the high frequency energy reflects back to the probe</p>
-
-<p>Occurs when the medium changes in density</p>
+<p>Ultrasound as a means of collecting information on tongue position</p>
 
 <ul>
 
-<li>tissue tissue boundaries</li>
+<li>Basic data collection routines</li>
 
-<li>tissue air boundaries</li>
+<li>Advantages and drawbacks</li>
+
+</ul>
+
+<p>Common features extracted from data</p>
+
+<ul>
+
+<li>Contour tracing</li>
+
+<li>Registration lines</li>
 
 </ul>
 
 </div>
 
-<div id="shadows" class="slide section level2">
+<div id="ultrasound-basics" class="title-slide slide section level1"><h1>Ultrasound basics</h1></div><div id="principles-of-the-method" class="slide section level2">
 
-<h1>shadows</h1>
+<h1>Principles of the method</h1>
 
-<p>Rather than reflecting back energy, bone absorbs energy and casts a “shadow” in the ultrasound image</p>
-
-<ul>
-
-<li>hyoid shadow</li>
-
-<li>mandible or chin shadow</li>
-
-</ul>
-
-<p>The two shadows delimit the useful range of data received from reflection</p>
+<p>Low intensity, very high frequency sound is transmitted through soft tissue (pictured: blue) and reflects back when the density of the medium changes</p>
 
 <ul>
 
-<li>this means the tongue tip is usually not visible in ultrasound data</li>
+<li>Tissue-tissue boundaries, such as tendons in muscle</li>
+
+<li>Tissue-air boundaries, such as the surface of the tongue (pictured: pink)</li>
 
 </ul>
 
-</div>
+<p><img src="./assets/media/probe-head.png" width="400"></p>
 
-<div id="rigid-landmarks" class="slide section level2">
-
-<h1>Rigid landmarks</h1>
-
-<p>A couple of rigid landmarks are often collected prior to recording the motion of the tongue</p>
-
-<ul>
-
-<li>palate trace, by doing a <em>swallow task</em></li>
-
-<li>swallow water and watch as tongue suctions to roof of mouth</li>
-
-<li>provides position of the hard palate, useful for gauging constriction degree</li>
-
-<li>occlusal plane or bite plane, by having the speaker bite down on a rigid plate and press the tongue into it</li>
-
-<li>provides common angle for representation of data from multiple speakers</li>
-
-</ul>
-
-</div>
-
-<div id="stabilization" class="slide section level2">
+</div><div id="stabilization" class="slide section level2">
 
 <h1>Stabilization</h1>
 
-<p>.</p>
-
-</div>
-
-<div id="a-single-frame" class="slide section level2">
-
-<h1>a single frame</h1>
-
-<p>The landmarks which we have discussed are visible in this sample frame captured in midsagittal section</p>
-
-</div>
-
-<div id="other-imaging-planes" class="slide section level2">
-
-<h1>other imaging planes</h1>
-
-<p>While we won’t discuss them here, it’s good to know that ultrasound is not constrained to mid sagittal images</p>
+<p>Frame of reference must be fixed during recording to compare tongue positions; if it is not, motion of probe must be corrected <span class="cite">e.g. Whalen et al (2004); Mielke et al (2005)</span></p>
 
 <ul>
 
-<li>coronal slice can be taken by rotating the probe under the chin 90°</li>
+<li>Most often fixed using a headset which holds the probe under the chin</li>
 
-<li>laryngeal ultrasound at an oblique angle is also possible</li>
+<li>Pictured: Articulate Instruments UltraFit <span class="cite">Spreafico et al. (2018)</span></li>
 
 </ul>
 
-</div>
+<p><img src="./assets/media/fit-done.png" width="400"></p>
 
-<div id="uses-of-ultrasound" class="slide section level2">
+</div><div id="resulting-images" class="slide section level2">
 
-<h1>uses of ultrasound</h1>
+<h1>Resulting images</h1>
 
-<p>Generally used for imaging posture or shape of the tongue from root to blade, or its change over time</p>
+<p>Video slowed down by four times; anterior is to the right</p>
 
 <ul>
 
-<li><em>broad</em> place and tongue position distinctions</li>
-
-<li>complex tongue shapes (laterals, rhotics)</li>
-
-<li>rapid tongue body and blade movements (flaps, clicks)</li>
+<li>Lingual articulations highlighted in red</li>
 
 </ul>
 
-</div>
+<video class="tab" controls width=600>
 
-<div id="usage-in-the-field" class="slide section level2">
+<source src="./assets/media/Oysters-labels.mp4">
 
-<h1>Usage in the field</h1>
+</video>
 
-<p>A critical tool for imaging vocal tract configurations in the field, outside of the lab</p>
+</div><div id="resulting-images-1" class="slide section level2">
 
-<p>Non-invasive, generally not intimidating, and by far the most portable vocal track imaging technology</p>
+<h1>Resulting images</h1>
+
+<p>Reflection signal from tongue surface shows up as a bright <em>contour</em>; useful part is between two “shadows”</p>
 
 <ul>
 
-<li>no wall outlet required, draws power from laptop</li>
+<li>Hyoid bone shadow in the back</li>
 
-<li>relatively hands off, especially if stabilization headset is used</li>
+<li>Chin or mandible shadow in the front</li>
+
+<li>Bone absorbs energy rather than reflecting it back</li>
 
 </ul>
 
+<p><img src="./assets/media/goat-big.png" width="500"></p>
+
+<p>Due to chin shadow, tongue tip is usually not visible in ultrasound data</p>
+
+</div><div id="rigid-landmarks" class="slide section level2">
+
+<h1>Rigid landmarks</h1>
+
+<p>Often collected prior to recording</p>
+
+<p><strong>Palate trace</strong>, by doing a <em>swallow task</em>: swallow water and watch as tongue suctions to roof of mouth</p>
+
+<ul>
+
+<li>Provides position of the hard palate</li>
+
+<li>Useful for gauging constriction degree</li>
+
+</ul>
+
+<p><img src="./assets/media/palate-figure.png" width="600"></p>
+
+</div><div id="rigid-landmarks-1" class="slide section level2">
+
+<h1>Rigid landmarks</h1>
+
+<p><strong>Bite plane</strong>, by having the speaker bite down on a rigid plate and press tongue up into it <span class="cite">Scobbie et al (2011)</span></p>
+
+<ul>
+
+<li>Provides common angle for representation of data from multiple speakers</li>
+
+<li>Wide tongue depressor held between teeth is suitable</li>
+
+</ul>
+
+<p><img src="./assets/media/bite-3.png" width="500"></p>
+
+</div><div id="other-imaging-types" class="slide section level2">
+
+<h1>Other imaging types</h1>
+
+<p>While it’s not our focus, ultrasound can be taken in non-sagittal planes</p>
+
+<ul>
+
+<li><strong>Coronal slice</strong> can be imaged by rotating the probe under the chin 90°</li>
+
+<li>Useful for examining lateralization, grooving <span class="cite">Mielke et al (2011); Whalen et al (2011)</span></li>
+
+</ul>
+
+<p><img src="./assets/media/kagayanen-2.png" width="500"></p>
+
+<p><span class="cite">Image modified from Mielke et al (2011)</span></p>
+
+</div><div id="laryngeal-ultrasound" class="slide section level2">
+
+<h1>Laryngeal ultrasound</h1>
+
+<p>Also not our focus, but possible</p>
+
+<ul>
+
+<li>Imaging in an <strong>oblique</strong> slice (not sagittal or coronal) <span class="cite">Moisik et al (2014)</span></li>
+
+<li>Images the cartilaginous structures of the larynx</li>
+
+</ul>
+
+<p><img src="./assets/media/sllus.png" width="650"></p>
+
+<p><span class="cite">image from Moisik et al (2014)</span></p>
+
 </div>
 
-<div id="drawbacks" class="slide section level2">
+<div id="use-cases" class="title-slide slide section level1"><h1>Use cases</h1></div><div id="uses-of-ultrasound" class="slide section level2">
 
-<h1>drawbacks</h1>
+<h1>Uses of ultrasound</h1>
 
-<p>Only images the tongue in real time, no simultaneous imaging of hard palate possible, no imaging of larynx or velum</p>
+<p>Generally used for imaging posture or shape of the tongue from root to blade, and change over time</p>
+
+<ul>
+
+<li>Dorsal articulations <span class="cite">Evans et al (2016); Howson &amp; Kochetov (2020); Shaw et al (2021)</span></li>
+
+<li>Pharyngeal and tongue root articulations <span class="cite">Gick et al (2006); Allen et al (2013); Hudu (2014); Kirkham &amp; Nance (2017); Chiu &amp; Sun (2020)</span></li>
+
+<li>Complex tongue shapes (laterals, rhotics, clicks) <span class="cite">Mielke et al (2011); Lee-Kim et al (2014); Miller (2016); Tabain &amp; Beare (2018); Hussain &amp; Mielke (2021)</span></li>
+
+</ul>
+
+<p>A critical tool for imaging vocal tract configurations in the field, outside of the lab <span class="cite">Gick (2002)</span></p>
+
+<ul>
+
+<li>Non-invasive, generally not intimidating</li>
+
+<li>By far, the most portable vocal track imaging technology</li>
+
+</ul>
+
+</div><div id="drawbacks" class="slide section level2">
+
+<h1>Drawbacks</h1>
+
+<p>Only images <em>the tongue</em>; no simultaneous imaging of hard palate possible; no imaging of larynx or velum</p>
 
 <p>Image can be noisy, and not every potential participant images well</p>
 
 <ul>
 
-<li>small, young people image the best</li>
+<li>Small, young people image the best</li>
 
-<li>beards can get in the way</li>
+<li>Beards can get in the way</li>
 
-<li>probe can touch larger larynges, causing pain</li>
+<li>Probe can press on larynx external cartilages (Adam’s apple), causing pain</li>
 
 </ul>
 
-</div>
-
-<div id="data-type" class="slide section level2">
+</div><div id="data-type" class="slide section level2">
 
 <h1>Data type</h1>
 
-<p>Perhaps the biggest drawback is the data itself, which gives the raw reflectivity data; requires extensive post processing</p>
+<p>Perhaps the biggest drawback is the data itself: raw reflectivity information; requires extensive post-processing</p>
 
-<p><em>Feature extraction</em>: extracting contours that represent the reflection at the tongue surface, or extracting motion of that contour along registration lines</p>
-
-<ul>
-
-<li>complex image processing, and manual intervention</li>
-
-</ul>
-
-<p>Next lecture: several ways around feature extraction</p>
-
-</div>
-
-
-
-<div id="ultrasound-feature-extraction" class="title-slide slide section level1">
-
-<h1>ultrasound feature extraction</h1>
-
-
-
-</div>
-
-<div id="contour-extraction" class="slide section level2">
-
-<h1>contour extraction</h1>
-
-<p>By far the most common means of feature extraction for ultrasound data</p>
+<p><strong>Feature extraction</strong>: complex image processing, often requires manual intervention</p>
 
 <ul>
 
-<li>first principle: we know that reflection represents the surface of the tongue, which tells us something about the vocal tract area function</li>
+<li>Contours following the reflection at the tongue surface</li>
+
+<li>Motion of contours along registration lines</li>
 
 </ul>
 
-<p>Certainly not unreasonable</p>
+<p>Next lecture: <strong>feature projection</strong> methods</p>
 
 </div>
 
-<div id="a-brief-history" class="slide section level2">
+<div id="ultrasound-feature-extraction" class="title-slide slide section level1"><h1>Ultrasound feature extraction</h1></div><div id="contour-extraction" class="slide section level2">
 
-<h1>a brief history</h1>
+<h1>Contour extraction</h1>
 
-<p>The need to accurately extract contours is a long-standing problem for both general diagnostic and biomedical science and speech science so far as it concerns ultrasound imaging of the tongue</p>
-
-<p>…</p>
-
-</div>
-
-<div id="manual-tracing" class="slide section level2">
-
-<h1>manual tracing</h1>
-
-<p>Most solid, but completely impractical</p>
-
-</div>
-
-<div id="semi-automated-tracing" class="slide section level2">
-
-<h1>semi automated tracing</h1>
-
-<p>Basically the mainstream</p>
-
-<p>Still very time consuming, since extensive manual intervention is still required, especially if reflection signal is of less than ideal strength</p>
-
-</div>
-
-<div id="state-of-the-art" class="slide section level2">
-
-<h1>State of the art</h1>
-
-<p>Active snake models provide good performance and relatively easy computation</p>
+<p>By far the most commonly extracted feature for ultrasound data <span class="cite">Iskarous (2005); Stone (2005)</span></p>
 
 <ul>
 
-<li>examples, especially edge track</li>
+<li>We know that reflection represents the surface of the tongue; tells us about vocal tract function</li>
+
+<li>Actual tongue surface is represented by <em>bottom edge</em> of bright line</li>
 
 </ul>
 
-</div>
+<p><img src="./assets/media/goat-big.png" width="500"></p>
 
-<div id="purely-automatic-tracing" class="slide section level2">
+</div><div id="semi-automated-extraction" class="slide section level2">
 
-<h1>purely automatic tracing</h1>
+<h1>Semi-automated extraction</h1>
 
-<p>In recent years it has started to become possible to do completely automatic contour extraction</p>
+<p>All current contour extraction methods are at least partly automated <span class="cite">Roon et al (2021)</span></p>
 
 <ul>
 
-<li>SLURP</li>
+<li>Most require an initial “seed” contour to be placed manually</li>
 
-<li>get contours?</li>
+<li>Manual contour location is optimized</li>
+
+<li>Optimized contour is tracked from frame to frame</li>
 
 </ul>
 
-<p>Per some recent work, these work surprisingly well, often as well as hand checked work</p>
+<p>Some additional manual intervention required: frame-to-frame tracking drifts away from ground truth</p>
 
-</div>
+</div><div id="latest-versions" class="slide section level2">
 
-<div id="registration-lines" class="slide section level2">
+<h1>Latest versions</h1>
 
-<h1>registration lines</h1>
-
-<p>Lines drawn in a fan shaped grid out from probe origin</p>
-
-<p>Example picture</p>
-
-</div>
-
-<div id="m--mode-ultrasound" class="slide section level2">
-
-<h1>M- Mode ultrasound</h1>
-
-<p>Registration lines mimic so-called m-mode ultrasound, commonly used to track rhythmic motion in biomedical contexts (i.e. heart or blood vessel motion)</p>
-
-<p>image to demonstrate</p>
-
-</div>
-
-<div id="registration-line-uses" class="slide section level2">
-
-<h1>registration line uses</h1>
-
-<p>These can be used to track entire contours where they intersect the lines, but more commonly are used to track tongue motion in a small region of interest</p>
-
-<p>Very common in tongue root retraction studies, or blade raising studies</p>
-
-</div>
-
-
-
-<div id="wrapping-up" class="title-slide slide section level1">
-
-<h1>wrapping up</h1>
-
-
-
-</div>
-
-<div id="ultrasound-pros" class="slide section level2">
-
-<h1>Ultrasound pros</h1>
-
-<p>Most portable, least expensive, least invasive, often most familiar to participants</p>
-
-<p>For fieldwork, it is really the only option</p>
-
-</div>
-
-<div id="ultrasound-cons" class="slide section level2">
-
-<h1>ultrasound cons</h1>
-
-<p>Messy, high dimensional data, which does not lend itself immediately to analysis</p>
+<p>Contour extraction has improved substantially in recent years; often close to manually drawn contours <span class="cite">Roon et al (2021)</span></p>
 
 <ul>
 
-<li>feature extraction required, in the most typical approach, then those features are analyzed in place of the whole image</li>
+<li>SLURP <span class="cite">Laporte &amp; Ménard (2018); Laporte (2018)</span></li>
 
-<li>often very time consuming and requires a small army of annotators who must all agree on how to segment an image</li>
+<li>GetContours, which also has a SLURP implementation <span class="cite">Tiede (2021)</span></li>
+
+<li>EdgeTrak <span class="cite">Li et al (2005)</span></li>
+
+<li>Newest versions of Articulate Assistant Advanced tracker</li>
 
 </ul>
 
+</div><div id="contour-modeling" class="slide section level2">
+
+<h1>Contour modeling</h1>
+
+<p>Several options for further processing of contours</p>
+
+<p>Most common: model contour location and overlap using:</p>
+
+<ul>
+
+<li>Smoothing-spline ANOVA (SSANOVA) <span class="cite">Davidson (2006); Gu (2014)</span>; pictured below</li>
+
+<li>Increasingly, generalized additive mixed models (GAMMs) <span class="cite">Strycharczuk &amp; Sebregts (2018); Matsui &amp; Kochetov (2018); Coretta (2019, 2020); Heyne et al (2019)</span></li>
+
+</ul>
+
+<p><img src="./assets/media/weller-et-al.png" width="650"></p>
+
+<p><span class="cite">figure from Weller et al. (to appear)</span></p>
+
+</div><div id="contour-shape-analysis" class="slide section level2">
+
+<h1>Contour shape analysis</h1>
+
+<p>The shape and curvature parameters of contours can also be measured</p>
+
+<ul>
+
+<li>How convex/concave contours are <span class="cite">Zharkova et al (2015); Dawson et al (2016)</span></li>
+
+<li>How complex the contour’s shape is <span class="cite">Dawson et al (2016)</span></li>
+
+</ul>
+
+<p>Importantly, these methods work even when the probe is not stabilized</p>
+
+</div><div id="registration-lines" class="slide section level2">
+
+<h1>Registration lines</h1>
+
+<p>Motion of <em>certain parts</em> of contours can be subjected to further feature extraction by drawing <strong>registration lines</strong> and tracking movement along those lines <span class="cite">Gick et al (2006); Pouplier (2008); many others</span></p>
+
+<ul>
+
+<li>Lines drawn in a fan shaped grid out from <em>probe origin</em> (at bottom middle of image)</li>
+
+<li>Sometimes, genioglossus tendon is used as origin instead <span class="cite">see figure below, from Lulich &amp; Cavar (2019)</span>
+
+<ul>
+
+<li>Attaches muscles of tongue to back side of chin; clearly visible in ultrasound</li>
+
+</ul></li>
+
+</ul>
+
+<p><img src="./assets/media/lulich.png" width="600"></p>
+
+<ul>
+
+<li>Common in studies of single lingual gestures, i.e. tongue root advancement or retraction <span class="cite">Percival et al. (2018); Lulich &amp; Ćavar (2019)</span></li>
+
+</ul>
+
+</div><div id="dimensionality-reduction-on-contours" class="slide section level2">
+
+<h1>Dimensionality reduction on contours</h1>
+
+<p>Dimensionality reduction methods such as PCA can also be applied to reveal <em>variation in contour position</em> <span class="cite">Turton (2015); Bennett et al (2018); Strycharczuk et al (2021)</span></p>
+
+<ul>
+
+<li>Feature input to PCA is <span class="math inline"><em>x</em>, <em>y</em></span> coordinates of <span class="math inline"><em>n</em></span> points along contours</li>
+
+<li>PC1 and PC2 typically capture most of the variance</li>
+
+<li>Below: mean contour in black; negative and positive scores indicated with dashed lines <span class="cite">from Bennett et al (2018)</span></li>
+
+</ul>
+
+<p><img src="./assets/media/bennett.png" width="600"></p>
+
 </div>
 
-<div id="next-lecture-some-solutions" class="slide section level2">
+<div id="wrapping-up" class="title-slide slide section level1"><h1>Wrapping up</h1></div><div id="advantages-of-ultrasound" class="slide section level2">
 
-<h1>next lecture: some solutions</h1>
+<h1>Advantages of ultrasound</h1>
 
-<p>Various ways around the feature extraction problem</p>
+<p>Lightweight method, relatively user-friendly</p>
+
+<ul>
+
+<li>Most portable</li>
+
+<li>Least invasive</li>
+
+<li>Least expensive</li>
+
+<li>Often somewhat familiar to participants</li>
+
+</ul>
+
+<p>Because of these factors it has few competitors for fieldwork</p>
+
+</div><div id="disadvantages-of-ultrasound" class="slide section level2">
+
+<h1>Disadvantages of ultrasound</h1>
+
+<p>The data format:</p>
+
+<ul>
+
+<li><strong>High-dimensional</strong> and often noisy</li>
+
+<li>Requires processing</li>
+
+</ul>
+
+<p>The usual feature extraction methods:</p>
+
+<ul>
+
+<li>Contour extraction is time-consuming, but contours are regarded as the standard feature to extract</li>
+
+<li>On a practical level, requires a small army of annotators</li>
+
+<li>Inter-annotator agreement can be a concern</li>
+
+</ul>
+
+</div><div id="next-lecture-more-features" class="slide section level2">
+
+<h1>Next lecture: more features</h1>
+
+<p>Various ways around the contour problem: other features to extract</p>
 
 <p>Going in the direction of <strong>feature engineering</strong></p>
+
+<ul>
+
+<li>Using entire image to produce new features</li>
+
+<li>Key insight: the image’s pixels are <em>each</em> a feature, so ultrasound data sets are really huge sets of pixel-level measurements</li>
+
+</ul>
+
+</div><div id="references" class="slide section level2 bib">
+
+<h1>References</h1>
+
+<p>Allen, B., Pulleyblank, D., &amp; Ajíbóyè, Ọ. (2013). Articulatory mapping of Yorúbà vowels: an ultrasound study. <em>Phonology</em>, 30(2), 183-210. <a href="https://doi.org/10.1017/S0952675713000110">DOI</a></p>
+
+<p>Bennett, R., Chiosáin, M., Padgett, J., &amp; McGuire, G. (2018). An ultrasound study of Connemara Irish palatalization and velarization. <em>Journal of the International Phonetic Association</em>, 48(3), 261-304. <a href="https://doi.org/10.1017/S0025100317000494">DOI</a></p>
+
+<p>Chiu, C., &amp; Sun, J. (2020). On pharyngealized vowels in Northern Horpa: An acoustic and ultrasound study. <em>The Journal of the Acoustical Society of America</em>, 147(4), 2928–2946. <a href="https://doi.org/10.1121/10.0001005">DOI</a></p>
+
+<p>Coretta, S. (2020). Longer vowel duration correlates with greater tongue root advancement at vowel offset: Acoustic and articulatory data from Italian and Polish. <em>The Journal of the Acoustical Society of America</em>, 147(1), 245-259. <a href="https://doi.org/10.1121/10.0000556">DOI</a></p>
+
+<p>Coretta, S. (2019). Assessing mid-sagittal tongue contours in polar coordinates using generalised additive (mixed) models. OSF Preprint. <a href="https://doi.org/10.31219/osf.io/q6vzb">DOI</a></p>
+
+<p>Davidson, L. (2006). Comparing tongue shapes from ultrasound imaging using smoothing spline analysis of variance. <em>The Journal of the Acoustical Society of America</em>, 120, pp. 407–415. <a href="https://doi.org/10.1121/1.2205133">DOI</a></p>
+
+<p>Dawson, K., Tiede, M. &amp; Whalen, D. (2016). Methods for quantifying tongue shape and complexity using ultrasound imaging. <em>Clinical Linguistics &amp; Phonetics</em>, 30(3-5), 328-344. <a href="https://doi.org/10.3109/02699206.2015.1099164">DOI</a></p>
+
+<p>Evans, J., Sun, J., Chiu, C. &amp; Liou, M. (2016). Uvular approximation as an articulatory vowel feature. <em>Journal of the International Phonetic Association</em>, 46(1), 1–31. <a href="https://doi.org/10.1017/S0025100315000146">DOI</a></p>
+
+<p>Gick, B. (2002). The use of ultrasound for linguistic phonetic fieldwork. <em>Journal of the International Phonetic Association</em>, 32(2), 113–121. <a href="https://doi.org/10.1017/S0025100302001007">DOI</a></p>
+
+<p>Gick, B., Pulleyblank, D., Campbell, F., &amp; Mutaka, N. (2006). Low vowels and transparency in Kinande vowel harmony. <em>Phonology</em>, 23(1), 1–20. <a href="https://doi.org/10.1017/S0952675706000741">DOI</a></p>
+
+<p>Gick, B., Campbell, F., Oh, S. &amp; Tamburri-Watt, L. (2006). Toward universals in the gestural organization of syllables: A cross-linguistic study of liquids. <em>Journal of Phonetics</em>, 34(1), 49-72. <a href="https://doi.org/10.1016/j.wocn.2005.03.005">DOI</a></p>
+
+<p>Gu, C. (2014). Smoothing spline ANOVA models: R package gss. Journal of Statistical Software, 58, 1-25. <a href="https://doi.org/10.18637/jss.v058.i05">DOI</a></p>
+
+<p>Heyne, M., Derrick, D., &amp; Al-Tamimi, J. (2019). Native language influence on brass instrument performance: An application of generalized additive mixed models (GAMMs) to midsagittal ultrasound images of the tongue. <em>Frontiers in Psychology</em>, 2597. <a href="https://doi.org/10.3389/fpsyg.2019.02597">DOI</a></p>
+
+<p>Howson, P. &amp; Kochetov, A. (2020). Lowered F2 observed in uvular rhotics involves a tongue root gesture: Evidence from Upper Sorbian. <em>The Journal of the Acoustical Society of America</em>, 147(4), 2845–2857. <a href="https://doi.org/10.1121/10.0000997">DOI</a></p>
+
+<p>Hudu, F. (2014). [ATR] feature involves a distinct tongue root articulation: Evidence from ultrasound imaging. <em>Lingua</em>, 143, 36–51. <a href="https://doi.org/10.1016/j.lingua.2013.12.009">DOI</a></p>
+
+<p>Hussain, Q. &amp; Mielke, J. (2021). An acoustic and articulatory study of rhotic and rhotic-nasal vowels of Kalasha. <em>Journal of Phonetics</em>, 87, 101028. <a href="https://doi.org/10.1016/j.wocn.2020.101028">DOI</a></p>
+
+<p>Iskarous, K. (2005). Detecting the edge of the tongue: A tutorial. <em>Clinical Linguistics &amp; Phonetics</em>, 19(6-7), 555-565. <a href="https://doi.org/10.1080/02699200500113871">DOI</a></p>
+
+<p>Kirkham, S., &amp; Nance, C. (2017). An acoustic-articulatory study of bilingual vowel production: Advanced tongue root vowels in Twi and tense/lax vowels in Ghanaian English. <em>Journal of Phonetics</em>, 62, 65–81. <a href="https://doi.org/10.1016/j.wocn.2017.03.004">DOI</a></p>
+
+<p>Laporte, C. (2018). Speech and Language Ultrasound Research Package (SLURP). <a href="https://github.com/cathylaporte/SLURP">GitHub</a></p>
+
+<p>Laporte, C. &amp; Ménard, L. (2018). Multi-hypothesis tracking of the tongue surface in ultrasound video recordings of normal and impaired speech. <em>Medical Image Analysis</em>, 44, 98-114. <a href="https://doi.org/10.1016/j.media.2017.12.003">DOI</a></p>
+
+<p>Lee-Kim, S., Kawahara, S., &amp; Lee, S. (2014). The ‘whistled’ fricative in xiTsonga: Its articulation and acoustics. <em>Phonetica</em>, 71(1), 50–81. <a href="https://doi.org/10.1159/000362672">DOI</a></p>
+
+<p>Li, M., Kambhamettu, C. &amp; Stone, M. (2005). Automatic contour tracking in ultrasound images. <em>Clinical Linguistics &amp; Phonetics</em>, 19(6-7), 545–554. <a href="https://doi.org/10.1080/02699200500113616">DOI</a></p>
+
+<p>Lulich, S. &amp; Ćavar, M. (2019). Phonetics of Polish “soft”-“hard” vowel allophony. <em>The Journal of the Acoustical Society of America</em>, 146(4), 2263-2278. <a href="https://doi.org/10.1121/1.5127834">DOI</a></p>
+
+<p>Matsui, M. &amp; Kochetov, A. (2018). Tongue root positioning for voicing vs. contrastive palatalization: An ultrasound study of Russian word-initial coronal stops [有声性対立のための舌根調音と硬口蓋化子音対立の関係―ロシア語語頭舌頂閉鎖音の超音波画像解析―]. <em>音声研究</em>, 22(2), 81-94. <a href="https://doi.org/10.24467/onseikenkyu.22.2_81">DOI</a></p>
+
+<p>Mielke, J., Olson, K., Baker, A. &amp; Archangeli, D. (2011). Articulation of the Kagayanen interdental approximant: An ultrasound study. <em>Journal of Phonetics</em>, 39(3), 403-412. <a href="https://doi.org/10.1016/j.wocn.2011.02.008">DOI</a></p>
+
+<p>Mielke, J., Baker, A., Archangeli, D., &amp; Racy, S. (2005). Palatron: a technique for aligning ultrasound images of the tongue and palate. <em>Coyote Papers</em>, 14, 96-107. <a href="http://hdl.handle.net/10150/126629">PDF</a></p>
+
+<p>Miller, A. (2016). Posterior lingual gestures and tongue shape in Mangetti Dune !Xung clicks. <em>Journal of Phonetics</em>, 55, 119–148. <a href="https://doi.org/10.1016/j.wocn.2015.12.001">DOI</a></p>
+
+<p>Moisik, S., Lin, H., &amp; Esling, J. (2014). A study of laryngeal gestures in Mandarin citation tones using simultaneous laryngoscopy and laryngeal ultrasound (SLLUS). <em>Journal of the International Phonetic Association</em>, 44(1), 21-58. <a href="https://doi.org/10.1017/S0025100313000327">DOI</a></p>
+
+<p>Percival, M., Kochetov, A. &amp; Kang, Y. (2018). An ultrasound study of gemination in coronal stops in Eastern Oromo. In <em>Proceedings of Interspeech 2018</em>, 1531-1535. <a href="https://doi.org/10.21437/Interspeech.2018-2512">DOI</a></p>
+
+<p>Pouplier, M. (2008). The role of a coda consonant as error trigger in repetition tasks. <em>Journal of Phonetics</em>, 36(1), 114-140. <a href="https://doi.org/10.1016/j.wocn.2007.01.002">DOI</a></p>
+
+<p>Roon, K., Chen, W., Iwasaki, R., Kang, J., Kim, B., Shejaeya, G., Tiede, M. &amp; Whalen, D. (2021). Comparison of auto-contouring and hand-contouring of ultrasound images of the tongue surface. Clinical Linguistics &amp; Phonetics, 1-20. <a href="
+
+https://doi.org/10.1080/02699206.2021.1998633">DOI</a></p>
+
+<p>Scobbie, J., Lawson, E., Cowen, S., Cleland, J. &amp; Wrench, A. (2011). A common co-ordinate system for mid-sagittal articulatory measurement. <em>QMU CASL Working Papers</em>, 20. <a href="https://eresearch.qmu.ac.uk/bitstream/handle/20.500.12289/3597/eResearch%25203597.pdf">PDF</a></p>
+
+<p>Shaw, J., Carignan, C., Agostini, T., Mailhammer, R., Harvey, M., &amp; Derrick, D. (2020). Phonological contrast and phonetic variation: The case of velars in Iwaidja. <em>Language</em>, 96(3), 578–617. <a href="https://muse.jhu.edu/article/764692">PDF</a></p>
+
+<p>Spreafico, L., Pucher, M. &amp; Matosova, A. (2018). UltraFit: A speaker-friendly headset for ultrasound recordings in speech science. In <em>Proceedings of Interspeech 2018</em>, 1517-1520. <a href="https://www.isca-speech.org/archive_v0/Interspeech_2018/pdfs/0995.pdf">PDF</a></p>
+
+<p>Stone, M. (2005). A guide to analysing tongue motion from ultrasound images. <em>Clinical Linguistics &amp; Phonetics</em>, 19(6-7), 455-501. <a href="https://doi.org/10.1080/02699200500113558">DOI</a></p>
+
+<p>Strycharczuk, P., Ćavar, M., &amp; Coretta, S. (2021). Distance vs time. Acoustic and articulatory consequences of reduced vowel duration in Polish. <em>The Journal of the Acoustical Society of America</em>, 150(1), 592-607. <a href="https://doi.org/10.1121/10.0005585">DOI</a></p>
+
+<p>Strycharczuk, P. &amp; Sebregts, K. (2018). Articulatory dynamics of (de)gemination in Dutch. <em>Journal of Phonetics</em>, 68, 138-149. <a href="https://doi.org/10.1016/j.wocn.2018.03.005">DOI</a></p>
+
+<p>Tabain, M., &amp; Beare, R. (2018). An ultrasound study of coronal places of articulation in Central Arrernte: Apicals, laminals and rhotics. <em>Journal of Phonetics</em>, 66, 63–81. <a href="https://doi.org/10.1016/j.wocn.2017.09.006">DOI</a></p>
+
+<p>Tiede, M. (2021). GetContours [v3.5]. <a href="https://github.com/mktiede/GetContours">GitHub</a></p>
+
+<p>Turton, D. (2015). Determining categoricity in English /l/-darkening: A principal component analysis of ultrasound spline data. In <em>Proceedings of ICPhS 18</em>. <a href="https://www.internationalphoneticassociation.org/icphs-proceedings/ICPhS2015/Papers/ICPHS0810.pdf">PDF</a></p>
+
+<p>Weller, J., Faytak, M., Steffman, J., Mayer, C., Teixeira, G. &amp; Tankou, R. (to appear). Supralaryngeal articulation across voicing and aspiration in Yemba vowels. In <em>Proceedings of ACAL 51/52</em>.</p>
+
+<p>Whalen, D., Iskarous, K., Tiede, M., Ostry, D., Lehnert-LeHouillier, H., Vatikiotis-Bateson, E. &amp; Hailey, D. (2004). The Haskins optically‐corrected ultrasound system (HOCUS). <em>Journal of Speech, Language, and Hearing Research</em>, 48, 543-553. <a href="https://doi.org/10.1044/1092-4388(2005/037)">DOI</a></p>
+
+<p>Whalen, D., Shaw, P., Noiray, A. &amp; Antony, R. (2011). Analogs of Tahltan consonant harmony in English CVC syllables. In <em>Proceedings of ICPhS 17</em>, 2129-2132. <a href="https://hal.archives-ouvertes.fr/hal-03476262/document">PDF</a></p>
+
+<p>Zharkova, N., Gibbon, F. &amp; Hardcastle, W. (2015). Quantifying lingual coarticulation using ultrasound imaging data collected with and without head stabilisation. <em>Clinical Linguistics &amp; Phonetics</em>, 29(4), 249-265. <a href="https://doi.org/10.3109/02699206.2015.1007528">DOI</a></p>
 
 </div>
 

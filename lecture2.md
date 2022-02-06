@@ -216,11 +216,11 @@ New $n$-dimensional space may not be so easy to interpret: what does a dimension
 
 ## Next time
 
-The second major thread of these lectures: ultrasound as a method
+Starting on the second major thread of these lectures: ultrasound as a method
 
 * Basic principles
 * Feature selection problems in ultrasound data
-* Other advances covered in subsequent lectures
+* More advanced methods covered in later lectures
 
 
 ## References {.bib}
