@@ -3,9 +3,6 @@
 
 Fan conversion
 
-Eshky, A., Cleland, J., Ribeiro, M. S., Sugden, E., Richmond, K. & Renals, S. (2021). Automatic audiovisual synchronisation for ultrasound tongue imaging. *Speech Communication*, ##(##), ##-##.
-
-
 
 Pixel methods (lecture 4+)
 
@@ -13,12 +10,6 @@ Palo on PD measures and their applications
 Moisik on optical flow
 summary of methods in Faytak et al 2020 
 Saito, Tomaschek et al - whole image GAMMs
-
-Compatibility with pixel-based analysis already carried out with other imaging methods
-
-Krause, P. & Kay, C. & Kawamoto, A., (2020) “Automatic Motion Tracking of Lips using Digital Video and OpenFace 2.0”, Laboratory Phonology 11(1), p.9. doi: https://doi.org/10.5334/labphon.232
-
-Oh & Lee centroid tracking in MRI
 
 
 Dimred methods

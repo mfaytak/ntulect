@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+
+  <meta name="generator" content="pandoc" />
+
+  <meta name="author" content="Matthew Faytak University at Buffalo" />
+
+  <title>NTU lectures (4)</title>
+
+  <style type="text/css">
+
+      code{white-space: pre-wrap;}
+
+      span.smallcaps{font-variant: small-caps;}
+
+      span.underline{text-decoration: underline;}
+
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+
+  </style>
+
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+
+    href="assets/styles/slidy.css" />
+
+  <script src="assets/scripts/slidy.js"
+
+    charset="utf-8" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div class="slide titlepage">
+
+  <h1 class="title">NTU lectures (4)</h1>
+
+  <p class="author">
+
+Matthew Faytak<br/>University at Buffalo
+
+  </p>
+
+  <p class="date"><img src="./assets/media/UB_Stacked_Small.png" width="200"> <img src="./assets/media/ntu-logo.png" width="200"><br/><img src="./assets/media/qr1.png" width="170"></p>
+
+</div>
+
+<div id="refresher-contour-extraction" class="slide section level2">
+
+<h1>Refresher: contour extraction</h1>
+
+<p>Contours can be extracted from the ultrasound image using a combination of human-generated hints and automatic processing <span class="cite">Iskarous (2005); Stone (2005)</span></p>
+
+<p><img src="./assets/media/goat-big.png" width="500"></p>
+
+</div>
+
+<div id="refresher-ultrasound-data-analysis" class="slide section level2">
+
+<h1>Refresher: ultrasound data analysis</h1>
+
+<p>Usually done on <strong>contours</strong> with a spline model which can handle non-linear patterns (like tongue shapes) <span class="cite">Davidson (2006); Heyne et al (2019)</span></p>
+
+<ul>
+
+<li>SSANOVA (smoothing spline ANOVA), pictured below</li>
+
+<li>GAMMs</li>
+
+<li>Both quite computationally intensive</li>
+
+</ul>
+
+<p><img src="./assets/media/weller-et-al.png" width="650"></p>
+
+<p><span class="cite">figure from Weller et al. (to appear)</span></p>
+
+</div>
+
+<div id="overview-this-lecture" class="slide section level2">
+
+<h1>Overview: this lecture</h1>
+
+<p>Various types of <strong>feature engineering</strong></p>
+
+<ul>
+
+<li>Generating new features from existing ones</li>
+
+<li>Often through recombination, averaging, etc.</li>
+
+</ul>
+
+<p>All get around feature extraction and the need for (most) human intervention</p>
+
+<ul>
+
+<li>Pixel difference methods</li>
+
+<li>Optical flow</li>
+
+<li>Dimensionality reduction on ultrasound frames
+
+<ul>
+
+<li>Our focus here and in our final notebook</li>
+
+</ul></li>
+
+</ul>
+
+</div>
+
+<div id="pixel-difference" class="title-slide slide section level1"><h1>Pixel difference</h1></div><div id="pixels" class="slide section level2">
+
+<h1>Pixels</h1>
+
+<p>Each ultrasound image is composed of tens of thousands of pixels, each of which has a numerical value indicating brightness</p>
+
+<p><img src="./assets/media/ultrasound-pixels2.png" width="300"> <img src="./assets/media/ultrasound-pixels-zoom.png" width="200"></p>
+
+<ul>
+
+<li>Directly relates to position of tongue: brightness means reflectivity</li>
+
+</ul>
+
+</div><div id="pixel-shape" class="slide section level2">
+
+<h1>Pixel shape</h1>
+
+<p>The pixels are <em>arc-shaped</em> in most ultrasound frames because the raw reflection data is stored as a rectangular grid <span class="cite">Wrench &amp; Scobbie (2008); Eshky et al (2021)</span></p>
+
+<ul>
+
+<li>Column = <strong>scan line</strong> (the energy/reflection of one element in probe)</li>
+
+<li>Row = distance from probe</li>
+
+<li>Color = reflectivity</li>
+
+</ul>
+
+<p>This grid is transformed to real-world proportions before we work with it <span class="cite">figure from Eshky et al (2021)</span></p>
+
+<p><img src="./assets/media/eshky.jpg" width="600"></p>
+
+</div><div id="pixel-difference-1" class="slide section level2">
+
+<h1>Pixel difference</h1>
+
+<p>Tongue position <em>change</em> means pixels change in brightness from frame to frame</p>
+
+<ul>
+
+<li>Some pixels gain brightness as tongue moves into their region</li>
+
+<li>Others lose brightness as tongue moves away</li>
+
+</ul>
+
+<p>The <strong>Euclidean distance</strong> of two frames in terms of all their pixels can be used as a measure of tongue movement <span class="cite">Palo (2019)</span></p>
+
+<ul>
+
+<li>Each frame <span class="math inline"><em>F</em></span> is an <span class="math inline"><em>n</em><sub><em>x</em></sub> × <em>n</em><sub><em>y</em></sub></span> dimensional vector, where <span class="math inline"><em>n</em><sub><em>x</em></sub></span> is scanlines and <span class="math inline"><em>n</em><sub><em>y</em></sub></span> is pixels per scanline</li>
+
+</ul>
+
+<p><img src="./assets/media/palo-eqn1.png" width="450"></p>
+
+<p>for <span class="math inline"><em>k</em> = {<em>F</em><sub>1</sub>, <em>F</em><sub>2</sub>, …<em>F</em><sub><em>n</em> − 1</sub>}</span></p>
+
+<p>image from Palo or from the SATKIT paper</p>
+
+</div><div id="step-size" class="slide section level2">
+
+<h1>Step size</h1>
+
+<p>We can calculate the difference over successive frames (step size 1), or over frames more separated in time (step size <span class="math inline"><em>L</em></span>)</p>
+
+<p><img src="./assets/media/palo-eqn2.png" width="425"></p>
+
+<p>for <span class="math inline"><em>k</em> = {<em>F</em><sub>1</sub>, <em>F</em><sub>2</sub>, …<em>F</em><sub><em>n</em> − <em>L</em></sub>}</span></p>
+
+<p>The time associated with this measurement is the average of the time of the two involved frames, or <span class="math inline">1/2(<em>t</em><sub><em>F</em><sub><em>k</em></sub></sub> + <em>t</em><sub><em>F</em><sub><em>k</em> + <em>L</em></sub></sub>)</span></p>
+
+</div><div id="applications-of-pixel-difference-method" class="slide section level2">
+
+<h1>Applications of pixel difference method</h1>
+
+<p>Detection of motion includes intrinsic tongue muscles, unlike other measures discussed so far; useful for detection of pre-speech articulation</p>
+
+<ul>
+
+<li>various psycholinguistic applications (refinement of production based reaction time)</li>
+
+</ul>
+
+</div>
+
+<div id="optical-flow" class="title-slide slide section level1"><h1>Optical flow</h1></div><div id="optical-flow-1" class="slide section level2">
+
+<h1>Optical flow</h1>
+
+<p>Related to pixel difference, but more computationally complex, is optical flow</p>
+
+<ul>
+
+<li>detects apparent motion evidenced by two images</li>
+
+<li>like basic pixel difference, returns the magnitude of the motion</li>
+
+<li>unlike pixel difference, yields direction of motion in addition to magnitude</li>
+
+<li>actual physical movement of rigid bodies can be calculated through further feature engineering</li>
+
+</ul>
+
+<p>images (2x slides?)</p>
+
+</div>
+
+<div id="dimensionality-reduction-on-ultrasound-frames" class="title-slide slide section level1"><h1>dimensionality reduction on ultrasound frames</h1></div><div id="our-focus-today" class="slide section level2">
+
+<h1>our focus today</h1>
+
+<p>Dimensionality reduction carried out not on ultrasound contours, but on ultrasound frames</p>
+
+</div><div id="pixel-structure" class="slide section level2">
+
+<h1>pixel structure</h1>
+
+<p>Recall that ultrasound frames are made up of tens of thousands of individual pixels</p>
+
+<ul>
+
+<li>each with their own value from 0 to 255, indicating brightness (black to white)</li>
+
+</ul>
+
+</div><div id="scan-lines" class="slide section level2">
+
+<h1>Scan lines</h1>
+
+<p>Going into more detail, each ultrasound image can be thought of as a matrix of width w by height h</p>
+
+<ul>
+
+<li>w, h values must be fixed throughout data collection (images don’t change in size)</li>
+
+<li>each column of pixels of size (1,h) represents a single scan line from the probe</li>
+
+<li>reflectivity data as sent out and received by a single element in the probe head</li>
+
+</ul>
+
+</div><div id="high-dimensionality" class="slide section level2">
+
+<h1>High dimensionality</h1>
+
+<p>Keep in mind: each pixel across data sets with the same frame size w,h can be thought of as a separate feature</p>
+
+<ul>
+
+<li>tens of thousands of features</li>
+
+</ul>
+
+</div><div id="feature-selection-problems" class="slide section level2">
+
+<h1>feature selection problems</h1>
+
+<p>Clear at this point: this is a challenge for feature selection</p>
+
+<ul>
+
+<li>how to pick a small number of pixels which are highly informative for the analysis you would like to do?</li>
+
+</ul>
+
+<p>In this particular context, working directly from frames, the best solution is to engineer new features which capture interesting variation</p>
+
+</div>
+
+<div id="enter-dimensionality-reduction" class="title-slide slide section level1"><h1>Enter: dimensionality reduction</h1></div><div id="recap-products-of-dimensionality-reduction" class="slide section level2">
+
+<h1>recap: products of dimensionality reduction</h1>
+
+<p>eigenvalues, eigenvectors</p>
+
+<p>(flesh out)</p>
+
+</div><div id="eigenimages" class="slide section level2">
+
+<h1>eigenimages</h1>
+
+<p>This method is very commonly extended to image data in which the subject matter is tightly constrained</p>
+
+<ul>
+
+<li>faces (eigenfaces)</li>
+
+<li>eigenlips</li>
+
+<li>hand written letters and numbers</li>
+
+</ul>
+
+</div><div id="eigentongues" class="slide section level2">
+
+<h1>eigentongues</h1>
+
+<p>Hueber et al (2007) coinage, from eigenfaces</p>
+
+<p>Each PC used to visualize the data can be understood by the patterns of covariation shown among pixels in its eigentongue</p>
+
+<p>show example</p>
+
+<ul>
+
+<li>shows patterns of negative and positive covariation in pixel brightness across a data set</li>
+
+<li>eigenfaces: patterns correspond to facial features</li>
+
+<li>eigentongues: patterns correspond to positions of the visible tongue contour
+
+<ul>
+
+<li>as well as any other patterning in the image (hyoid shadow position, internal musculature of tongue, etc.)</li>
+
+<li>captures more information than tongue contour position in this way</li>
+
+</ul></li>
+
+</ul>
+
+</div><div id="eigentongues-1" class="slide section level2">
+
+<h1>eigentongues</h1>
+
+<p>Blue = positive covariation with PC score; red = negative covariation with PC score</p>
+
+<ul>
+
+<li>Higher PC1 score makes red pixels light up</li>
+
+<li>Lower PC1 score makes blue pixels light up</li>
+
+</ul>
+
+<p>[image]</p>
+
+</div><div id="pc-scores" class="slide section level2">
+
+<h1>PC scores</h1>
+
+<p>…</p>
+
+<p>PC scores are simple numerical values, which can be plotted against each other to reveal structure in the data</p>
+
+<p>Conventional to use highest rank order PCs</p>
+
+<p>show ex</p>
+
+<p>focus of the notebook</p>
+
+</div><div id="further-analysis-of-pc-scores" class="slide section level2">
+
+<h1>further analysis of PC scores</h1>
+
+<p>PC scores can be used directly as low dimensional representations of variation in the data set, and can be treated like any other numerical variable</p>
+
+<ul>
+
+<li>regression analysis</li>
+
+<li>correlation analysis</li>
+
+</ul>
+
+<p>Pouplier &amp; ??? As an example of direct analysis of PC1</p>
+
+</div><div id="time-series-of-pc-scores" class="slide section level2">
+
+<h1>Time series of PC scores</h1>
+
+<p>If the data include all frames in a target interval, then the PCs can be used to track dynamical changes across the duration of the target interval</p>
+
+<ul>
+
+<li>Mielke &amp; Carignan</li>
+
+<li>Kochetov, Faytak, Nara</li>
+
+</ul>
+
+</div><div id="reconstruction-using-eigentongues" class="slide section level2">
+
+<h1>Reconstruction using eigentongues</h1>
+
+<p>Reconstruction of basis data from linear combination and weighting of eigentongues is easily achieved</p>
+
+<p>The one figure goes here</p>
+
+</div><div id="case-study" class="slide section level2">
+
+<h1>case study</h1>
+
+<p>Reconstruction in Faytak et al. 2020</p>
+
+<ul>
+
+<li>velar nasal versus alveolar nasal</li>
+
+<li>most reconstruct categorically as alveolar or velar</li>
+
+<li>a proportion of data doesn’t reconstruct like either</li>
+
+</ul>
+
+</div>
+
+<div id="wrapping-up" class="title-slide slide section level1"><h1>Wrapping up</h1></div><div id="pros" class="slide section level2">
+
+<h1>Pros</h1>
+
+<p>Very efficient once the basics are mastered</p>
+
+<ul>
+
+<li>Speedy (big advantage over basic contour extraction)</li>
+
+<li>Very replicable</li>
+
+</ul>
+
+<p>Potentially more informative in some respects than contours</p>
+
+<ul>
+
+<li>Especially for data where parts of tongue contour aren’t visible</li>
+
+</ul>
+
+</div><div id="convergence-with-other-methods" class="slide section level2">
+
+<h1>Convergence with other methods</h1>
+
+<p>converging on common analysis across methods: pixel and pixel dimred methods easy to use on other data types</p>
+
+<ul>
+
+<li>MRI <span class="cite">Oh &amp; Lee (2018)</span></li>
+
+<li>Video of face, especially lips <span class="cite">Krause et al (2020)</span></li>
+
+</ul>
+
+</div><div id="cons" class="slide section level2">
+
+<h1>Cons</h1>
+
+<p>Best suited to analyses of relative similarity and difference of sounds</p>
+
+<ul>
+
+<li>Somewhat limited</li>
+
+<li>Fairly different from some approaches to (“engineering-y”)</li>
+
+</ul>
+
+</div><div id="next-lecture" class="slide section level2">
+
+<h1>Next lecture</h1>
+
+<p>A practical how-to of UTI image PCA</p>
+
+<ul>
+
+<li>Sample data</li>
+
+<li>Notebooking</li>
+
+</ul>
+
+</div><div id="references" class="slide section level2">
+
+<h1>References</h1>
+
+<p>Davidson, L. (2006). Comparing tongue shapes from ultrasound imaging using smoothing spline analysis of variance. <em>The Journal of the Acoustical Society of America</em>, 120, pp. 407–415. <a href="https://doi.org/10.1121/1.2205133">DOI</a></p>
+
+<p>Eshky, A., Cleland, J., Ribeiro, M., Sugden, E., Richmond, K. &amp; Renals, S. (2021). Automatic audiovisual synchronisation for ultrasound tongue imaging. <em>Speech Communication</em>, 132, 83-95. <a href="https://doi.org/10.1016/j.specom.2021.05.008">DOI</a></p>
+
+<p>Heyne, M., Derrick, D., &amp; Al-Tamimi, J. (2019). Native language influence on brass instrument performance: An application of generalized additive mixed models (GAMMs) to midsagittal ultrasound images of the tongue. <em>Frontiers in Psychology</em>, 2597. <a href="https://doi.org/10.3389/fpsyg.2019.02597">DOI</a></p>
+
+<p>Iskarous, K. (2005). Detecting the edge of the tongue: A tutorial. <em>Clinical Linguistics &amp; Phonetics</em>, 19(6-7), 555-565. <a href="https://doi.org/10.1080/02699200500113871">DOI</a></p>
+
+<p>Krause, P., Kay, C. &amp; Kawamoto, A., (2020) Automatic motion tracking of lips using digital video and OpenFace 2.0, <em>Laboratory Phonology</em> 11(1), 9. <a href="https://doi.org/10.5334/labphon.232">DOI</a></p>
+
+<p>Oh, M., &amp; Lee, Y. (2018). ACT: An Automatic Centroid Tracking tool for analyzing vocal tract actions in real-time magnetic resonance imaging speech production data. <em>The Journal of the Acoustical Society of America</em>, 144(4), EL290-EL296. <a href="https://doi.org/10.1121/1.5057367">DOI</a></p>
+
+<p>Palo, P. (2019). Measuring pre-speech articulation. Doctoral dissertation, Queen Margaret University. <a href="https://eresearch.qmu.ac.uk/handle/20.500.12289/10163">PDF</a></p>
+
+<p>Stone, M. (2005). A guide to analysing tongue motion from ultrasound images. <em>Clinical Linguistics &amp; Phonetics</em>, 19(6-7), 455-501. <a href="https://doi.org/10.1080/02699200500113558">DOI</a></p>
+
+<p>Weller, J., Faytak, M., Steffman, J., Mayer, C., Teixeira, G. &amp; Tankou, R. (to appear). Supralaryngeal articulation across voicing and aspiration in Yemba vowels. In <em>Proceedings of ACAL 51/52</em>.</p>
+
+<p>Wrench, A., &amp; Scobbie, J. (2008). High-speed cineloop ultrasound vs. video ultrasound tongue imaging: Comparison of front and back lingual gesture location and relative timing. In <em>Proceedings of ISSP 8</em>. <a href="https://eresearch.qmu.ac.uk/handle/20.500.12289/2012">PDF</a></p>
+
+</div>
+
+</body>
+
+</html>

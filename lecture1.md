@@ -1,5 +1,5 @@
-% NTU lectures (1)
-% Matthew Faytak<br/>University at Buffalo
+% Getting started; features
+% Matthew Faytak<br/>University at Buffalo<br/>NTU lecture series
 % <img src="./assets/media/UB_Stacked_Small.png" width="200"> <img src="./assets/media/ntu-logo.png" width="200"><br/><img src="./assets/media/qr1.png" width="170">
 
 
@@ -99,7 +99,7 @@ Interactive Python notebooks for:
 **Features** and **feature selection** in phonetics (speech production)
 
 * Major way we arrive at predictive features for research purposes
-* Underlying research philosophy
+* Underlying research philosophies
 * Limits and advantages of this approach
 
 
