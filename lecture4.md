@@ -22,6 +22,7 @@ Usually done on **contours** with a spline model which can handle non-linear pat
 
 <span class="cite">figure from Weller et al. (to appear)</span>
 
+
 ## Overview: this lecture
 
 Various types of **feature engineering**
@@ -201,56 +202,65 @@ Like in the notebook's dataframe:
 
 <img src="./assets/media/flatten.png" width="600">
 
-## Math
 
-Here, or later?
+## Eigenvectors as eigenpictures
+
+Convert our length $wh$ eigenvectors back to $w \times h$ grids to get impact of associated PCs on pixel brightness *in physical space* <span class="cite">Sirovich & Kirby (1987)</span>
+
+* Help us to evaluate what the discovered dimensions are
+* Famously applied to faces; eigenvectors converted back to original dimensions are called **eigenfaces** <span class="cite">Turk & Pentland (1991)</span>
+* Also applied to images of lips alone (eigenlips) <span class="cite">Bregler & Konig (1994)</span>
+
+We could reshape our notebook's eigenvectors, but because feature number doesn't correspond to physical space, it doesn't really gain us anything
+
+<img src="./assets/media/reshape-basic.png" width="600">
 
 
-## Eigenvectors as eigenimages
+## Eigenfaces
 
-Eigenvectors which result from PCA on this data reflect *variation in pixel brightness over physical space*; we can convert our length *wh* eigenvectors back to 
+When the features correspond to physical position (i.e. of pixels), eigenpictures tell us more: <span class="cite">figures from Turk & Pentland (1991)</span>
 
-* Here's what our eigenvectors looked like in NB:
-* Here's what image eigenvectors look like, if transformed back to image shape
+* We used red/blue diverging color scale in notebook; here white = positive, black = negative
 
+<img src="./assets/media/turk-rotation.png" width="700">
 
-## Slide
+Eigenfaces show variation in shape and size of facial features, hair, and setting (lighting, pose, etc)
 
-* Faces (eigenfaces) <span class="cite">Turk & Pentland (1991)</span>
-* Lips (eigenlips) <span class="cite">Bregler & Konig (1994)</span>
-
-image from T&P
+* The most informative eigenfaces (PCs) mainly capture variation in hair and facial hair
+* Along with glasses,  lighting, and probably skin tone
 
 
 ## Eigentongues
 
 Hueber et al (2007) coined **eigentongues**, from eigenfaces
 
-Each PC used to visualize the data can be understood by the patterns of covariation shown among pixels in its eigentongue
+* Take the PC loadings obtained from our "flattened" frame data, and "unflatten" them
 
-show example
+<img src="./assets/media/eigentongue-basic2.png" width="700">
 
-* shows patterns of negative and positive covariation in pixel brightness across a data set
-* correspond to positions of the visible tongue contour
-	* as well as any other patterning in the image (hyoid shadow position, internal musculature of tongue, etc.)
-	* captures more information than tongue contour position in this way
+* Covariation of pixel brightness with PCs shows variation in *tongue contour* position
+	* And any other patterns in data set (hyoid shadow position, internal musculature of tongue, ...)
+* Here, higher PC1 "moves" upper part of contour to the right; lower PC1 "moves" it to the left
 
 
-## eigentongues
+## Eigentongues
 
-White = positive covariation with PC score; black = negative covariation with PC score
+Another example, from *all* tongue postures in a corpus, at a lower spatial resolution <span class="cite">figures from Hueber et al (2007)</span>
 
+* Again, white = positive covariation with PC score; black = negative 
 * Higher PC1 score makes brighter pixels light up
 * Lower PC1 score makes darker pixels light up
 
-[image: hueber-eigen]
+<img src="./assets/media/hueber-all.png" width="700">
 
 
 ## PC scores
 
-We can then characterize the ultrasound image data set in PC-space terms (PC scores)
+We can now characterize our ultrasound image data set in terms of **PC scores** for each eigentongue
 
 show ex
+
+projection math here?
 
 * Hoole & Pouplier as an example of direct analysis of PC1
 * regression analysis
@@ -267,9 +277,15 @@ If the data include all frames in a target interval, then the PCs can be used to
 
 ## Reconstruction using eigenvectors
 
+Reconstruction math here?
+
+insert Berry reconst. equation here (doesn't typeset properly)
+
 Reconstruction of basis data from linear combination and weighting of eigentongues is easily achieved
 
 Reconstruction in Faytak et al. 2020
+
+<img src="./assets/media/turk-figs1-2.png" width="700">
 
 
 ## Reconstruction and missing data
@@ -284,13 +300,26 @@ Ground truth (which was used in training set for eigenvectors):
 
 <img src="./assets/media/missing-groundtruth.png" width="200">
 
+## Ultrasound use
+
+Reconstruction of ultrasound images creates a *denoised* reconstruction of the observation
+
+* Focus on pixels which vary most interestingly
+
+image
+
+Can also be used to get *average* denoised reconstruction for a *set* of frames
+
+image
+
 
 ## Caveats
 
 Eigenimage analysis can work with new data only if images are (more or less) contained within training set
 
 * Turk & Pentland eigenface data set is mostly white, entirely men
-* ...
+* Resist the urge to uncritically use a training set on new data
+* Treating training data or algorithms (like PCA) as fair and neutral can have unintended negative consequences <span class="cite">Buolamwini & Gebru (2018)</span>
 
 
 # Wrapping up
@@ -339,6 +368,8 @@ If using a train-test approach, hinges on quality of training data
 ## References
 
 Bregler, C. & Konig, Y. (1994). "Eigenlips" for robust speech recognition. In *Proceedings of ICASSP '94 Vol. 2*. <a href="https://doi.org/10.1109/ICASSP.1994.389567">DOI</a>
+
+Buolamwini, J. & Gebru, T. (2018). Gender shades: Intersectional accuracy disparities in commercial gender classification. *Proceedings of the 1st Conference on Fairness, Accountability and Transparency*, in *Proceedings of Machine Learning Research* 81, 77-91. <a href="https://proceedings.mlr.press/v81/buolamwini18a.html">PDFs</a>
 
 Danilouchkine, M., Mastik, F. & van der Steen, A. (2009). A study of
 coronary artery rotational motion with dense scale-space optical
