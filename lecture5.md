@@ -5,12 +5,6 @@
 
 
 
-## Overview
-
-
-
-# By-products: LDA
-
 ## linear discriminant analysis (LDA)
 
 Another dimensionality reduction technique, with different goals than PCA
@@ -19,6 +13,11 @@ Another dimensionality reduction technique, with different goals than PCA
 * LDA further reduces dimensionality to maximize discriminability of the labeled categories
 * the learned dimensionality is the one which maximizes discriminability (no similar goal for PCA)
 
+## segment detector
+
+As an extension of this, LDA can characterize held-out data in terms of the data it has seen
+
+Example of American English /r/ "detector" from Mielke et al. 2016
 
 ## how to LDA
 
@@ -43,20 +42,9 @@ New data (which was not included in the PCA) can also be projected into the low 
 Lingvan paper should be brought in here
 
 
-## segment detector
-
-As an extension of this, LDA can characterize held-out data in terms of the data it has seen
-
-Example of American English /r/ "detector" from Mielke et al. 2016
 
 
-## segment class detector
-
-Example?
 
 
-## case study
-
-Your labphon paper
 
 

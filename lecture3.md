@@ -1,5 +1,5 @@
-% NTU lectures (3)
-% Matthew Faytak<br/>University at Buffalo
+% Ultrasound; contour extraction
+% Matthew Faytak<br/>University at Buffalo<br/>NTU lecture series
 % <img src="./assets/media/UB_Stacked_Small.png" width="200"> <img src="./assets/media/ntu-logo.png" width="200"><br/><img src="./assets/media/qr1.png" width="170">
 
 ## In this lecture
@@ -70,7 +70,7 @@ Often collected prior to recording
 * Provides position of the hard palate
 * Useful for gauging constriction degree
 
-<img src="./assets/media/palate-figure.png" width="600">
+<img src="./assets/media/palate-figure.png" width="750">
 
 
 ## Rigid landmarks 
@@ -103,7 +103,7 @@ Also not our focus, but possible
 * Imaging in an **oblique** slice (not sagittal or coronal) <span class="cite">Moisik et al (2014)</span>
 * Images the cartilaginous structures of the larynx
 
-<img src="./assets/media/sllus.png" width="650">
+<img src="./assets/media/sllus.png" width="700">
 
 <span class="cite">image from Moisik et al (2014)</span>
 
@@ -210,7 +210,7 @@ Importantly, these methods work even when the probe is not stabilized
 Motion of *certain parts* of contours can be subjected to further feature extraction by drawing **registration lines** and tracking movement along those lines <span class="cite">Gick et al (2006); Pouplier (2008); many others</span>
 
 * Lines drawn in a fan shaped grid out from *probe origin* (at bottom middle of image)
-* Sometimes, genioglossus tendon is used as origin instead <span class="cite">see figure below, from Lulich & Cavar (2019)</span>
+* Sometimes, genioglossus tendon is used as origin instead <span class="cite">see figure below, from Lulich & Ćavar (2019)</span>
 	* Attaches muscles of tongue to back side of chin; clearly visible in ultrasound
 
 <img src="./assets/media/lulich.png" width="600">
@@ -226,7 +226,7 @@ Dimensionality reduction methods such as PCA can also be applied to reveal *vari
 * PC1 and PC2 typically capture most of the variance
 * Below: mean contour in black; negative and positive scores indicated with dashed lines <span class="cite">from Bennett et al (2018)</span>
 
-<img src="./assets/media/bennett.png" width="600">
+<img src="./assets/media/bennett.png" width="700">
 
 
 # Wrapping up

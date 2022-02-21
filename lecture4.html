@@ -124,7 +124,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </div>
 
-<div id="pixel-difference" class="title-slide slide section level1"><h1>Pixel difference</h1></div><div id="pixels" class="slide section level2">
+<div id="pixel-based-motion-detection" class="title-slide slide section level1"><h1>Pixel-based motion detection</h1></div><div id="pixels" class="slide section level2">
 
 <h1>Pixels</h1>
 
@@ -158,9 +158,9 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/eshky.jpg" width="600"></p>
 
-</div><div id="pixel-difference-1" class="slide section level2">
+</div><div id="pixel-difference-pd" class="slide section level2">
 
-<h1>Pixel difference</h1>
+<h1>Pixel difference (PD)</h1>
 
 <p>Tongue position <em>change</em> means pixels change in brightness from frame to frame</p>
 
@@ -172,7 +172,15 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-<p>The <strong>Euclidean distance</strong> of two frames in terms of all their pixels can be used as a measure of tongue movement <span class="cite">Palo (2019)</span></p>
+<p>The <strong>Euclidean distance</strong> of two frames in terms of all their pixels can be used as a measure of tongue movement <span class="cite">figure from Palo (2019)</span></p>
+
+<p><img src="./assets/media/palo-lemon.png" width="600"></p>
+
+</div><div id="definition" class="slide section level2">
+
+<h1>Definition</h1>
+
+<p>Defining PD more precisely <span class="cite">Palo (2019)</span>:</p>
 
 <ul>
 
@@ -182,9 +190,11 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/palo-eqn1.png" width="450"></p>
 
-<p>for <span class="math inline"><em>k</em> = {<em>F</em><sub>1</sub>, <em>F</em><sub>2</sub>, …<em>F</em><sub><em>n</em> − 1</sub>}</span></p>
+<ul>
 
-<p>image from Palo or from the SATKIT paper</p>
+<li>For <span class="math inline"><em>k</em> = {<em>F</em><sub>1</sub>, <em>F</em><sub>2</sub>, …<em>F</em><sub><em>n</em> − 1</sub>}</span></li>
+
+</ul>
 
 </div><div id="step-size" class="slide section level2">
 
@@ -194,137 +204,209 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/palo-eqn2.png" width="425"></p>
 
-<p>for <span class="math inline"><em>k</em> = {<em>F</em><sub>1</sub>, <em>F</em><sub>2</sub>, …<em>F</em><sub><em>n</em> − <em>L</em></sub>}</span></p>
+<ul>
 
-<p>The time associated with this measurement is the average of the time of the two involved frames, or <span class="math inline">1/2(<em>t</em><sub><em>F</em><sub><em>k</em></sub></sub> + <em>t</em><sub><em>F</em><sub><em>k</em> + <em>L</em></sub></sub>)</span></p>
+<li><p>for <span class="math inline"><em>k</em> = {<em>F</em><sub>1</sub>, <em>F</em><sub>2</sub>, …<em>F</em><sub><em>n</em> − <em>L</em></sub>}</span></p></li>
 
-</div><div id="applications-of-pixel-difference-method" class="slide section level2">
+<li><p>The time associated with this measurement is the average of the time of the two involved frames, or <span class="math inline">1/2(<em>t</em><sub><em>F</em><sub><em>k</em></sub></sub> + <em>t</em><sub><em>F</em><sub><em>k</em> + <em>L</em></sub></sub>)</span></p></li>
 
-<h1>Applications of pixel difference method</h1>
+</ul>
 
-<p>Detection of motion includes intrinsic tongue muscles, unlike other measures discussed so far; useful for detection of pre-speech articulation</p>
+<p>Palo (2019) mainly uses a step size of 1</p>
 
 <ul>
 
-<li>various psycholinguistic applications (refinement of production based reaction time)</li>
+<li>Though depending on the articulation at issue, larger step sizes may be appropriate</li>
 
 </ul>
+
+</div><div id="applications-of-pd" class="slide section level2">
+
+<h1>Applications of PD</h1>
+
+<p>Movement detected includes <em>intrinsic tongue muscles</em>, unlike other measures discussed so far</p>
+
+<ul>
+
+<li>Measures more than just movement in the surface contour</li>
+
+<li>Can even detect a speaker’s heart rate (pulse in vessels in the tongue)</li>
+
+</ul>
+
+<p>Various psycholinguistic applications <span class="cite">McMillan &amp; Corley (2010); Palo (2019)</span></p>
+
+<ul>
+
+<li>Useful for detection of pre-speech articulation which may not be represented in the acoustic signal</li>
+
+<li>Refinement of reaction times based on production</li>
+
+</ul>
+
+</div><div id="optical-flow-of" class="slide section level2">
+
+<h1>Optical flow (OF)</h1>
+
+<p>Related but more computationally complex: <strong>optical flow</strong>, which detects apparent motion between two frames <span class="cite">Horn &amp; Schunck (1981)</span></p>
+
+<ul>
+
+<li>Like PD, detects magnitude of motion; unlike PD, gives <em>direction</em> of motion as well</li>
+
+<li>Produces a <strong>flow field</strong> for smaller elements in image, which can be averaged to a <strong>consensus</strong> <span class="cite">figure from Faytak, Moisik, &amp; Palo (2021)</span></li>
+
+</ul>
+
+<p><img src="./assets/media/satkit-of.png" width="450"></p>
+
+</div><div id="applications-of-of" class="slide section level2">
+
+<h1>Applications of OF</h1>
+
+<p>Integrating the velocity signal gives amount of displacement for rigid bodies (i.e. the larynx) <span class="cite"> Moisik et al (2014); figure from Faytak, Moisik &amp; Palo (2021)</span></p>
+
+<p><img src="./assets/media/satkit-movement.png" width="500"></p>
 
 </div>
 
-<div id="optical-flow" class="title-slide slide section level1"><h1>Optical flow</h1></div><div id="optical-flow-1" class="slide section level2">
+<div id="pixel-dimensionality-reduction" class="title-slide slide section level1"><h1>Pixel dimensionality reduction</h1></div><div id="pixel-dimensionality-reduction-1" class="slide section level2">
 
-<h1>Optical flow</h1>
+<h1>Pixel dimensionality reduction</h1>
 
-<p>Related to pixel difference, but more computationally complex, is optical flow</p>
-
-<ul>
-
-<li>detects apparent motion evidenced by two images</li>
-
-<li>like basic pixel difference, returns the magnitude of the motion</li>
-
-<li>unlike pixel difference, yields direction of motion in addition to magnitude</li>
-
-<li>actual physical movement of rigid bodies can be calculated through further feature engineering</li>
-
-</ul>
-
-<p>images (2x slides?)</p>
-
-</div>
-
-<div id="dimensionality-reduction-on-ultrasound-frames" class="title-slide slide section level1"><h1>dimensionality reduction on ultrasound frames</h1></div><div id="our-focus-today" class="slide section level2">
-
-<h1>our focus today</h1>
-
-<p>Dimensionality reduction carried out not on ultrasound contours, but on ultrasound frames</p>
-
-</div><div id="pixel-structure" class="slide section level2">
-
-<h1>pixel structure</h1>
-
-<p>Recall that ultrasound frames are made up of tens of thousands of individual pixels</p>
+<p>Dimensionality reduction carried out not on ultrasound contours, but on entire <strong>ultrasound frames</strong></p>
 
 <ul>
 
-<li>each with their own value from 0 to 255, indicating brightness (black to white)</li>
+<li>Ultrasound frames are made up of tens of thousands of individual pixels</li>
+
+<li>Each with a value indicating brightness (e.g. 0=black, 255=white)</li>
 
 </ul>
 
-</div><div id="scan-lines" class="slide section level2">
+<p>Brightness values can be used as raw data for dimensionality reduction</p>
 
-<h1>Scan lines</h1>
+</div><div id="pixels-and-scan-lines" class="slide section level2">
 
-<p>Going into more detail, each ultrasound image can be thought of as a matrix of width w by height h</p>
+<h1>Pixels and scan lines</h1>
+
+<p>Each ultrasound frame can be thought of as a matrix of width <span class="math inline"><em>w</em></span> by height <span class="math inline"><em>h</em></span></p>
 
 <ul>
 
-<li>w, h values must be fixed throughout data collection (images don’t change in size)</li>
+<li><span class="math inline"><em>w</em>, <em>h</em></span> values must be fixed throughout data collection (images must be same size)</li>
 
-<li>each column of pixels of size (1,h) represents a single scan line from the probe</li>
+<li>Each column of pixels of shape <span class="math inline">1 × <em>h</em></span> represents a single <strong>scan line</strong> from the probe</li>
 
-<li>reflectivity data as sent out and received by a single element in the probe head</li>
+<li>Each scan line is reflectivity data from a single element in the probe</li>
 
 </ul>
+
+<p><img src="./assets/media/scanlines.jpg" width="375"></p>
 
 </div><div id="high-dimensionality" class="slide section level2">
 
 <h1>High dimensionality</h1>
 
-<p>Keep in mind: each pixel across data sets with the same frame size w,h can be thought of as a separate feature</p>
+<p>Each pixel at location <span class="math inline"><em>x</em>, <em>y</em></span> across data sets with the same frame size <span class="math inline"><em>w</em> × <em>h</em></span> can be thought of as a separate feature</p>
 
 <ul>
 
-<li>tens of thousands of features</li>
+<li>Meaning: each frame contains thousands, or tens of thousands, of features</li>
 
 </ul>
 
-</div><div id="feature-selection-problems" class="slide section level2">
-
-<h1>feature selection problems</h1>
-
-<p>Clear at this point: this is a challenge for feature selection</p>
+<p>Challenge for <strong>feature selection</strong>:</p>
 
 <ul>
 
-<li>how to pick a small number of pixels which are highly informative for the analysis you would like to do?</li>
+<li>Bad idea to use every single pixel (curse of dimensionality)</li>
+
+<li>Not easy to pick a small number of pixels which are good predictors of the phenomenon we’re studying</li>
+
+<li>Solution: <strong>engineer new features</strong> which capture the variation</li>
 
 </ul>
 
-<p>In this particular context, working directly from frames, the best solution is to engineer new features which capture interesting variation</p>
+</div><div id="recap-dimensionality-reduction" class="slide section level2">
 
-</div>
+<h1>Recap: dimensionality reduction</h1>
 
-<div id="enter-dimensionality-reduction" class="title-slide slide section level1"><h1>Enter: dimensionality reduction</h1></div><div id="recap-products-of-dimensionality-reduction" class="slide section level2">
-
-<h1>recap: products of dimensionality reduction</h1>
-
-<p>eigenvalues, eigenvectors</p>
-
-<p>(flesh out)</p>
-
-</div><div id="eigenimages" class="slide section level2">
-
-<h1>eigenimages</h1>
-
-<p>This method is very commonly extended to image data in which the subject matter is tightly constrained</p>
+<p>PCA outputs <strong>eigenvectors</strong> and <strong>eigenvalues</strong></p>
 
 <ul>
 
-<li>faces (eigenfaces)</li>
+<li>Eigenvectors (PCs) are patterns of variation uncovered in the data</li>
 
-<li>eigenlips</li>
+<li>Eigenvalues assign importance to explaining variation in the data</li>
 
-<li>hand written letters and numbers</li>
+<li>Observations can be transformed from naive basis into “PC space”</li>
 
 </ul>
+
+<p>We might recall this was applied to numerous acoustic measures in our first notebook</p>
+
+<p>Eigenvector loadings:</p>
+
+<p><img src="./assets/media/eigenvector-basic.png" width="550"></p>
+
+<p>Data in PC space:</p>
+
+<p><img src="./assets/media/notebook1-recap.png" width="600"></p>
+
+</div><div id="calculating-image-eigenvectors" class="slide section level2">
+
+<h1>Calculating image eigenvectors</h1>
+
+<p>Method can be extended to <em>image data</em>: pixels in an image of shape <span class="math inline"><em>w</em> × <em>h</em></span> are treated as a <em>very long list</em> of features of length <span class="math inline"><em>w</em><em>h</em></span></p>
+
+<ul>
+
+<li>Basically, rows or columns are “unstacked” and “put end to end” to form a list</li>
+
+</ul>
+
+<p><img src="./assets/media/frametolist.png" width="600"></p>
+
+<p>Like in the notebook’s dataframe:</p>
+
+<ul>
+
+<li>Each row in the dataframe is an observation (i.e. an ultrasound frame)</li>
+
+<li>Each column in the dataframe is a feature (pixel in a given location)</li>
+
+<li>The difference: <em>many more</em> columns/features</li>
+
+</ul>
+
+<p><img src="./assets/media/flatten.png" width="600"></p>
+
+</div><div id="eigenvectors-as-eigenimages" class="slide section level2">
+
+<h1>Eigenvectors as eigenimages</h1>
+
+<p>Eigenvectors which result from PCA on this data reflect <em>variation in pixel brightness over physical space</em>; we can convert our length <em>wh</em> eigenvectors back to</p>
+
+<ul>
+
+<li><p>Here’s what our eigenvectors looked like in NB:</p></li>
+
+<li><p>Here’s what image eigenvectors look like, if transformed back to image shape</p></li>
+
+<li><p>Faces (eigenfaces) <span class="cite">Turk &amp; Pentland (1991)</span></p></li>
+
+<li><p>Lips (eigenlips) <span class="cite">Bregler &amp; Konig (1994)</span></p></li>
+
+</ul>
+
+<p>image from T&amp;P</p>
 
 </div><div id="eigentongues" class="slide section level2">
 
-<h1>eigentongues</h1>
+<h1>Eigentongues</h1>
 
-<p>Hueber et al (2007) coinage, from eigenfaces</p>
+<p>Hueber et al (2007) coined <strong>eigentongues</strong>, from eigenfaces</p>
 
 <p>Each PC used to visualize the data can be understood by the patterns of covariation shown among pixels in its eigentongue</p>
 
@@ -352,47 +434,37 @@ Matthew Faytak<br/>University at Buffalo
 
 <h1>eigentongues</h1>
 
-<p>Blue = positive covariation with PC score; red = negative covariation with PC score</p>
+<p>White = positive covariation with PC score; black = negative covariation with PC score</p>
 
 <ul>
 
-<li>Higher PC1 score makes red pixels light up</li>
+<li>Higher PC1 score makes brighter pixels light up</li>
 
-<li>Lower PC1 score makes blue pixels light up</li>
+<li>Lower PC1 score makes darker pixels light up</li>
 
 </ul>
 
-<p>[image]</p>
+<p>[image: hueber-eigen]</p>
 
 </div><div id="pc-scores" class="slide section level2">
 
 <h1>PC scores</h1>
 
-<p>…</p>
-
-<p>PC scores are simple numerical values, which can be plotted against each other to reveal structure in the data</p>
+<p>We can then characterize the ultrasound image data set in PC-space terms (PC scores)</p>
 
 <p>Conventional to use highest rank order PCs</p>
 
 <p>show ex</p>
 
-<p>focus of the notebook</p>
-
-</div><div id="further-analysis-of-pc-scores" class="slide section level2">
-
-<h1>further analysis of PC scores</h1>
-
-<p>PC scores can be used directly as low dimensional representations of variation in the data set, and can be treated like any other numerical variable</p>
-
 <ul>
+
+<li>Pouplier &amp; ??? As an example of direct analysis of PC1</li>
 
 <li>regression analysis</li>
 
 <li>correlation analysis</li>
 
 </ul>
-
-<p>Pouplier &amp; ??? As an example of direct analysis of PC1</p>
 
 </div><div id="time-series-of-pc-scores" class="slide section level2">
 
@@ -408,13 +480,41 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div><div id="reconstruction-using-eigentongues" class="slide section level2">
+</div><div id="reconstruction-using-eigenvectors" class="slide section level2">
 
-<h1>Reconstruction using eigentongues</h1>
+<h1>Reconstruction using eigenvectors</h1>
 
 <p>Reconstruction of basis data from linear combination and weighting of eigentongues is easily achieved</p>
 
 <p>The one figure goes here</p>
+
+</div><div id="reconstruction-and-missing-data" class="slide section level2">
+
+<h1>Reconstruction and missing data</h1>
+
+<p>Works particularly nicely when part of an observation’s data is missing, but similar complete data was used to generate the eigenvectors</p>
+
+<p>Masked test data and its reconstruction: <span class="cite">figures from Turk &amp; Pentland (1991)</span></p>
+
+<p><img src="./assets/media/missing-recon.png" width="400"></p>
+
+<p>Ground truth (which was used in training set for eigenvectors):</p>
+
+<p><img src="./assets/media/missing-groundtruth.png" width="200"></p>
+
+</div><div id="caveats" class="slide section level2">
+
+<h1>Caveats</h1>
+
+<p>Eigenimage analysis can work with new data only if images are (more or less) contained within training set</p>
+
+<ul>
+
+<li>Turk &amp; Pentland eigenface data set is mostly white, entirely men</li>
+
+<li>…</li>
+
+</ul>
 
 </div><div id="case-study" class="slide section level2">
 
@@ -502,21 +602,37 @@ Matthew Faytak<br/>University at Buffalo
 
 <h1>References</h1>
 
+<p>Bregler, C. &amp; Konig, Y. (1994). “Eigenlips” for robust speech recognition. In <em>Proceedings of ICASSP ’94 Vol. 2</em>. <a href="https://doi.org/10.1109/ICASSP.1994.389567">DOI</a></p>
+
+<p>Danilouchkine, M., Mastik, F. &amp; van der Steen, A. (2009). A study of coronary artery rotational motion with dense scale-space optical flow in intravascular ultrasound. <em>Physics in Medicine and Biology</em>, 54(6), 1397–1418. <a href="https://doi.org/10.1088/0031-9155/54/6/002">DOI</a></p>
+
 <p>Davidson, L. (2006). Comparing tongue shapes from ultrasound imaging using smoothing spline analysis of variance. <em>The Journal of the Acoustical Society of America</em>, 120, pp. 407–415. <a href="https://doi.org/10.1121/1.2205133">DOI</a></p>
 
 <p>Eshky, A., Cleland, J., Ribeiro, M., Sugden, E., Richmond, K. &amp; Renals, S. (2021). Automatic audiovisual synchronisation for ultrasound tongue imaging. <em>Speech Communication</em>, 132, 83-95. <a href="https://doi.org/10.1016/j.specom.2021.05.008">DOI</a></p>
 
+<p>Faytak, M., Moisik, S. &amp; Palo, P. (2021). The Speech Articulation Toolkit (SATKit): Ultrasound image analysis in Python. In <em>Proceedings of ISSP 12</em>, 234-237. <a href="https://issp2020.yale.edu/ProcISSP2020.pdf">PDF</a></p>
+
 <p>Heyne, M., Derrick, D., &amp; Al-Tamimi, J. (2019). Native language influence on brass instrument performance: An application of generalized additive mixed models (GAMMs) to midsagittal ultrasound images of the tongue. <em>Frontiers in Psychology</em>, 2597. <a href="https://doi.org/10.3389/fpsyg.2019.02597">DOI</a></p>
+
+<p>Horn, B., &amp; Schunck, B. (1981). Determining optical flow. <em>Artificial Intelligence</em>, 17(1), 185–203. <a href="https://doi.org/10.1016/0004-3702(81)90024-2">DOI</a></p>
+
+<p>Hueber, T., Aversano, G., Chollet, G., Denby, B., Dreyfus, G., Oussar, Y., Roussel, P. &amp; Stone, M. (2007). Eigentongue feature extraction for an ultrasound-based silent speech interface. In <em>Proceedings of ICASSP ’07 Vol. 1</em>. <a href="https://doi.org/10.1109/ICASSP.2007.366140">DOI</a></p>
 
 <p>Iskarous, K. (2005). Detecting the edge of the tongue: A tutorial. <em>Clinical Linguistics &amp; Phonetics</em>, 19(6-7), 555-565. <a href="https://doi.org/10.1080/02699200500113871">DOI</a></p>
 
 <p>Krause, P., Kay, C. &amp; Kawamoto, A., (2020) Automatic motion tracking of lips using digital video and OpenFace 2.0, <em>Laboratory Phonology</em> 11(1), 9. <a href="https://doi.org/10.5334/labphon.232">DOI</a></p>
+
+<p>McMillan, C. &amp; Corley, M. (2010). Cascading influences on the production of speech: Evidence from articulation. <em>Cognition</em>, 117(3), 243–260. <a href="https://doi.org/10.1016/j.cognition.2010.08.019">DOI</a></p>
+
+<p>Moisik, S., Lin, H., &amp; Esling, J. (2014). A study of laryngeal gestures in Mandarin citation tones using simultaneous laryngoscopy and laryngeal ultrasound (SLLUS). <em>JIPA</em>, 44(1), 21– 58. <a href="https://doi.org/10.1017/S0025100313000327">DOI</a></p>
 
 <p>Oh, M., &amp; Lee, Y. (2018). ACT: An Automatic Centroid Tracking tool for analyzing vocal tract actions in real-time magnetic resonance imaging speech production data. <em>The Journal of the Acoustical Society of America</em>, 144(4), EL290-EL296. <a href="https://doi.org/10.1121/1.5057367">DOI</a></p>
 
 <p>Palo, P. (2019). Measuring pre-speech articulation. Doctoral dissertation, Queen Margaret University. <a href="https://eresearch.qmu.ac.uk/handle/20.500.12289/10163">PDF</a></p>
 
 <p>Stone, M. (2005). A guide to analysing tongue motion from ultrasound images. <em>Clinical Linguistics &amp; Phonetics</em>, 19(6-7), 455-501. <a href="https://doi.org/10.1080/02699200500113558">DOI</a></p>
+
+<p>Turk, M. &amp; Pentland, A. (1991). Eigenfaces for recognition. <em>Journal of Cognitive Neuroscience</em>, 3(1), 71-86. <a href="https://doi.org/10.1162/jocn.1991.3.1.71">DOI</a></p>
 
 <p>Weller, J., Faytak, M., Steffman, J., Mayer, C., Teixeira, G. &amp; Tankou, R. (to appear). Supralaryngeal articulation across voicing and aspiration in Yemba vowels. In <em>Proceedings of ACAL 51/52</em>.</p>
 
