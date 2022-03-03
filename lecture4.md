@@ -1,5 +1,5 @@
-% NTU lectures (4)
-% Matthew Faytak<br/>University at Buffalo
+% "Pixel methods" for ultrasound
+% Matthew Faytak<br/>University at Buffalo<br/>NTU lecture series
 % <img src="./assets/media/UB_Stacked_Small.png" width="200"> <img src="./assets/media/ntu-logo.png" width="200"><br/><img src="./assets/media/qr1.png" width="170">
 
 
@@ -30,7 +30,7 @@ Various types of **feature engineering**
 * Generating new features from existing ones
 * Often through recombination, averaging, etc.
 
-All get around  feature extraction and the need for (most) human intervention
+All get around feature extraction and the need for (most) human intervention by focusing on image's **pixels** as a set of features
 
 * Pixel difference methods
 * Optical flow
@@ -46,7 +46,6 @@ Each ultrasound image is composed of tens of thousands of pixels, each of which 
 
 <img src="./assets/media/ultrasound-pixels2.png" width="300">
 <img src="./assets/media/ultrasound-pixels-zoom.png" width="200">
-
 
 * Directly relates to position of tongue: brightness means reflectivity
 
@@ -100,6 +99,7 @@ We can calculate the difference over successive frames (step size 1), or over fr
 Palo (2019) mainly uses a step size of 1
 
 * Though depending on the articulation at issue, larger step sizes may be appropriate
+
 
 ## Applications of PD
 
@@ -256,125 +256,133 @@ Another example, from *all* tongue postures in a corpus, at a lower spatial reso
 
 ## PC scores
 
-We can now characterize our ultrasound image data set in terms of **PC scores** for each eigentongue
+We can now characterize our ultrasound image data set in terms of the **PC scores** for each eigentongue
 
-show ex
+* Here, PC1 clearly identifies two clusters, each of which varies in PC2 and PC3
 
-projection math here?
+<img src="./assets/media/eigen-pcs.png" width="600">
 
-* Hoole & Pouplier as an example of direct analysis of PC1
-* regression analysis
-* correlation analysis
+
+# Applications of eigentongues
+
+## Feature engineering
+
+On a practical level, avoids **feature selection** problems by making new ones; avoids time-consuming process of **contour extraction**
+
+* Eigentongues capture informative variation across the set of images
+* Most often, this is linguistically interesting (because most tongue motions have linguistic consequences)
+
+We can also do some neat tricks with eigentongues which aren't easy with other approaches
+
+* Reviewed in our final notebook
+* ... but first, an overview here
 
 
 ## Time series of PC scores
 
-If the data include all frames in a target interval, then the PCs can be used to track dynamical changes across the duration of the target interval
+*Sequences of frames* can be fed to PCA instead of frames at a single point of interest (i.e. midpoint); yields **time series** data <span class="cite">Mielke et al (2017); Hoole & Pouplier (2017); Smith et al (2019)</span>
 
-* Mielke & Carignan
-* Kochetov, Faytak, Nara
+* Here, simple case of PC1 capturing /i/ with high scores and /a/ at low scores <span class="cite">figure from Hoole & Pouplier (2017)</span>
 
-
-## Reconstruction using eigenvectors
-
-Reconstruction math here?
-
-insert Berry reconst. equation here (doesn't typeset properly)
-
-Reconstruction of basis data from linear combination and weighting of eigentongues is easily achieved
-
-Reconstruction in Faytak et al. 2020
-
-<img src="./assets/media/turk-figs1-2.png" width="700">
+<img src="./assets/media/hoole-pouplier.png" width="600">
+ 
+* "Front-raising" coarticulation over time represented by full range of scores 
 
 
-## Reconstruction and missing data
+## Linear discriminant analysis
 
-Works particularly nicely when part of an observation's data is missing, but similar complete data was used to generate the eigenvectors
+Another dimensionality-reduction technique which eigentongue PC scores can be submitted to <span class="cite">see Carignan (2019)
+</span>
 
-Masked test data and its reconstruction: <span class="cite">figures from Turk & Pentland (1991)</span>
+* Learns new dimension(s) which maximizes separation of labeled categories
+* LDA can be used as "segment detector" (i.e. discriminate /r/ vs. all other segments)
+<span class="cite">Mielke et al (2017); figure from Smith et al (2019)</span>
 
-<img src="./assets/media/missing-recon.png" width="400"> 
+<img src="./assets/media/smith-etal.png" width="600">
 
-Ground truth (which was used in training set for eigenvectors):
-
-<img src="./assets/media/missing-groundtruth.png" width="200">
-
-## Ultrasound use
-
-Reconstruction of ultrasound images creates a *denoised* reconstruction of the observation
-
-* Focus on pixels which vary most interestingly
-
-image
-
-Can also be used to get *average* denoised reconstruction for a *set* of frames
-
-image
+* Can also be used to determine how consistent or discrete a contrast is (i.e. [l] vs. [lˠ]; /n/ vs. /ŋ/) <span class="cite">Strycharczuk & Scobbie (2017); Faytak et al (2020)</span>
 
 
-## Caveats
+## Reconstruction 
 
-Eigenimage analysis can work with new data only if images are (more or less) contained within training set
+Weighted combinations of eigentongues can **reconstruct** observations <span class="cite">Hoole & Pouplier (2017); Faytak et al. (2020)</span>
 
-* Turk & Pentland eigenface data set is mostly white, entirely men
-* Resist the urge to uncritically use a training set on new data
-* Treating training data or algorithms (like PCA) as fair and neutral can have unintended negative consequences <span class="cite">Buolamwini & Gebru (2018)</span>
+Specifically, an image $\Gamma$ can be reconstructed as linear combination of $m$ eigentongues: <span class="cite">Berry (2012)</span>
+
+<img src="./assets/media/berry-math.png" width="300">
+
+where $u_m$ is the $m$th eigentongue and $\omega_m$ is the **projection** of $\Gamma$ onto the $m$th eigentongue (i.e. PC score)
+
+## Reconstruction 
+
+Creates a *denoised* version of the observation <span class="cite">figures from Faytak et al. (2020)</span> 
+
+<img src="./assets/media/f-etal-raw.png" width="600">
+
+<img src="./assets/media/f-etal-eigen.png" width="400">
+
+<img src="./assets/media/f-etal-recon.png" width="450">
 
 
 # Wrapping up
 
-## A summary slide
-
-Analysis of entire ultrasound images 
-
-* Using dimensionality reduction (PCA) over all pixels
-* Measuring change in pixel intensity
-* Measuring optical flow
-
-
-## Pros
+## Pixel methods: pros
 
 Very efficient once the basics are mastered
 
-* Speedy (big advantage over basic contour extraction)
-* Very replicable
+* Speedy (big advantage over basic contour extraction) and replicable
+* Avoids feature selection by engineering new ones
+* Takes  information into account beyond tongue surface
 
-Potentially more informative in some respects than contours
-
-* Especially for data where parts of tongue contour aren't visible
-
-
-## Convergence with other methods
-
-converging on common analysis across methods: pixel and pixel dimred methods easy to use on other data types
+Pixel methods easy to use on other data types
 
 * MRI <span class="cite">Oh & Lee (2018)</span>
 * Video of face, especially lips <span class="cite">Krause et al (2020)</span>
 
 
-## Cons
+## Pixel methods: cons
 
-Best suited to analyses of relative similarity and difference of sounds 
+Fairly different from some approaches to analysis
 
-* Somewhat limited
-* Fairly different from some approaches to analysis ("engineering-y")
+* More computationally involved than feature-selection methods
+* Eigentongue methods primarily measure similarity and difference
 
-If using a train-test approach, hinges on quality of training data
+Eigentongue analysis only works properly within single speakers 
 
-* While there are only so many poses the tongue can take, 
+* Size, frame of reference will bleed into PCs
+* No automatic separation of linguistic and non-linguistic variation
 
 
-## References
+## Up next: second notebook
+
+Our final lecture will cover a Python implementation of eigentongue methods from my recent work
+
+* Image preprocessing
+* Carrying out PCA
+* Interpreting eigentongues
+* Using eigentongues for:
+* Reconstruction of (mean) grouped data
+* Linear discriminant analysis (LDA)
+
+If you are curious about how to implement pixel difference or optical flow in Python:
+
+* See the <a href="https://github.com/giuthas/satkit">SATKit</a> repo, which currently supports these methods <span class="cite">(Palo et al. (2022)</span>
+* Faytak, Moisik & Palo (2021) describes planned  capabilities
+
+
+## References {.bib}
+
+Berry, J. (2012). Machine learning methods for articulatory data. Doctoral dissertation, University of Arizona. <a href="https://www.proquest.com/docview/1013994476">PDF</a> 
 
 Bregler, C. & Konig, Y. (1994). "Eigenlips" for robust speech recognition. In *Proceedings of ICASSP '94 Vol. 2*. <a href="https://doi.org/10.1109/ICASSP.1994.389567">DOI</a>
-
-Buolamwini, J. & Gebru, T. (2018). Gender shades: Intersectional accuracy disparities in commercial gender classification. *Proceedings of the 1st Conference on Fairness, Accountability and Transparency*, in *Proceedings of Machine Learning Research* 81, 77-91. <a href="https://proceedings.mlr.press/v81/buolamwini18a.html">PDFs</a>
 
 Danilouchkine, M., Mastik, F. & van der Steen, A. (2009). A study of
 coronary artery rotational motion with dense scale-space optical
 flow in intravascular ultrasound. *Physics in Medicine and Biology*,
 54(6), 1397–1418. <a href="https://doi.org/10.1088/0031-9155/54/6/002">DOI</a>
+
+Carignan, C. (2019). TRACTUS (Temporally Resolved Articulatory Configuration Tracking
+of Ultrasound). Software. <a href="https://github.com/ChristopherCarignan/TRACTUS">GitHub</a>
 
 Davidson, L. (2006). Comparing tongue shapes from ultrasound imaging using
 smoothing spline analysis of variance. *The Journal of the Acoustical Society of
@@ -384,7 +392,12 @@ Eshky, A., Cleland, J., Ribeiro, M., Sugden, E., Richmond, K. & Renals, S. (2021
 
 Faytak, M., Moisik, S. & Palo, P. (2021). The Speech Articulation Toolkit (SATKit): Ultrasound image analysis in Python. In *Proceedings of ISSP 12*, 234-237. <a href="https://issp2020.yale.edu/ProcISSP2020.pdf">PDF</a> 
 
+Faytak, M., Liu, S. & Sundara, M. (2020). Nasal coda neutralization in Shanghai Mandarin: Articulatory and perceptual evidence. *Laboratory Phonology*, 11(1), 23. <a href="https://doi.org/10.5334/labphon.269">DOI</a>
+
+
 Heyne, M., Derrick, D., & Al-Tamimi, J. (2019). Native language influence on brass instrument performance: An application of generalized additive mixed models (GAMMs) to midsagittal ultrasound images of the tongue. *Frontiers in Psychology*, 2597. <a href="https://doi.org/10.3389/fpsyg.2019.02597">DOI</a>
+
+Hoole, P. & Pouplier, M. (2017). Öhman returns: New horizons in the collection and analysis of imaging data in speech production research. *Computer Speech & Language*, 45, 253-277. <a href="https://doi.org/10.1016/j.csl.2017.03.002">DOI</a>
 
 Horn, B., & Schunck, B. (1981). Determining optical flow. *Artificial
 Intelligence*, 17(1), 185–203. <a href="https://doi.org/10.1016/0004-3702(81)90024-2">DOI</a>
@@ -400,6 +413,9 @@ McMillan, C. & Corley, M. (2010). Cascading influences on the
 production of speech: Evidence from articulation. *Cognition*,
 117(3), 243–260. <a href="https://doi.org/10.1016/j.cognition.2010.08.019">DOI</a>
 
+Mielke, J., Carignan, C. & Thomas, E. (2017). The articulatory dynamics of pre-velar and pre-nasal /æ/-raising in English: An ultrasound study. *The Journal of the Acoustical Society of America*, 142(1), 332-349. <a href="https://doi.org/10.1121/1.4991348">DOI</a>
+
+
 Moisik, S., Lin, H., & Esling, J. (2014). A study of laryngeal
 gestures in Mandarin citation tones using simultaneous
 laryngoscopy and laryngeal ultrasound (SLLUS). *JIPA*, 44(1), 21–
@@ -409,7 +425,13 @@ Oh, M., & Lee, Y. (2018). ACT: An Automatic Centroid Tracking tool for analyzing
 
 Palo, P. (2019). Measuring pre-speech articulation. Doctoral dissertation, Queen Margaret University. <a href="https://eresearch.qmu.ac.uk/handle/20.500.12289/10163">PDF</a>
 
+Palo, P., Moisik, S. & Faytak, M. (2022). Speech Articulation Toolkit (SATKit). Software. <a href="https://github.com/giuthas/satkit">GitHub</a>
+
+Smith, B., Mielke, J., Magloughlin, L. & Wilbanks, E. (2019) Sound change and coarticulatory variability involving English /ɹ/. *Glossa: A Journal of General Linguistics* 4(1), 63. <a href="https://doi.org/10.5334/gjgl.650">DOI</a>
+
 Stone, M. (2005). A guide to analysing tongue motion from ultrasound images. *Clinical Linguistics & Phonetics*, 19(6-7), 455-501. <a href="https://doi.org/10.1080/02699200500113558">DOI</a>
+
+Strycharczuk, P. & Scobbie, J. (2017). Whence the fuzziness? Morphological effects in interacting sound changes in Southern British English. *Laboratory Phonology* 8(1), 7. <a href="http://doi.org/10.5334/labphon.24">DOI</a>
 
 Turk, M. & Pentland, A. (1991).  Eigenfaces for recognition. *Journal of Cognitive Neuroscience*, 3(1), 71-86. <a href="https://doi.org/10.1162/jocn.1991.3.1.71">DOI</a>
 

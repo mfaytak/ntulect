@@ -16,25 +16,19 @@
 
   <meta name="generator" content="pandoc" />
 
-  <meta name="author" content="Matthew Faytak University at Buffalo" />
+  <meta name="author" content="Matthew Faytak University at Buffalo NTU lecture series" />
 
-  <title>NTU lectures (4)</title>
+  <title>“Pixel methods” for ultrasound</title>
 
   <style type="text/css">
 
-    code{white-space: pre-wrap;}
+      code{white-space: pre-wrap;}
 
-    span.smallcaps{font-variant: small-caps;}
+      span.smallcaps{font-variant: small-caps;}
 
-    span.underline{text-decoration: underline;}
+      span.underline{text-decoration: underline;}
 
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-
-    ul.task-list{list-style: none;}
-
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
 
   </style>
 
@@ -52,11 +46,11 @@
 
 <div class="slide titlepage">
 
-  <h1 class="title">NTU lectures (4)</h1>
+  <h1 class="title">“Pixel methods” for ultrasound</h1>
 
   <p class="author">
 
-Matthew Faytak<br/>University at Buffalo
+Matthew Faytak<br/>University at Buffalo<br/>NTU lecture series
 
   </p>
 
@@ -110,7 +104,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-<p>All get around feature extraction and the need for (most) human intervention</p>
+<p>All get around feature extraction and the need for (most) human intervention by focusing on image’s <strong>pixels</strong> as a set of features</p>
 
 <ul>
 
@@ -130,15 +124,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </div>
 
-<div id="pixel-based-motion-detection" class="title-slide slide section level1">
-
-<h1>Pixel-based motion detection</h1>
-
-
-
-</div>
-
-<div id="pixels" class="slide section level2">
+<div id="pixel-based-motion-detection" class="title-slide slide section level1"><h1>Pixel-based motion detection</h1></div><div id="pixels" class="slide section level2">
 
 <h1>Pixels</h1>
 
@@ -152,9 +138,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div>
-
-<div id="pixel-shape" class="slide section level2">
+</div><div id="pixel-shape" class="slide section level2">
 
 <h1>Pixel shape</h1>
 
@@ -174,9 +158,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/eshky.jpg" width="600"></p>
 
-</div>
-
-<div id="pixel-difference-pd" class="slide section level2">
+</div><div id="pixel-difference-pd" class="slide section level2">
 
 <h1>Pixel difference (PD)</h1>
 
@@ -194,9 +176,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/palo-lemon.png" width="600"></p>
 
-</div>
-
-<div id="definition" class="slide section level2">
+</div><div id="definition" class="slide section level2">
 
 <h1>Definition</h1>
 
@@ -216,9 +196,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div>
-
-<div id="step-size" class="slide section level2">
+</div><div id="step-size" class="slide section level2">
 
 <h1>Step size</h1>
 
@@ -230,7 +208,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <li><p>for <span class="math inline"><em>k</em> = {<em>F</em><sub>1</sub>, <em>F</em><sub>2</sub>, …<em>F</em><sub><em>n</em> − <em>L</em></sub>}</span></p></li>
 
-<li><p>The time associated with this measurement is the average of the time of the two involved frames, or <span class="math inline">1/2(<em>t</em><sub><em>F</em><sub><em>k</em></sub></sub>+<em>t</em><sub><em>F</em><sub><em>k</em> + <em>L</em></sub></sub>)</span></p></li>
+<li><p>The time associated with this measurement is the average of the time of the two involved frames, or <span class="math inline">1/2(<em>t</em><sub><em>F</em><sub><em>k</em></sub></sub> + <em>t</em><sub><em>F</em><sub><em>k</em> + <em>L</em></sub></sub>)</span></p></li>
 
 </ul>
 
@@ -242,9 +220,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div>
-
-<div id="applications-of-pd" class="slide section level2">
+</div><div id="applications-of-pd" class="slide section level2">
 
 <h1>Applications of PD</h1>
 
@@ -268,9 +244,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div>
-
-<div id="optical-flow-of" class="slide section level2">
+</div><div id="optical-flow-of" class="slide section level2">
 
 <h1>Optical flow (OF)</h1>
 
@@ -286,9 +260,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/satkit-of.png" width="450"></p>
 
-</div>
-
-<div id="applications-of-of" class="slide section level2">
+</div><div id="applications-of-of" class="slide section level2">
 
 <h1>Applications of OF</h1>
 
@@ -298,17 +270,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </div>
 
-
-
-<div id="pixel-dimensionality-reduction" class="title-slide slide section level1">
-
-<h1>Pixel dimensionality reduction</h1>
-
-
-
-</div>
-
-<div id="pixel-dimensionality-reduction-1" class="slide section level2">
+<div id="pixel-dimensionality-reduction" class="title-slide slide section level1"><h1>Pixel dimensionality reduction</h1></div><div id="pixel-dimensionality-reduction-1" class="slide section level2">
 
 <h1>Pixel dimensionality reduction</h1>
 
@@ -324,9 +286,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <p>Brightness values can be used as raw data for dimensionality reduction</p>
 
-</div>
-
-<div id="pixels-and-scan-lines" class="slide section level2">
+</div><div id="pixels-and-scan-lines" class="slide section level2">
 
 <h1>Pixels and scan lines</h1>
 
@@ -344,9 +304,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/scanlines.jpg" width="375"></p>
 
-</div>
-
-<div id="high-dimensionality" class="slide section level2">
+</div><div id="high-dimensionality" class="slide section level2">
 
 <h1>High dimensionality</h1>
 
@@ -370,9 +328,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div>
-
-<div id="recap-dimensionality-reduction" class="slide section level2">
+</div><div id="recap-dimensionality-reduction" class="slide section level2">
 
 <h1>Recap: dimensionality reduction</h1>
 
@@ -398,9 +354,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/notebook1-recap.png" width="600"></p>
 
-</div>
-
-<div id="calculating-image-eigenvectors" class="slide section level2">
+</div><div id="calculating-image-eigenvectors" class="slide section level2">
 
 <h1>Calculating image eigenvectors</h1>
 
@@ -428,9 +382,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/flatten.png" width="600"></p>
 
-</div>
-
-<div id="eigenvectors-as-eigenpictures" class="slide section level2">
+</div><div id="eigenvectors-as-eigenpictures" class="slide section level2">
 
 <h1>Eigenvectors as eigenpictures</h1>
 
@@ -450,9 +402,7 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/reshape-basic.png" width="600"></p>
 
-</div>
-
-<div id="eigenfaces" class="slide section level2">
+</div><div id="eigenfaces" class="slide section level2">
 
 <h1>Eigenfaces</h1>
 
@@ -476,9 +426,7 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div>
-
-<div id="eigentongues" class="slide section level2">
+</div><div id="eigentongues" class="slide section level2">
 
 <h1>Eigentongues</h1>
 
@@ -506,13 +454,11 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div>
+</div><div id="eigentongues-1" class="slide section level2">
 
-<div id="eigentongues-1" class="slide section level2">
+<h1>Eigentongues</h1>
 
-<h1>eigentongues</h1>
-
-<p>Another example, taken from <em>all</em> tongue motions in a corpus, at a lower spatial resolution <span class="cite">figures from Hueber et al (2007)</span></p>
+<p>Another example, from <em>all</em> tongue postures in a corpus, at a lower spatial resolution <span class="cite">figures from Hueber et al (2007)</span></p>
 
 <ul>
 
@@ -526,173 +472,131 @@ Matthew Faytak<br/>University at Buffalo
 
 <p><img src="./assets/media/hueber-all.png" width="700"></p>
 
-</div>
-
-<div id="pc-scores" class="slide section level2">
+</div><div id="pc-scores" class="slide section level2">
 
 <h1>PC scores</h1>
 
-<p>We can then characterize the ultrasound image data set in PC-space terms (PC scores)</p>
-
-<p>show ex</p>
-
-<p>projection math here?</p>
+<p>We can now characterize our ultrasound image data set in terms of the <strong>PC scores</strong> for each eigentongue</p>
 
 <ul>
 
-<li>Hoole &amp; Pouplier as an example of direct analysis of PC1</li>
-
-<li>regression analysis</li>
-
-<li>correlation analysis</li>
+<li>Here, PC1 clearly identifies two clusters, each of which varies in PC2 and PC3</li>
 
 </ul>
 
+<p><img src="./assets/media/eigen-pcs.png" width="600"></p>
+
 </div>
 
-<div id="time-series-of-pc-scores" class="slide section level2">
+<div id="applications-of-eigentongues" class="title-slide slide section level1"><h1>Applications of eigentongues</h1></div><div id="feature-engineering" class="slide section level2">
+
+<h1>Feature engineering</h1>
+
+<p>On a practical level, avoids <strong>feature selection</strong> problems by making new ones; avoids time-consuming process of <strong>contour extraction</strong></p>
+
+<ul>
+
+<li>Eigentongues capture informative variation across the set of images</li>
+
+<li>Most often, this is linguistically interesting (because most tongue motions have linguistic consequences)</li>
+
+</ul>
+
+<p>We can also do some neat tricks with eigentongues which aren’t easy with other approaches</p>
+
+<ul>
+
+<li>Reviewed in our final notebook</li>
+
+<li>… but first, an overview here</li>
+
+</ul>
+
+</div><div id="time-series-of-pc-scores" class="slide section level2">
 
 <h1>Time series of PC scores</h1>
 
-<p>If the data include all frames in a target interval, then the PCs can be used to track dynamical changes across the duration of the target interval</p>
+<p><em>Sequences of frames</em> can be fed to PCA instead of frames at a single point of interest (i.e. midpoint); yields <strong>time series</strong> data <span class="cite">Mielke et al (2017); Hoole &amp; Pouplier (2017); Smith et al (2019)</span></p>
 
 <ul>
 
-<li>Mielke &amp; Carignan</li>
-
-<li>Kochetov, Faytak, Nara</li>
+<li>Here, simple case of PC1 capturing /i/ with high scores and /a/ at low scores <span class="cite">figure from Hoole &amp; Pouplier (2017)</span></li>
 
 </ul>
 
-</div>
-
-<div id="reconstruction-using-eigenvectors" class="slide section level2">
-
-<h1>Reconstruction using eigenvectors</h1>
-
-<p>Reconstruction math here?</p>
-
-<p>insert Berry reconst. equation here (doesn’t typeset properly)</p>
-
-<p>Reconstruction of basis data from linear combination and weighting of eigentongues is easily achieved</p>
-
-<p>Reconstruction in Faytak et al. 2020</p>
-
-<p><img src="./assets/media/turk-figs1-2.png" width="700"></p>
-
-</div>
-
-<div id="reconstruction-and-missing-data" class="slide section level2">
-
-<h1>Reconstruction and missing data</h1>
-
-<p>Works particularly nicely when part of an observation’s data is missing, but similar complete data was used to generate the eigenvectors</p>
-
-<p>Masked test data and its reconstruction: <span class="cite">figures from Turk &amp; Pentland (1991)</span></p>
-
-<p><img src="./assets/media/missing-recon.png" width="400"></p>
-
-<p>Ground truth (which was used in training set for eigenvectors):</p>
-
-<p><img src="./assets/media/missing-groundtruth.png" width="200"></p>
-
-</div>
-
-<div id="ultrasound-use" class="slide section level2">
-
-<h1>Ultrasound use</h1>
-
-<p>Reconstruction of ultrasound images creates a <em>denoised</em> reconstruction of the observation</p>
+<p><img src="./assets/media/hoole-pouplier.png" width="600"></p>
 
 <ul>
 
-<li>Focus on pixels which vary most interestingly</li>
+<li>“Front-raising” coarticulation over time represented by full range of scores</li>
 
 </ul>
 
-<p>image</p>
+</div><div id="linear-discriminant-analysis" class="slide section level2">
 
-<p>Can also be used to get <em>average</em> denoised reconstruction for a <em>set</em> of frames</p>
+<h1>Linear discriminant analysis</h1>
 
-<p>image</p>
-
-</div>
-
-<div id="caveats" class="slide section level2">
-
-<h1>Caveats</h1>
-
-<p>Eigenimage analysis can work with new data only if images are (more or less) contained within training set</p>
+<p>Another dimensionality-reduction technique which eigentongue PC scores can be submitted to <span class="cite">see Carignan (2019) </span></p>
 
 <ul>
 
-<li>Turk &amp; Pentland eigenface data set is mostly white, entirely men</li>
+<li>Learns new dimension(s) which maximizes separation of labeled categories</li>
 
-<li>Resist the urge to uncritically use a training set on new data</li>
-
-<li>Treating training data or algorithms (like PCA) as fair and neutral can have unintended negative consequences <span class="cite">Buolamwini &amp; Gebru (2018)</span></li>
+<li>LDA can be used as “segment detector” (i.e. discriminate /r/ vs. all other segments) <span class="cite">Mielke et al (2017); figure from Smith et al (2019)</span></li>
 
 </ul>
 
-</div>
-
-
-
-<div id="wrapping-up" class="title-slide slide section level1">
-
-<h1>Wrapping up</h1>
-
-
-
-</div>
-
-<div id="a-summary-slide" class="slide section level2">
-
-<h1>A summary slide</h1>
-
-<p>Analysis of entire ultrasound images</p>
+<p><img src="./assets/media/smith-etal.png" width="600"></p>
 
 <ul>
 
-<li>Using dimensionality reduction (PCA) over all pixels</li>
-
-<li>Measuring change in pixel intensity</li>
-
-<li>Measuring optical flow</li>
+<li>Can also be used to determine how consistent or discrete a contrast is (i.e. [l] vs. [lˠ]; /n/ vs. /ŋ/) <span class="cite">Strycharczuk &amp; Scobbie (2017); Faytak et al (2020)</span></li>
 
 </ul>
 
+</div><div id="reconstruction" class="slide section level2">
+
+<h1>Reconstruction</h1>
+
+<p>Weighted combinations of eigentongues can <strong>reconstruct</strong> observations <span class="cite">Hoole &amp; Pouplier (2017); Faytak et al. (2020)</span></p>
+
+<p>Specifically, an image <span class="math inline"><em>Γ</em></span> can be reconstructed as linear combination of <span class="math inline"><em>m</em></span> eigentongues: <span class="cite">Berry (2012)</span></p>
+
+<p><img src="./assets/media/berry-math.png" width="300"></p>
+
+<p>where <span class="math inline"><em>u</em><sub><em>m</em></sub></span> is the <span class="math inline"><em>m</em></span>th eigentongue and <span class="math inline"><em>ω</em><sub><em>m</em></sub></span> is the <strong>projection</strong> of <span class="math inline"><em>Γ</em></span> onto the <span class="math inline"><em>m</em></span>th eigentongue (i.e. PC score)</p>
+
+</div><div id="reconstruction-1" class="slide section level2">
+
+<h1>Reconstruction</h1>
+
+<p>Creates a <em>denoised</em> version of the observation <span class="cite">figures from Faytak et al. (2020)</span></p>
+
+<p><img src="./assets/media/f-etal-raw.png" width="600"></p>
+
+<p><img src="./assets/media/f-etal-eigen.png" width="400"></p>
+
+<p><img src="./assets/media/f-etal-recon.png" width="450"></p>
+
 </div>
 
-<div id="pros" class="slide section level2">
+<div id="wrapping-up" class="title-slide slide section level1"><h1>Wrapping up</h1></div><div id="pixel-methods-pros" class="slide section level2">
 
-<h1>Pros</h1>
+<h1>Pixel methods: pros</h1>
 
 <p>Very efficient once the basics are mastered</p>
 
 <ul>
 
-<li>Speedy (big advantage over basic contour extraction)</li>
+<li>Speedy (big advantage over basic contour extraction) and replicable</li>
 
-<li>Very replicable</li>
+<li>Avoids feature selection by engineering new ones</li>
 
-</ul>
-
-<p>Potentially more informative in some respects than contours</p>
-
-<ul>
-
-<li>Especially for data where parts of tongue contour aren’t visible</li>
+<li>Takes information into account beyond tongue surface</li>
 
 </ul>
 
-</div>
-
-<div id="convergence-with-other-methods" class="slide section level2">
-
-<h1>Convergence with other methods</h1>
-
-<p>converging on common analysis across methods: pixel and pixel dimred methods easy to use on other data types</p>
+<p>Pixel methods easy to use on other data types</p>
 
 <ul>
 
@@ -702,41 +606,73 @@ Matthew Faytak<br/>University at Buffalo
 
 </ul>
 
-</div>
+</div><div id="pixel-methods-cons" class="slide section level2">
 
-<div id="cons" class="slide section level2">
+<h1>Pixel methods: cons</h1>
 
-<h1>Cons</h1>
-
-<p>Best suited to analyses of relative similarity and difference of sounds</p>
+<p>Fairly different from some approaches to analysis</p>
 
 <ul>
 
-<li>Somewhat limited</li>
+<li>More computationally involved than feature-selection methods</li>
 
-<li>Fairly different from some approaches to analysis (“engineering-y”)</li>
+<li>Eigentongue methods primarily measure similarity and difference</li>
 
 </ul>
 
-<p>If using a train-test approach, hinges on quality of training data</p>
+<p>Eigentongue analysis only works properly within single speakers</p>
 
 <ul>
 
-<li>While there are only so many poses the tongue can take,</li>
+<li>Size, frame of reference will bleed into PCs</li>
+
+<li>No automatic separation of linguistic and non-linguistic variation</li>
 
 </ul>
 
-</div>
+</div><div id="up-next-second-notebook" class="slide section level2">
 
-<div id="references" class="slide section level2">
+<h1>Up next: second notebook</h1>
+
+<p>Our final lecture will cover a Python implementation of eigentongue methods from my recent work</p>
+
+<ul>
+
+<li>Image preprocessing</li>
+
+<li>Carrying out PCA</li>
+
+<li>Interpreting eigentongues</li>
+
+<li>Using eigentongues for:</li>
+
+<li>Reconstruction of (mean) grouped data</li>
+
+<li>Linear discriminant analysis (LDA)</li>
+
+</ul>
+
+<p>If you are curious about how to implement pixel difference or optical flow in Python:</p>
+
+<ul>
+
+<li>See the <a href="https://github.com/giuthas/satkit">SATKit</a> repo, which currently supports these methods <span class="cite">(Palo et al. (2022)</span></li>
+
+<li>Faytak, Moisik &amp; Palo (2021) describes planned capabilities</li>
+
+</ul>
+
+</div><div id="references" class="slide section level2 bib">
 
 <h1>References</h1>
 
+<p>Berry, J. (2012). Machine learning methods for articulatory data. Doctoral dissertation, University of Arizona. <a href="https://www.proquest.com/docview/1013994476">PDF</a></p>
+
 <p>Bregler, C. &amp; Konig, Y. (1994). “Eigenlips” for robust speech recognition. In <em>Proceedings of ICASSP ’94 Vol. 2</em>. <a href="https://doi.org/10.1109/ICASSP.1994.389567">DOI</a></p>
 
-<p>Buolamwini, J. &amp; Gebru, T. (2018). Gender shades: Intersectional accuracy disparities in commercial gender classification. <em>Proceedings of the 1st Conference on Fairness, Accountability and Transparency</em>, in <em>Proceedings of Machine Learning Research</em> 81, 77-91. <a href="https://proceedings.mlr.press/v81/buolamwini18a.html">PDFs</a></p>
-
 <p>Danilouchkine, M., Mastik, F. &amp; van der Steen, A. (2009). A study of coronary artery rotational motion with dense scale-space optical flow in intravascular ultrasound. <em>Physics in Medicine and Biology</em>, 54(6), 1397–1418. <a href="https://doi.org/10.1088/0031-9155/54/6/002">DOI</a></p>
+
+<p>Carignan, C. (2019). TRACTUS (Temporally Resolved Articulatory Configuration Tracking of Ultrasound). Software. <a href="https://github.com/ChristopherCarignan/TRACTUS">GitHub</a></p>
 
 <p>Davidson, L. (2006). Comparing tongue shapes from ultrasound imaging using smoothing spline analysis of variance. <em>The Journal of the Acoustical Society of America</em>, 120, pp. 407–415. <a href="https://doi.org/10.1121/1.2205133">DOI</a></p>
 
@@ -744,7 +680,11 @@ Matthew Faytak<br/>University at Buffalo
 
 <p>Faytak, M., Moisik, S. &amp; Palo, P. (2021). The Speech Articulation Toolkit (SATKit): Ultrasound image analysis in Python. In <em>Proceedings of ISSP 12</em>, 234-237. <a href="https://issp2020.yale.edu/ProcISSP2020.pdf">PDF</a></p>
 
+<p>Faytak, M., Liu, S. &amp; Sundara, M. (2020). Nasal coda neutralization in Shanghai Mandarin: Articulatory and perceptual evidence. <em>Laboratory Phonology</em>, 11(1), 23. <a href="https://doi.org/10.5334/labphon.269">DOI</a></p>
+
 <p>Heyne, M., Derrick, D., &amp; Al-Tamimi, J. (2019). Native language influence on brass instrument performance: An application of generalized additive mixed models (GAMMs) to midsagittal ultrasound images of the tongue. <em>Frontiers in Psychology</em>, 2597. <a href="https://doi.org/10.3389/fpsyg.2019.02597">DOI</a></p>
+
+<p>Hoole, P. &amp; Pouplier, M. (2017). Öhman returns: New horizons in the collection and analysis of imaging data in speech production research. <em>Computer Speech &amp; Language</em>, 45, 253-277. <a href="https://doi.org/10.1016/j.csl.2017.03.002">DOI</a></p>
 
 <p>Horn, B., &amp; Schunck, B. (1981). Determining optical flow. <em>Artificial Intelligence</em>, 17(1), 185–203. <a href="https://doi.org/10.1016/0004-3702(81)90024-2">DOI</a></p>
 
@@ -756,13 +696,21 @@ Matthew Faytak<br/>University at Buffalo
 
 <p>McMillan, C. &amp; Corley, M. (2010). Cascading influences on the production of speech: Evidence from articulation. <em>Cognition</em>, 117(3), 243–260. <a href="https://doi.org/10.1016/j.cognition.2010.08.019">DOI</a></p>
 
+<p>Mielke, J., Carignan, C. &amp; Thomas, E. (2017). The articulatory dynamics of pre-velar and pre-nasal /æ/-raising in English: An ultrasound study. <em>The Journal of the Acoustical Society of America</em>, 142(1), 332-349. <a href="https://doi.org/10.1121/1.4991348">DOI</a></p>
+
 <p>Moisik, S., Lin, H., &amp; Esling, J. (2014). A study of laryngeal gestures in Mandarin citation tones using simultaneous laryngoscopy and laryngeal ultrasound (SLLUS). <em>JIPA</em>, 44(1), 21– 58. <a href="https://doi.org/10.1017/S0025100313000327">DOI</a></p>
 
 <p>Oh, M., &amp; Lee, Y. (2018). ACT: An Automatic Centroid Tracking tool for analyzing vocal tract actions in real-time magnetic resonance imaging speech production data. <em>The Journal of the Acoustical Society of America</em>, 144(4), EL290-EL296. <a href="https://doi.org/10.1121/1.5057367">DOI</a></p>
 
 <p>Palo, P. (2019). Measuring pre-speech articulation. Doctoral dissertation, Queen Margaret University. <a href="https://eresearch.qmu.ac.uk/handle/20.500.12289/10163">PDF</a></p>
 
+<p>Palo, P., Moisik, S. &amp; Faytak, M. (2022). Speech Articulation Toolkit (SATKit). Software. <a href="https://github.com/giuthas/satkit">GitHub</a></p>
+
+<p>Smith, B., Mielke, J., Magloughlin, L. &amp; Wilbanks, E. (2019) Sound change and coarticulatory variability involving English /ɹ/. <em>Glossa: A Journal of General Linguistics</em> 4(1), 63. <a href="https://doi.org/10.5334/gjgl.650">DOI</a></p>
+
 <p>Stone, M. (2005). A guide to analysing tongue motion from ultrasound images. <em>Clinical Linguistics &amp; Phonetics</em>, 19(6-7), 455-501. <a href="https://doi.org/10.1080/02699200500113558">DOI</a></p>
+
+<p>Strycharczuk, P. &amp; Scobbie, J. (2017). Whence the fuzziness? Morphological effects in interacting sound changes in Southern British English. <em>Laboratory Phonology</em> 8(1), 7. <a href="http://doi.org/10.5334/labphon.24">DOI</a></p>
 
 <p>Turk, M. &amp; Pentland, A. (1991). Eigenfaces for recognition. <em>Journal of Cognitive Neuroscience</em>, 3(1), 71-86. <a href="https://doi.org/10.1162/jocn.1991.3.1.71">DOI</a></p>
 
