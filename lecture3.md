@@ -1,5 +1,5 @@
 % Ultrasound; contour extraction
-% Matthew Faytak<br/>University at Buffalo<br/>NTU lecture series
+% Matthew Faytak<br/>University at Buffalo<br/>NTU invited workshop
 % <img src="./assets/media/UB_Stacked_Small.png" width="200"> <img src="./assets/media/ntu-logo.png" width="200"><br/><img src="./assets/media/qr1.png" width="170">
 
 ## In this lecture

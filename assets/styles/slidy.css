@@ -328,24 +328,16 @@ table {
   margin-left: 80px;
   font-weight: 300;
   font-size: 90%;
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
+  /* border-top: 2px solid #000; */
+  /* border-bottom: 2px solid #000; */
   border-collapse: collapse;
 }
 
 td,th { padding: 0.4em }
 
 th, tr {
-  background-color: #BBB;
+  /* background-color: #eee; */
   text-align: left;
-}
-
-tr:nth-child(odd) {
-  background-color: #BBB;
-}
-
-tr:hover {
-  background-color: #9BE4E7;
 }
 
 iframe {
@@ -541,6 +533,36 @@ div.initial_prompt { display: none; visibility: hidden }
   /* :first-child isn't reliable for print media */
   div.slide.first-slide { page-break-before: avoid }
 }
+
+/** footer **/
+footer {
+  padding:20px 0px;
+}
+
+footer p {
+  color:#ddd;
+  margin:40px;
+  font-size:0.6em;
+  /* text-align: center; */
+}
+footer p a {
+  color:#ddd;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+footer a[href^='http']::after {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ddd;
+  content: "\f0c1";
+  margin: 0px 0px 0px 3px;
+}
+
+footer p a:link { color:#ddd; border-bottom-color: #ddd; }
 
 /* slidy.css
 
